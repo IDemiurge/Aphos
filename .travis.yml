@@ -17,7 +17,7 @@ jobs:
   include:
     - stage: build
       script:
-        - ./Aphos-Engine/gradlew assemble   
+        - ./gradlew assemble   
     - stage: test
       script:
-        - ./Aphos-Engine/gradlew test   
+        - ./gradlew test   
