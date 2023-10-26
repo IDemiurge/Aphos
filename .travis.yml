@@ -5,13 +5,19 @@ jdk:
 stages:
   - build
   - test
+  -
+# Cache Gradle dependencies to speed up builds
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 
 jobs:
   include:
     - stage: build
       script:
-        - ./gradlew assemble  # Customize your build step here
+        - ./Aphos-Engine/gradlew assemble  # Customize your build step here
 
     - stage: test
       script:
-        - ./gradlew test  # Customize your test step here
+        - ./Aphos-Engine/gradlew test  # Customize your test step here
