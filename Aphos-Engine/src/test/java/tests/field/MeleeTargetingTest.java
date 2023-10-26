@@ -21,7 +21,7 @@ import static combat.sub.BattleManager.combat;
 
 /**
  * Created by Alexander on 10/19/2023 Substitute diff targeting for unit's attack? targeting should at first return us
- * maybe a list of targets?!!
+ * maybe a list of targets?!!!
  */
 @Disabled
 public class MeleeTargetingTest extends BattleInitTest {
