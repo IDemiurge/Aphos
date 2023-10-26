@@ -1,0 +1,17 @@
+language: java
+jdk:
+  - openjdk17
+
+stages:
+  - build
+  - test
+
+jobs:
+  include:
+    - stage: build
+      script:
+        - ./gradlew assemble  # Customize your build step here
+
+    - stage: test
+      script:
+        - ./gradlew test  # Customize your test step here
