@@ -1,7 +1,8 @@
 language: java
 jdk:
   - openjdk17
-
+before_install:
+  - cd Aphos-Engine
 stages:
   - build
   - test
@@ -16,8 +17,7 @@ jobs:
   include:
     - stage: build
       script:
-        - ./Aphos-Engine/gradlew assemble  # Customize your build step here
-
+        - ./Aphos-Engine/gradlew assemble   
     - stage: test
       script:
-        - ./Aphos-Engine/gradlew test  # Customize your test step here
+        - ./Aphos-Engine/gradlew test   
