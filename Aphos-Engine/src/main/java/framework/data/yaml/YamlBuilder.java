@@ -9,7 +9,6 @@ import org.yaml.snakeyaml.constructor.SafeConstructor;
 import org.yaml.snakeyaml.nodes.MappingNode;
 import system.datatypes.GenericLinkedStringMap;
 import system.utils.old.FileManager;
-import system.utils.old.PathUtils;
 
 import java.io.File;
 import java.util.HashSet;
@@ -52,16 +51,16 @@ public class YamlBuilder {
 
         //set map constructor to STR!
         // Map<String, List<Map>> load = new LinkedStringMap();
-        File temp = new File(getClass().getClassLoader().getResource("").getFile());
-        ROOT_PATH = PathUtils.fixSlashes(new File(temp.getParentFile().toURI()).getPath());
-        String path =
-                //TODO
-                //PathUtils.cropLastPathSegment(ROOT_PATH) +
-                // "main/java/framework/data/yaml/" +
-                "C:\\code\\Aphos\\Aphos-Engine\\src\\main\\java\\framework\\data\\yaml\\" +
-                        filename + ".yml";
+        File temp = new File(getClass().getClassLoader().getResource(filename + ".yml").getFile());
+        // ROOT_PATH = PathUtils.fixSlashes(new File(temp.getParentFile().toURI()).getPath());
+        // String path =
+        //         //TODO
+        //         //PathUtils.cropLastPathSegment(ROOT_PATH) +
+        //         // "main/java/framework/data/yaml/" +
+        //         "C:\\code\\Aphos\\Aphos-Engine\\src\\main\\java\\framework\\data\\yaml\\" +
+        //                 filename + ".yml";
 
-        String content = FileManager.readFile(path);
+        String content = FileManager.readFile(temp);
 
         Map loaded = (Map) yaml.load(content);
         for (Object key : loaded.keySet()) {
