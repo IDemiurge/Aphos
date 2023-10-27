@@ -11,6 +11,7 @@ import framework.entity.sub.UnitAction;
 import framework.field.Transformer;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import system.log.SysLog;
 import system.utils.ListUtils;
 import tests.basic_init.basic.BattleInitTest;
@@ -50,9 +51,8 @@ public class MeleeTargetingTest extends BattleInitTest {
 
     // public void testTargets(boolean full, boolean ) {
     // }
-    @Override
+    @Test
     public void test() {
-        super.test();
 
         //cells test
         for (Cell pos : testPos) {

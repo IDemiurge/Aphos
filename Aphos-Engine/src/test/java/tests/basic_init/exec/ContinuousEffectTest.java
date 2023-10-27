@@ -13,8 +13,6 @@ import static combat.sub.BattleManager.combat;
 public class ContinuousEffectTest extends BattleInitTest {
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
-
         Unit unit = combat().getUnitById(0);
         // conditional effect? reset via moves
         // effect that might change... atk or so

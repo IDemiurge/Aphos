@@ -20,7 +20,6 @@ import java.util.Map;
 public class DataConsistencyTest extends tests.basic_init.basic.BattleInitTest {
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
 
         for (Map typeData : DataManager.getUnitMap().values()) {
             // Map<String, Object> map = DataManager.getUnitMap().get(key);

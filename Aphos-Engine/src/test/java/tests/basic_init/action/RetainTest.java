@@ -10,7 +10,6 @@ public class RetainTest extends BattleInitTest {
 
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
         int defense = ally.getInt(UnitParam.Defense_Base);
         defAction(ally);
         check(defense < (ally.getInt(UnitParam.Defense_Base)));

@@ -3,6 +3,7 @@ package tests.field.game;
 import framework.data.DataManager;
 import framework.entity.field.Unit;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 
 import java.util.Map;
@@ -16,12 +17,12 @@ import static combat.sub.BattleManager.combat;
 @Disabled
 public class TurnTest extends BattleInitTest {
 
-    @Override
+    @Test
     public void test() {
         init();
         initParty(true, "turn test"); // could be a simple yaml data
         initParty(false, "turn test enemy");
-        super.test();
+        // super.test();
         combat().newRound();
         combat().getTurnHandler().getInitiativeGroups();
         /*

@@ -13,7 +13,6 @@ public class CounterTest extends BattleInitTest {
 
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
 
         CounterEffect effect = new CounterEffect();
         String counterName = Counter.Blaze.name();

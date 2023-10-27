@@ -19,6 +19,7 @@ public class ChaosRule {
  * Increases Initiative
  * May be used in spell formulas
  */
+
     public void roundEnds(Unit unit){
         int value = unit.getInt(UnitParam.Chaos);
 

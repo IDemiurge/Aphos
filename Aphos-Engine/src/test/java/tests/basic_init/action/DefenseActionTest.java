@@ -12,8 +12,6 @@ import static combat.sub.BattleManager.combat;
 public class DefenseActionTest extends BattleInitTest {
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
-
         Unit unit = combat().getUnitById(0);
         int before = unit.getInt("defense_base") ;
         UnitAction action = unit.getActionSet().getDefense();

@@ -16,7 +16,6 @@ public class DamageCalcTest extends BattleInitTest {
 
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
         //apply dmg atk efx?
 
         EntityRef ref = new EntityRef(ally);

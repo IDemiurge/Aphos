@@ -1,28 +1,17 @@
 package tests.basic_init.action;
 
+import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 
 /**
  * Created by Alexander on 8/22/2023
  */
 public class AttackTest extends BattleInitTest {
-    @org.junit.jupiter.api.Test
+    @Test
     public void test() {
-        super.test();
-
-        // Weaver.inNewThread(()->
-        //         combat().getExecutor().activate(
-        //                 ally.getActionSet().getStandard()));
-        // WaitMaster.waitForInput(WaitMaster.WAIT_OPERATIONS.SELECTION);
-        // WaitMaster.WAIT(1000);
-        // int id = enemy.getId();
-        // //simulation eh?
-        // client().receivedEvent(UserEventType.Selection, id);
-        // DialogMaster.confirm("Attacked!");
-
-        //access results statically?
-
         stdAttack(enemy, ally);
+        //TODO checks!
+
         int hp = enemy.getInt("hp");
         int armor = enemy.getInt("armor");
         int ap = ally.getInt("ap");

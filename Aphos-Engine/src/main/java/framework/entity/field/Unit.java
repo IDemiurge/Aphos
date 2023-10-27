@@ -115,5 +115,9 @@ public class Unit extends FieldEntity {
         setValue(param, value);
     }
 
+    public boolean checkParam(UnitParam p, int value) {
+        return getInt(p) > value;
+    }
+
     //endregion
 }

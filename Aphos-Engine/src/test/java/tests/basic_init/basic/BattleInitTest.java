@@ -7,14 +7,12 @@ import framework.AphosTest;
 import framework.entity.field.Unit;
 import framework.entity.sub.UnitAction;
 import framework.field.FieldPos;
-import logic.execution.event.user.UserEventType;
-import system.threading.WaitMaster;
-import system.threading.Weaver;
+import system.KotlinUtils;
 
 import static combat.sub.BattleManager.combat;
-import static framework.client.ClientConnector.client;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static resources.TestData.battleData;
+
 /**
  * Created by Alexander on 8/22/2023
  */
@@ -24,23 +22,25 @@ public class BattleInitTest extends AphosTest {
     protected Unit enemy;
     protected String[] customData;
 
-    @org.junit.jupiter.api.Test
-    public void test() {
-        // new MockRun();
-        super.test();
+    public BattleInitTest() {
+        super();
+        setup();
+        test();
+    }
 
+    private void test() {
+        assertTrue(combat().getEntities().getUnits().size() == getInitialUnitCount());
+        assertTrue(combat().getBattleState().getRound() == 1);
+    }
+
+    public void setup() {
         BattleSetup setup = new BattleBuilder().build(getBattleData());
         Battle battle = new Battle(setup);
         // battle.init();
         battle.start();
-        //after this, we can use combat() freely?
 
-        assertTrue(combat().getEntities().getUnits().size() == getInitialUnitCount());
-        ally =  getMainAllyUnit();
+        ally = getMainAllyUnit();
         enemy = getMainEnemyUnit();
-        // assertTrue(ally.getName().equals(unit_name_ally));
-        // assertTrue(enemy.getName().equals(unit_name_enemy));
-        assertTrue(combat().getBattleState().getRound() == 1);
     }
 
     protected int getInitialUnitCount() {
@@ -48,8 +48,9 @@ public class BattleInitTest extends AphosTest {
     }
 
     protected Unit getMainAllyUnit() {
-        return  combat().getUnitById(0);
+        return combat().getUnitById(0);
     }
+
     protected Unit getMainEnemyUnit() {
         return (Unit) combat().getField().getByPos(new FieldPos(12));
     }
@@ -57,24 +58,17 @@ public class BattleInitTest extends AphosTest {
     protected Unit getCheckedUnit() {
         return ally;
     }
+
     protected String[] getBattleData() {
-        if (customData!=null)
+        if (customData != null)
             return customData;
         return battleData;
     }
 
     protected void stdAttack(Unit unit, Unit target) {
-
-        Weaver.inNewThread(() ->
+        KotlinUtils.Companion.doWithInput(target, () ->
                 combat().getExecutor().activate(
                         unit.getActionSet().getStandard()));
-        WaitMaster.waitForInput(WaitMaster.WAIT_OPERATIONS.SELECTION);
-        WaitMaster.WAIT(10);
-        int id = target.getId();
-        //simulation eh?
-        client().receivedEvent(UserEventType.Selection, id);
-        WaitMaster.WAIT(10);
-        // DialogMaster.confirm(unit + " Attacked " + target);
 
     }
 

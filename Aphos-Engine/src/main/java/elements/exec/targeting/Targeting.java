@@ -7,7 +7,7 @@ import elements.exec.EntityRef;
 import elements.exec.condition.Condition;
 import framework.data.TypeData;
 import framework.entity.field.FieldEntity;
-import system.threading.WaitMaster;
+import system.KotlinUtils;
 import system.utils.ListUtils;
 
 import java.util.List;
@@ -79,16 +79,16 @@ public class Targeting {
             }
         } else
         if (type == TargetingTemplates.TargetingType.SELECTIVE){
-            WaitMaster.receiveInput(WaitMaster.WAIT_OPERATIONS.SELECTION, fieldEntities);
+            // WaitMaster.receiveInput(WaitMaster.WAIT_OPERATIONS.SELECTION, fieldEntities);
+            //
+            // Object o = WaitMaster.waitForInput(WaitMaster.WAIT_OPERATIONS.SELECT_BF_OBJ);
 
-            Object o = WaitMaster.waitForInput(WaitMaster.WAIT_OPERATIONS.SELECT_BF_OBJ);
-            fieldEntities = (List<FieldEntity>) o;
-            if (fieldEntities.size() == 1) {
-                ref.setTarget(fieldEntities.get(0));
-            } else {
-                //same as ALL!?
-                //a bit weird, or? Maybe use this for something else
-                ref.setGroup(new TargetGroup(fieldEntities));
+            Object o =  KotlinUtils.Companion.receiveInput();
+            if (o instanceof FieldEntity entity){
+                ref.setTarget(entity);
+            } else
+            if (o instanceof List list){
+                ref.setGroup(new TargetGroup(list));
             }
         } else
         if (type == TargetingTemplates.TargetingType.ALL){

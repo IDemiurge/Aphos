@@ -4,7 +4,6 @@ import elements.stats.UnitParam;
 import elements.stats.UnitProp;
 import framework.data.yaml.YamlBuilder;
 import framework.entity.field.Unit;
-import org.junit.jupiter.api.Test;
 import system.log.SysLog;
 
 import java.util.HashMap;
@@ -21,8 +20,7 @@ public abstract class AphosTest {
     private Map<UnitParam, Integer> checkParamMap = new HashMap<>();
     private Map<UnitProp, Object> checkPropMap = new HashMap<>();
 
-    @Test
-    public void test() {
+    public AphosTest(){
         init();
     }
 

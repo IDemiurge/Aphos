@@ -12,7 +12,6 @@ import tests.basic_init.basic.BattleInitTest;
 public class WardTest extends BattleInitTest {
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
         check(ally.checkContainerProp(UnitProp.Wards, DamageType.Splash.toString()));
 
         markValueToCheck(UnitParam.Health, UnitParam.Armor);

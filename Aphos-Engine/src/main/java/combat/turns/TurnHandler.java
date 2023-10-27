@@ -22,7 +22,7 @@ public class TurnHandler extends BattleHandler {
     }
 
     public static int calcInitiative(Unit unit) {
-        return unit.getInt(UnitParam.AP) * 2 + getPositionModifier(unit);
+        return unit.getInt(UnitParam.AP) * 2 + getPositionModifier(unit) + unit.getInt(UnitParam.Chaos);
     }
 
     private static int getPositionModifier(Unit unit) {

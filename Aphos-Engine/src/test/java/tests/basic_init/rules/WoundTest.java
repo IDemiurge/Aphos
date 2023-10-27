@@ -17,7 +17,6 @@ public class WoundTest extends BattleInitTest {
 
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
         check(enemy.getInt(UnitParam.Defense_Auto_Fail) == 0);
         Rolls.setNext(d6, 1);
         EntityRef ref = new EntityRef(ally).setTarget(enemy);

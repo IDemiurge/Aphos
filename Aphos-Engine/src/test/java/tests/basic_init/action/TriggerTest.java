@@ -21,7 +21,6 @@ public class TriggerTest extends BattleInitTest {
 
     @org.junit.jupiter.api.Test
     public void test() {
-        super.test();
         String toTrigger="kill self";
         Map map=new HashMap(); //should have a separate class for arg map?
         map.put("key", "event_target");

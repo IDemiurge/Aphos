@@ -3,6 +3,7 @@ package tests.field;
 import framework.entity.field.Unit;
 import framework.field.FieldPos;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 
 import java.util.Set;
@@ -14,9 +15,8 @@ import static combat.sub.BattleManager.combat;
  */
 @Disabled
 public class MoveTest extends BattleInitTest {
-    @Override
+    @Test
     public void test() {
-        super.test();
         Unit unit = combat().getUnitById(0);
         Set<FieldPos> positions = combat().getField().getAvailablePositions(unit);
 
