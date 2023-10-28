@@ -1,4 +1,4 @@
-package elements.exec.condition;
+package elements.exec.build.condition;
 
 import elements.exec.EntityRef;
 import framework.entity.Entity;

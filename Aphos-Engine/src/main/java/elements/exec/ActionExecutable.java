@@ -2,6 +2,7 @@ package elements.exec;
 
 import elements.exec.effect.Effect;
 import elements.exec.targeting.Targeting;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -10,6 +11,9 @@ public class ActionExecutable implements Executable{
 
     List<Pair<Targeting, Effect>> targetedEffects;
 
+    public ActionExecutable(Targeting targeting, Effect effect) {
+        this(List.of(new ImmutablePair<>(targeting, effect)));
+    }
     public ActionExecutable(List<Pair<Targeting, Effect>> targetedEffects) {
         this.targetedEffects = targetedEffects;
     }

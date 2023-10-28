@@ -9,12 +9,11 @@ import elements.exec.EntityRef;
  */
 public class Formula {
 
-    public Formula(String val) {
-
-    }
-
     public static int eval(String formula, EntityRef ref) {
-        //TODO
+        //TODO let's see how we can make it performant
+
+        if (formula.length()==1)
+            return Integer.valueOf(formula);
         return 0;
     }
     public static int getInt(Object formula) {

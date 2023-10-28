@@ -30,9 +30,9 @@ public abstract class Effect {
 
     public EffectResult apply(EntityRef ref) {
         effectResult = new EffectResult();
-        SysLog.printOut(SysLog.LogChannel.Main, "Applying", this, "on", ref.getTarget());
+        SysLog.printLine(SysLog.LogChannel.Main, "Applying", this, "on", ref.getTarget());
         applyThis(ref);
-        SysLog.printOut(SysLog.LogChannel.Main, "Applied", this, "on", ref.getTarget(), effectResult);
+        SysLog.printLine(SysLog.LogChannel.Main, "Applied", this, "on", ref.getTarget(), effectResult);
         return effectResult;
     }
 

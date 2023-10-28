@@ -3,11 +3,11 @@ package framework.entity.sub;
 import elements.content.enums.EnumFinder;
 import elements.content.enums.types.EntityTypes;
 import elements.exec.EntityRef;
-import elements.exec.ExecBuilder;
 import elements.exec.Executable;
+import elements.exec.build.ConditionBuilder;
+import elements.exec.build.ExecBuilder;
+import elements.exec.build.template.ConditionTemplate;
 import elements.exec.condition.Condition;
-import elements.exec.condition.ConditionBuilder;
-import elements.exec.targeting.TargetingTemplates;
 import elements.exec.trigger.PassiveTrigger;
 import framework.data.DataManager;
 import framework.entity.field.Unit;
@@ -44,7 +44,7 @@ public class UnitPassive extends UnitSubEntity {
             if (activationCondition.check(ref)) {
                 //are execs free of side-effects, can they be cached?
                 Executable exec = ExecBuilder.getExecutable(getS("exec_data"));
-                TargetingTemplates.ConditionTemplate tmplt = null;
+                ConditionTemplate tmplt = null;
                 Condition condition = ConditionBuilder.build(tmplt, DataManager.deconstructDataString(getS("condition_args")));
                 PassiveTrigger trigger = new PassiveTrigger(condition, exec);
                 ref.setMatch(null);

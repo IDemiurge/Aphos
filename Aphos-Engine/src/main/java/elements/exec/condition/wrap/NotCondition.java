@@ -1,6 +1,8 @@
-package elements.exec.condition;
+package elements.exec.condition.wrap;
 
 import elements.exec.EntityRef;
+import elements.exec.build.condition.ConditionContext;
+import elements.exec.condition.Condition;
 import framework.data.TypeData;
 
 /**

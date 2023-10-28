@@ -20,6 +20,11 @@ public class LinkedStringMap<T> extends LinkedHashMap<String, T> {
     }
 
     @Override
+    public boolean containsKey(Object key) {
+        return super.containsKey(format(key.toString()));
+    }
+
+    @Override
     public void putAll(Map<? extends String, ? extends T> m) {
         for (String s : m.keySet()) {
             put(s, m.get(s));

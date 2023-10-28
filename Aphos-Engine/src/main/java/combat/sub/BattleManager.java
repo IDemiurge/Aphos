@@ -16,6 +16,7 @@ import logic.execution.ActionExecutor;
 import logic.execution.event.combat.CombatEvent;
 import logic.execution.event.combat.CombatEventHandler;
 import logic.execution.event.combat.CombatEventType;
+import system.log.SysLog;
 import system.log.result.EventResult;
 import system.utils.MapUtils;
 
@@ -70,6 +71,8 @@ public class BattleManager {
         handlers.forEach(handler -> handler.roundEnds());
     }
     public void newRound() {
+        // SysLog.increaseIndent();
+        SysLog.printLine(SysLog.LogChannel.Gameflow, "New Round: ",  battleState.getRound());
         handlers.forEach(handler -> handler.newRound());
     }
     public void battleStarts() {

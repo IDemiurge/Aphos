@@ -15,7 +15,7 @@ public interface Trigger<T> {
         return getCondition().check(ref);
     }
     default boolean checkVsOriginalRef(EntityRef ref) {
-        SysLog.printOut(SysLog.LogChannel.Main, "Applied", "on", ref);
+        SysLog.printLine(SysLog.LogChannel.Main, "Applied", "on", ref);
         getTargetRef().setEventRef(ref);
         boolean check = getCondition().check(getTargetRef());
         return check;

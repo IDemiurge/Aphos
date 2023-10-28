@@ -1,5 +1,6 @@
 package framework.entity;
 
+import elements.exec.EntityRef;
 import elements.stats.UnitParam;
 import elements.stats.generic.Property;
 import elements.stats.generic.Stat;
@@ -34,9 +35,14 @@ public abstract class Entity {
     public Entity(Map<String, Object> valueMap) {
         data = new EntityData(valueMap);
         this.name = data.getS(Property.Name).toString();
+        data.setName(name);
         //TODO
         id = combat().getEntities().addEntity(this);
 
+    }
+
+    public void initDone() {
+        data.setMuted(false);
     }
 
     @Override
@@ -61,6 +67,7 @@ public abstract class Entity {
     public void setValue(String key, Object val) {
         data.set(key, val);
     }
+
     public void setValuePersistent(String key, Object val) {
         data.setPersistent(key, val);
     }
@@ -78,6 +85,7 @@ public abstract class Entity {
     public int getInt(Stat stat) {
         return data.getInt(stat);
     }
+
     public int getInt(String key) {
         return data.getInt(key);
     }
@@ -89,6 +97,7 @@ public abstract class Entity {
     public Object get(String name) {
         return data.get(name);
     }
+
     public Object get(Stat stat) {
         return data.get(stat);
     }
@@ -96,6 +105,7 @@ public abstract class Entity {
     public String getS(String name) {
         return data.getS(name);
     }
+
     public String getS(Stat stat) {
         return getS(stat.getName());
     }
@@ -122,7 +132,7 @@ public abstract class Entity {
         }
         return o.toString();
     }
-//endregion
+    //endregion
 
     public boolean isDead() {
         return data.isTrue("dead");
@@ -131,22 +141,27 @@ public abstract class Entity {
     public void modifyValue(UnitParam valueName, Object value) {
         modifyValue(valueName.getName(), value);
     }
+
     public void modifyValue(String valueName, Object value) {
         if (value instanceof Integer) {
             data.addIntValue(valueName, (Integer) value);
         } else {
-            if (value.toString().contains(MathConsts.MULTIPLY_SYMBOL)){
+            if (value.toString().contains(MathConsts.MULTIPLY_SYMBOL)) {
                 data.multiply(valueName, value.toString().replace(MathConsts.MULTIPLY_SYMBOL, ""));
             } else
                 //TODO
-            // if (value.toString().contains(MathConsts.SET_TO_PERCENT_SYMBOL)){
-            //     data.setPercent(valueName, value.toString().replace(MathConsts.SET_TO_PERCENT_SYMBOL, ""));
-            // } else
+                // if (value.toString().contains(MathConsts.SET_TO_PERCENT_SYMBOL)){
+                //     data.setPercent(valueName, value.toString().replace(MathConsts.SET_TO_PERCENT_SYMBOL, ""));
+                // } else
                 data.set(valueName, value);
         }
     }
 
     public EntityData getData() {
         return data;
+    }
+
+    public EntityRef ref() {
+        return null;
     }
 }

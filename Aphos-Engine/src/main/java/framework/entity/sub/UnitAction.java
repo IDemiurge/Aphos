@@ -2,6 +2,7 @@ package framework.entity.sub;
 
 import elements.content.enums.types.EntityTypes;
 import elements.exec.Executable;
+import elements.exec.build.ExecBuilder;
 import framework.entity.field.Unit;
 import logic.execution.cost.Cost;
 
@@ -20,7 +21,7 @@ public class UnitAction extends UnitSubEntity {
 
     public UnitAction(Map<String, Object> valueMap, Unit unit) {
         super(valueMap, unit);
-        executable = elements.exec.ExecBuilder.initExecutable(this);
+        executable = ExecBuilder.initExecutable(this);
         cost = logic.execution.cost.CostFactory.get(valueMap);
     }
 

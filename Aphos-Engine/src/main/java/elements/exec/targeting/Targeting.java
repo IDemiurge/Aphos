@@ -27,7 +27,7 @@ public class Targeting {
     protected TypeData data;
     protected Condition condition;
 
-    public TargetingTemplates.TargetingType type;
+    public TargetingType type;
     // boolean all_in_range; //if true, action affects all units that match the Targeting condition
     // //E.G. - All Melee, All Range (1), All Enemy, All <...>
     // boolean friendly_fire;
@@ -42,7 +42,7 @@ public class Targeting {
         return condition;
     }
 
-    public void select(EntityRef ref) {
+    public boolean select(EntityRef ref) {
         //if there is only Self - will auto-target (if some option is checked)
         //modify conditions based on data
         /*
@@ -58,8 +58,9 @@ public class Targeting {
         // single = true;
 
         List<FieldEntity> fieldEntities = combat().getEntities().targetFilter(ref, this);
-
-        if (type == TargetingTemplates.TargetingType.RANDOM){
+        if (fieldEntities.isEmpty())
+            return false;
+        if (type == TargetingType.RANDOM){
             // if ( data.has(TargetingParams.Number_Of_Targets))
             if (!data.has("Number_Of_Targets"))
                 ref.setTarget(ListUtils.getRandom(fieldEntities));
@@ -69,7 +70,7 @@ public class Targeting {
                 ref.setGroup(new TargetGroup(randomGroup));
             }
         } else
-        if (type == TargetingTemplates.TargetingType.FIXED){
+        if (type == TargetingType.FIXED){
             if (fieldEntities.size() == 1) {
                 ref.setTarget(fieldEntities.get(0));
             } else {
@@ -78,7 +79,7 @@ public class Targeting {
                 ref.setGroup(new TargetGroup(fieldEntities));
             }
         } else
-        if (type == TargetingTemplates.TargetingType.SELECTIVE){
+        if (type == TargetingType.SELECTIVE){
             // WaitMaster.receiveInput(WaitMaster.WAIT_OPERATIONS.SELECTION, fieldEntities);
             //
             // Object o = WaitMaster.waitForInput(WaitMaster.WAIT_OPERATIONS.SELECT_BF_OBJ);
@@ -91,10 +92,11 @@ public class Targeting {
                 ref.setGroup(new TargetGroup(list));
             }
         } else
-        if (type == TargetingTemplates.TargetingType.ALL){
+        if (type == TargetingType.ALL){
             ref.setGroup(new TargetGroup(fieldEntities));
         }
 
+        return true;
     }
 
 
@@ -106,12 +108,25 @@ public class Targeting {
         return data;
     }
 
-    public void setType(TargetingTemplates.TargetingType type) {
+    public void setType(TargetingType type) {
         this.type = type;
     }
 
-    public TargetingTemplates.TargetingType getType() {
+    public TargetingType getType() {
         return type;
+    }
+
+    public enum TargetingType {
+        FIXED, SELECTIVE, ALL, RANDOM,
+    }
+    public enum TargetingKeyword {
+        Close_Quarters,
+        Melee,
+        Long_Range,
+        Range,
+        Ray,
+        Ray_2x,
+        Any,
     }
 }
 

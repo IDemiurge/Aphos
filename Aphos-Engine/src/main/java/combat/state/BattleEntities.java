@@ -114,6 +114,7 @@ public class BattleEntities extends BattleHandler {
 
     @Override
     public void newRound() {
+        // SysLog.
         forEach(u-> restoreRoundlyValues(u));
     }
 
@@ -140,10 +141,10 @@ public class BattleEntities extends BattleHandler {
             }
             // if (broken) //disabled regen?
             //     continue; //what for? calc saved?
-            int max = unit.getInt(param.getName() + "_max");
+            int max = unit.getInt(StatUtils.getTotalParam(param.getName()));
             unit.setValue(param, max); //restore to full
             if (param == UnitParam.AP || param == UnitParam.Moves) {
-                int saved = unit.getInt(param.getName() + "_saved"); //sanity/faith?
+                int saved = unit.getInt(StatUtils.getSavedParam(param.getName())); //sanity/faith?
                 if (saved > 0) {
                     int cur = unit.getInt(param);
                     int retain = unit.getInt(StatUtils.getRetain(param)); //max that unit can retain on their own

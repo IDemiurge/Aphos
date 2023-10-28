@@ -42,6 +42,9 @@ public class MeleeTargeter {
     public static Condition getCloseQuartersCondition() {
         return new MeleeCondition().setCloseQuarters(true);
     }
+    public static Condition getLongReachCondition() {
+        return new MeleeCondition().setLongReach(true);
+    }
 
     public static Condition getMeleeCondition() {
         return new MeleeCondition();

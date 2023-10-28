@@ -1,6 +1,7 @@
 package elements.exec.condition;
 
 import elements.exec.EntityRef;
+import elements.exec.build.condition.ConditionContext;
 import framework.data.TypeData;
 
 import java.util.function.Supplier;
@@ -9,8 +10,8 @@ import java.util.function.Supplier;
  * Created by Alexander on 8/22/2023
  */
 public abstract class ConditionImpl implements Condition {
-    ConditionContext context;
-    TypeData data;
+    protected ConditionContext context;
+    protected TypeData data;
 
     protected abstract boolean checkThis(EntityRef ref);
     // public abstract String[] getArgs( );

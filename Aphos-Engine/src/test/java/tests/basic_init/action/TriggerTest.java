@@ -1,8 +1,8 @@
 package tests.basic_init.action;
 
 import elements.exec.EntityRef;
+import elements.exec.build.ConditionBuilder;
 import elements.exec.condition.Condition;
-import elements.exec.condition.ConditionBuilder;
 import elements.exec.effect.framework.wrap.AddTriggerFx;
 import logic.execution.event.combat.CombatEventType;
 import tests.basic_init.basic.BattleInitTest;
@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static combat.sub.BattleManager.combat;
-import static elements.exec.targeting.TargetingTemplates.ConditionTemplate.IDENTITY_CHECK;
-import static elements.exec.targeting.TargetingTemplates.ConditionTemplate.TARGET;
+import static elements.exec.build.template.ConditionTemplate.IDENTITY_CHECK;
+import static elements.exec.build.template.ConditionTemplate.TARGET;
 
 /**
  * Created by Alexander on 8/24/2023

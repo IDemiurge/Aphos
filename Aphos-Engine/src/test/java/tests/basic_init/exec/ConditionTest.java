@@ -1,12 +1,12 @@
 package tests.basic_init.exec;
 
 import elements.exec.EntityRef;
+import elements.exec.build.ConditionBuilder;
 import elements.exec.condition.Condition;
-import elements.exec.condition.ConditionBuilder;
 import framework.data.DataManager;
 import tests.basic_init.basic.BattleInitTest;
 
-import static elements.exec.targeting.TargetingTemplates.ConditionTemplate.SELF_VALUE_CHECK;
+import static elements.exec.build.template.ConditionTemplate.SELF_VALUE_CHECK;
 
 /**
  * Created by Alexander on 8/25/2023

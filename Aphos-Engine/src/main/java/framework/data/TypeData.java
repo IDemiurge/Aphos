@@ -21,9 +21,9 @@ import static framework.data.DataManager.getRawValue;
  */
 public class TypeData {
     //TODO float?
-    protected final Map<String, Integer> intMap = new LinkedStringMap<>();
-    protected final Map<String, String> stringMap = new LinkedStringMap<>();
-    protected final Map<String, Boolean> boolMap = new LinkedStringMap<>();
+    protected final Map<String, Integer> intMap = createMap(Integer.class);
+    protected final Map<String, String> stringMap = createMap(String.class);
+    protected final Map<String, Boolean> boolMap = createMap(Boolean.class);
     protected final Map<Class, Map> maps = new HashMap<>();
     private final Map<String, Function<String, Object>> getterCache = new LinkedStringMap<>();
 
@@ -41,6 +41,9 @@ public class TypeData {
         }
     }
 
+    protected <T> Map<String, T> createMap(Class<T> clazz) {
+        return new LinkedStringMap<>();
+    }
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("Data: ");
@@ -73,11 +76,16 @@ public class TypeData {
         } else
             values = new String[]{valueName};
 
+
         for (String name : values) {
             int prev =getIntOrZero(name);
             int newVal = prev + value;
-            intMap.put(name, newVal);
+            setInt(name, newVal);
         }
+    }
+
+    public void setInt(String name, int newVal) {
+        intMap.put(name, newVal);
     }
 
     private String[] getTriplet(String valueName) {
@@ -110,8 +118,7 @@ public class TypeData {
     public void set(Stat key, Object val) {
         set(key.getName(), val);
     }
-
-
+        //TODO
     public void multiply(String key, Object val) {
 
     }

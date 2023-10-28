@@ -1,8 +1,13 @@
-package elements.exec.condition;
+package elements.exec.build;
 
 import elements.content.enums.EnumFinder;
 import elements.exec.EntityRef;
-import elements.exec.targeting.TargetingTemplates.ConditionTemplate;
+import elements.exec.build.condition.AdvancedContext;
+import elements.exec.build.condition.ConditionContext;
+import elements.exec.build.template.ConditionTemplate;
+import elements.exec.condition.*;
+import elements.exec.condition.value.IntCondition;
+import elements.exec.condition.wrap.NotCondition;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -74,6 +79,7 @@ public class ConditionBuilder {
         //can condition be represented as chain? Kind of... need an  endOr() then
 
         return switch (conditionTmlt) {
+            case ENEMY -> builder.not().ally();
             case POS_CHECK -> builder.pos();
             case TARGET -> builder.target();
             case SELF -> builder.self();
@@ -88,7 +94,6 @@ public class ConditionBuilder {
         };
 
     }
-
 
     ///////////////// region BASE METHODS
     public Condition build() {
@@ -177,6 +182,9 @@ public class ConditionBuilder {
         return append(new PositionCondition());
     }
 
+    private ConditionBuilder ally() {
+        return append(new AllyCondition());
+    }
     public ConditionBuilder isAttack() {
         append(ref ->
                 ref.getAction().isAttack()

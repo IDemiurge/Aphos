@@ -25,10 +25,10 @@ public class WaitMaster {
         unlocked.add(o);
         Lock lock = locks.remove(o);
         if (lock == null) {
-            SysLog.printOut("NO LOCK " + o);
+            SysLog.printLine("NO LOCK " + o);
             return;
         }
-        SysLog.printOut("UNLOCKING " + o);
+        SysLog.printLine("UNLOCKING " + o);
         lock.lock();
         conditions.remove(lock).signal();
         lock.newCondition().signal();
@@ -42,18 +42,18 @@ public class WaitMaster {
 
     public static void waitLock(Object o, int maxMillis) {
         if (unlocked.contains(o)) {
-            SysLog.printOut("ALREADY UNLOCKED " + o);
+            SysLog.printLine("ALREADY UNLOCKED " + o);
             return;
         }
         Lock lock = new ReentrantLock();
         if (locks.containsKey(o)) {
-            SysLog.printOut("******ALREADY LOCKED " + o);
+            SysLog.printLine("******ALREADY LOCKED " + o);
             return;
         }
         locks.put(o, lock);
         Condition waiting = lock.newCondition();
         conditions.put(lock, waiting);
-        SysLog.printOut("LOCKED with key: " + o);
+        SysLog.printLine("LOCKED with key: " + o);
         lock.lock();
         try {
             if (maxMillis > 0) {

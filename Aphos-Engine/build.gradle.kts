@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("java")
     kotlin("jvm") version "1.7.21"
+//    id ("io.franzbecker.gradle-lombok") version "5.0.0"
 }
 
 group = "org.wyrmring"
@@ -32,6 +33,8 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
 
+//    compileOnly ("org.projectlombok:lombok:1.18.22")
+//    annotationProcessor ("org.projectlombok:lombok:1.18.22")
 }
 
 tasks.getByName<Test>("test") {

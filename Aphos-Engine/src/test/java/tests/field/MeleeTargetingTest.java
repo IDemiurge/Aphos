@@ -57,7 +57,7 @@ public class MeleeTargetingTest extends BattleInitTest {
         //cells test
         for (Cell pos : testPos) {
             Set<Cell> cellSet = MeleeTargeter.getCellSet(pos, true, false, false);
-            SysLog.printOut(pos,"can target:", ListUtils.represent(cellSet)+"\n");
+            SysLog.printLine(pos,"can target:", ListUtils.represent(cellSet)+"\n");
         }
 
         //fill entire non-ally board with dummy enemies

@@ -11,6 +11,7 @@ import framework.entity.sub.OmenStack;
 import framework.entity.sub.PassiveSet;
 import framework.entity.sub.UnitAction;
 import framework.field.FieldPos;
+import system.consts.StatUtils;
 
 import java.util.Map;
 
@@ -36,6 +37,7 @@ public class Unit extends FieldEntity {
         initCurrentValues();
         actionSet = ActionInitializer.initActionSet(this);
         initPerks();
+        initDone();
     }
 
     private void initPerks() {
@@ -46,7 +48,7 @@ public class Unit extends FieldEntity {
         for (UnitParam cur : StatConsts.unitCurrentVals) {
             Integer value = getInt(cur);
             data.setCur(cur.getName(), value);
-            String max = cur.getName() + "_max";
+            UnitParam max = StatUtils.getTotalParam(cur.getName() );
             data.set(max, value);
         }
     }
@@ -115,9 +117,14 @@ public class Unit extends FieldEntity {
         setValue(param, value);
     }
 
+    //endregion
+
+    @Override
+    public EntityRef ref() {
+        return new EntityRef(this);
+    }
     public boolean checkParam(UnitParam p, int value) {
         return getInt(p) > value;
     }
 
-    //endregion
 }

@@ -2,7 +2,7 @@ package logic.rules.combat.wounds;
 
 import elements.exec.EntityRef;
 import elements.exec.condition.Condition;
-import elements.exec.condition.PropCondition;
+import elements.exec.condition.value.PropCondition;
 import elements.exec.effect.Effect;
 import elements.exec.effect.framework.wrap.ContinuousEffect;
 import elements.stats.UnitProp;

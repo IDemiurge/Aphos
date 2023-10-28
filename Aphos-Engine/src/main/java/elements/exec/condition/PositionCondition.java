@@ -25,14 +25,20 @@ public class PositionCondition extends ConditionImpl {
 
     @Override
     protected boolean checkThis(EntityRef ref) {
+        FieldPos requiredPos = getRequiredPos(ref);
+        if (requiredPos==null)
+            return true;
         if (ref.getMatch() instanceof FieldEntity) {
             FieldPos pos = ((FieldEntity) ref.getMatch()).getPos();
-            return getRequiredPos(ref).equals(pos);
+            return requiredPos.equals(pos);
         }
         return false;
     }
 
     protected FieldPos getRequiredPos(EntityRef ref) {
+        if (data == null) {
+            return null;
+        }
         if (data.has("cell")) {
             FieldConsts.Cell cell = EnumFinder.get(FieldConsts.Cell.class, data.has("cell"));
             return combat().getField().getPos(cell);

@@ -1,13 +1,14 @@
 package framework.data.yaml;
 
-import elements.exec.ExecBuilder;
 import elements.exec.Executable;
+import elements.exec.build.ExecBuilder;
 import elements.stats.ActionProp;
 import framework.data.DataManager;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
 import org.yaml.snakeyaml.nodes.MappingNode;
 import system.datatypes.GenericLinkedStringMap;
+import system.log.SysLog;
 import system.utils.old.FileManager;
 
 import java.io.File;
@@ -81,8 +82,15 @@ public class YamlBuilder {
                 if (parseVars) {
                     for (Object o : set) {
                         if (o.toString().equals(ActionProp.Exec_data.getName())) {
-                            String execKey = parseExec(name, typeMap.get(o));
-                            typeMap.put(o, execKey);
+                            try {
+                                String execKey = parseExec(name, typeMap.get(o));
+                                typeMap.put(o, execKey);
+                            } catch (Exception e) {
+                                SysLog.printLine(SysLog.LogChannel.Error,"Exec build failed: ", typeKey, docName, name,
+                                        "; DATA ---> \n", typeMap.get(o));
+                                system.ExceptionMaster.printStackTrace(e);
+
+                            }
                         }
                     }
                     if (!docName.toLowerCase().contains("exec"))
@@ -96,7 +104,7 @@ public class YamlBuilder {
     }
 
     private String parseExec(String typeName, Object o) {
-        Executable exec = elements.exec.ExecBuilder.build(o);
+        Executable exec = ExecBuilder.build(o);
 
         StringBuilder execKey = new StringBuilder(typeName);
 

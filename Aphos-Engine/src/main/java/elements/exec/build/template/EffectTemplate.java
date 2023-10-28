@@ -1,4 +1,4 @@
-package elements.exec.effect.framework;
+package elements.exec.build.template;
 
 import elements.exec.effect.Effect;
 import elements.exec.effect.KillEffect;

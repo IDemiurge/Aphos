@@ -10,7 +10,7 @@ import system.log.result.DamageResult;
 import system.log.result.WoundResult;
 
 import static elements.content.enums.types.CombatTypes.BlockType;
-import static system.log.SysLog.printOut;
+import static system.log.SysLog.printLine;
 
 /**
  * Created by Alexander on 8/21/2023
@@ -80,7 +80,7 @@ public class DamageDealer {
                     result.__log__(bufferValue.getName()+" broken", true);
                 }
                 if (remainder <= 0) {
-                    printOut("Absorbed by ", bufferValue);
+                    printLine("Absorbed by ", bufferValue);
                     /* Absorbed by Armor/Faith/Sanity */
                     // target.addIntValue(value, -damage);
                     return true;

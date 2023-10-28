@@ -26,6 +26,11 @@ public class ActionExecutor extends BattleHandler {
                 activate(manager.getEntities().getEntityById(p.getInt("action"), UnitAction.class)));
     }
 
+    public boolean canActivate(UnitAction action) {
+        //sometimes this would be part of target filtering?!
+        //will we have actions that will cost, say, % of target's HP or so?
+        return true;
+    }
     public void activate(UnitAction action) {
         EntityRef ref = new EntityRef(action.getUnit()).set("action", action);
         for (Pair<Targeting, Effect> pair : action.getExecutable().getTargetedEffects()) {
@@ -37,6 +42,7 @@ public class ActionExecutor extends BattleHandler {
             ref.setPrevTarget(REF.getTarget());
             applyEffects(effect, REF);
 
+            action.getCost().pay(REF);
             manager.executableActivated(action, REF);
         }
         //triggers visual effect and waits for input

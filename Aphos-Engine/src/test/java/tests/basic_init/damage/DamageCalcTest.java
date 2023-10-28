@@ -27,7 +27,7 @@ public class DamageCalcTest extends BattleInitTest {
         damageEffect.apply(ref);
 
         check(enemy.getInt(UnitParam.Health) == hp - dmg +block );
-        check(enemy.getInt(UnitParam.Armor) == enemy.getInt(UnitParam.Armor_Max)- block );
+        check(enemy.getInt(UnitParam.Armor) == enemy.getInt(UnitParam.Armor_Total)- block );
         // damageEffect.getResult();
 
 

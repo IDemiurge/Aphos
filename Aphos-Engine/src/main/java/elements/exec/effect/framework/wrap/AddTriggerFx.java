@@ -2,7 +2,7 @@ package elements.exec.effect.framework.wrap;
 
 import elements.content.enums.EnumFinder;
 import elements.exec.EntityRef;
-import elements.exec.ExecBuilder;
+import elements.exec.build.ExecBuilder;
 import elements.exec.condition.Condition;
 import elements.exec.effect.Effect;
 import elements.exec.trigger.ExecTrigger;

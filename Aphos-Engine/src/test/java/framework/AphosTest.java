@@ -50,7 +50,7 @@ public abstract class AphosTest {
     protected void checkValueChanged(UnitParam param, Integer offset) {
         int value = getCheckedUnit().getInt(param);
         check(getCheckedUnit() + "'s " + param + " is at value " + value, value - checkParamMap.get(param) == offset);
-        SysLog.printOut(getCheckedUnit() , "'s " , param , " has changed by " + offset);
+        SysLog.printLine(getCheckedUnit() , "'s " , param , " has changed by " + offset);
     }
 
     protected void checkValueIsSame(UnitParam... params) {
@@ -63,7 +63,7 @@ public abstract class AphosTest {
                 int value = getCheckedUnit().getInt(param);
                 check(getCheckedUnit() + "'s " + param + " has changed to " + value, value == checkParamMap.get(param));
                 //++ prefix
-                SysLog.printOut(getCheckedUnit() , "'s " , param , " has not changed" );
+                SysLog.printLine(getCheckedUnit() , "'s " , param , " has not changed" );
             }
         }
     }

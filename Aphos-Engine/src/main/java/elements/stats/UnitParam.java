@@ -19,16 +19,16 @@ public enum UnitParam implements Stat {
 
         //Daemons
         Essence(true),
-        Essence_Max,
+        Essence_Total,
         Power,
 
-        Health_Max,
-        Armor_Max,
-        Soul_Max,
-        Faith_Max,
-        Sanity_Max,
-        AP_Max,
-        Moves_Max,
+        Health_Total,
+        Armor_Total,
+        Soul_Total,
+        Faith_Total,
+        Sanity_Total,
+        AP_Total,
+        Moves_Total,
 
         Attack_Min,
         Attack_Base,

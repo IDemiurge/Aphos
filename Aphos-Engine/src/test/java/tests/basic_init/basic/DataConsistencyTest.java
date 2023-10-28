@@ -1,7 +1,7 @@
 package tests.basic_init.basic;
 
-import elements.exec.ExecBuilder;
 import elements.exec.Executable;
+import elements.exec.build.ExecBuilder;
 import elements.stats.UnitParam;
 import elements.stats.UnitProp;
 import framework.data.DataManager;
@@ -26,12 +26,12 @@ public class DataConsistencyTest extends tests.basic_init.basic.BattleInitTest {
             testType(typeData);
         }
         for (Map<String, Object> actionMap : DataManager.getActionMap().values()) {
-            SysLog.printOut(actionMap.get("Name"));
+            SysLog.printLine(actionMap.get("Name"));
             Object o = actionMap.get("exec data");
             // SysLog.printOut(actionMap.get(o));
             //test executable?
             Executable exec = ExecBuilder.getExecutable(o.toString());
-            SysLog.printOut(exec.toString() + " --------  ok");
+            SysLog.printLine(exec.toString() + " --------  ok");
         }
     }
 
@@ -51,7 +51,7 @@ public class DataConsistencyTest extends tests.basic_init.basic.BattleInitTest {
         }
         check(unit.getName() + " has missing or invalid values: \n" + ListUtils.represent(invalid),
                 invalid.isEmpty());
-        SysLog.printOut(unit.getData());
+        SysLog.printLine(unit.getData());
     }
 
     private boolean valueCanBeNull(Unit unit, UnitParam value) {
@@ -60,13 +60,13 @@ public class DataConsistencyTest extends tests.basic_init.basic.BattleInitTest {
         }
         if (value == UnitParam.Initiative)
             return true;
-        if (value == UnitParam.Essence || value == UnitParam.Essence_Max || value == UnitParam.Power) {
+        if (value == UnitParam.Essence || value == UnitParam.Essence_Total || value == UnitParam.Power) {
             return !unit.isTrue(UnitProp.Daemon);
         }
-        if (value == UnitParam.Sanity || value == UnitParam.Sanity_Max) {
+        if (value == UnitParam.Sanity || value == UnitParam.Sanity_Total) {
             return unit.isTrue(UnitProp.Pure);
         }
-        if (value == UnitParam.Faith || value == UnitParam.Faith_Max) {
+        if (value == UnitParam.Faith || value == UnitParam.Faith_Total) {
             return !unit.isTrue(UnitProp.Pure);
         }
         // unit.get(UnitProp.Faction)

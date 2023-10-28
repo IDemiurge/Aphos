@@ -1,6 +1,7 @@
-package elements.exec.condition;
+package elements.exec.condition.value;
 
 import elements.exec.EntityRef;
+import elements.exec.condition.ConditionImpl;
 
 /**
  * Created by Alexander on 8/25/2023

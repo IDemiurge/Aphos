@@ -1,15 +1,13 @@
-package elements.exec;
+package elements.exec.build;
 
 import elements.content.enums.EnumFinder;
-import elements.exec.condition.Condition;
-import elements.exec.condition.ConditionBuilder;
+import elements.exec.ActionExecutable;
+import elements.exec.Executable;
+import elements.exec.build.template.ConditionTemplate;
+import elements.exec.build.template.TargetingTemplate;
 import elements.exec.effect.Effect;
-import elements.exec.effect.framework.EffectTemplate;
-import elements.exec.effect.framework.wrap.ContinuousEffect;
 import elements.exec.targeting.Targeting;
-import elements.exec.targeting.TargetingTemplates.ConditionTemplate;
-import elements.exec.targeting.TargetingTemplates.TargetingTemplate;
-import elements.exec.targeting.TargetingTemplates.TargetingType;
+import elements.exec.targeting.Targeting.TargetingType;
 import elements.stats.ActionProp;
 import framework.data.TypeData;
 import framework.data.yaml.YamlBuilder;
@@ -23,18 +21,24 @@ import java.util.*;
 /**
  * Created by Alexander on 8/22/2023
  */
+    /*
+    REVAMP GOALS:
+    1) Lazy - init also what is needed
+    2) Flexible - insert Extensions
+     */
 public class ExecBuilder {
     public static final Map<String, Executable> execMap = new LinkedStringMap<>();
+    public static Executable getExecutable(String execKey) {
+        return execMap.get(execKey);
+    }
 
     public static Executable initExecutable(UnitAction unitAction) {
         String execKey = unitAction.get(ActionProp.Exec_data).toString();
         if (execKey.isEmpty())
             execKey = unitAction.getName();
-        return getExecutable(execKey);
-    }
-
-    public static Executable getExecutable(String execKey) {
-        return execMap.get(execKey);
+        Executable exec = getExecutable(execKey);
+        // exec = AbilExtensions.extend(exec, unitAction);
+        return exec;
     }
 
     public static Executable build(Object o) {
@@ -62,31 +66,8 @@ public class ExecBuilder {
     }
 
     private static Effect createEffect(Object effectNode,Object retainNode, Map args) {
-        if (effectNode instanceof String) {
-            EffectTemplate effectTemplate = EnumFinder.get(EffectTemplate.class, effectNode.toString());
-            Effect effect= effectTemplate.supplier.get();
-            effect.setData(new TypeData(args));
-            if (retainNode!=null){
-                Condition retain = null; //can be just duration? can be empty - i.e. Permanent?
-                if (retainNode instanceof String condTempl){
-                    retain = ConditionBuilder.build(condTempl, args);
-                } else {
-                    //nested map?
-                }
-                effect = new ContinuousEffect(effect, retain);
-            }
-            return effect;
-            // return ExecPresetConstructor.createTemplateEffect(effect, args);
-        } else {
-            if (effectNode instanceof Map map){
-                Object trigger = map.get("trigger");
-                //TODO
-                if (trigger instanceof Map triggerMap){
-                    // return new AddTriggerFx(event, condition, data);
-                }
-            }
-        }
-        return null;
+        return framework.data.yaml.EffectYmlBuilder.effect(effectNode, retainNode, args);
+
     }
 
     private static Targeting createTargeting(Object targetNode, Map args) {
