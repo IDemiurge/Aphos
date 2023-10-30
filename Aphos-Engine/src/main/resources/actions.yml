@@ -16,23 +16,23 @@ Exec:
       exec_data: &Illuminate
         targeting: Cell #won't even trigger if there is nobody on that cell
         effect:
-          class: IfElse
+          effect: IfElse
           nested:
             condition: Enemy
             if:
               - effect:
-                  effect: DamageEffect
+                  effect: Damage
                   targeting: Target
                   args:
                     damage_type: Holy
                     value: 2
               - effect:
-                  effect: CounterEffect
+                  effect: Counters
                   args:
                     counter_type: Illumination
                     value: 1
             else:
-              effect: HealEffect
+              effect: Heal
               target: Target
               args:
                 value: 2
@@ -60,6 +60,9 @@ Temple:
       ap cost: 3
       die: 10
       chaos req: 2
+      boost:
+        auto: true
+        condition: Ranged
       exec data:
         <<: *Base_Attack
         targeting: Long Reach
@@ -71,25 +74,24 @@ Temple:
   - Brace:
       ap cost: 2
       action_type: Defense
+      vars:
+        value_name: defense_all
+        value: 2
       exec data:
         targeting: self
         effect: modify
         retain: UNTIL_ATTACK_OR_FALL
-        args:
-          value_name: defense_all
-          value: 2
 Sylvans:
   - Smash:
       ap cost: 2
       die: 10
+      vars:
+        value: 3/4/5
+        damage_type: Splash
       exec data:
-        - exec:
-            <<: *Base_Attack
-            args:
-              damage_type: Splash
-              value: 2/4/8
-        - exec:
-            <<: *Bash
-            args:
-              value: 4
-              resist: false
+        <<: *Base_Attack
+        nested:
+          <<: *Bash
+          args:
+            value: 3/4/5
+            resist: false

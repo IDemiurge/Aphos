@@ -5,9 +5,11 @@ import elements.stats.UnitProp;
 import framework.data.yaml.YamlBuilder;
 import framework.entity.field.Unit;
 import system.log.SysLog;
+import system.utils.MathUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiPredicate;
 
 import static combat.sub.BattleManager.combat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,7 +22,7 @@ public abstract class AphosTest {
     private Map<UnitParam, Integer> checkParamMap = new HashMap<>();
     private Map<UnitProp, Object> checkPropMap = new HashMap<>();
 
-    public AphosTest(){
+    public AphosTest() {
         init();
     }
 
@@ -50,10 +52,20 @@ public abstract class AphosTest {
     protected void checkValueChanged(UnitParam param, Integer offset) {
         int value = getCheckedUnit().getInt(param);
         check(getCheckedUnit() + "'s " + param + " is at value " + value, value - checkParamMap.get(param) == offset);
-        SysLog.printLine(getCheckedUnit() , "'s " , param , " has changed by " + offset);
+        SysLog.printLine(getCheckedUnit(), "'s ", param, " has changed by " + offset);
     }
 
     protected void checkValueIsSame(UnitParam... params) {
+        checkValues(null, params);
+    }
+
+    protected void checkValuesDecreased(UnitParam... params) {
+        checkValues(false, params);
+    }
+    protected void checkValuesIncreased(UnitParam... params) {
+        checkValues(true, params);
+    }
+    protected void checkValues(Boolean more_less_same, UnitParam... params) {
         if (params.length == 0) {
             //all
             if (!checkParamMap.isEmpty())
@@ -61,11 +73,21 @@ public abstract class AphosTest {
         } else {
             for (UnitParam param : checkParamMap.keySet()) {
                 int value = getCheckedUnit().getInt(param);
-                check(getCheckedUnit() + "'s " + param + " has changed to " + value, value == checkParamMap.get(param));
+                BiPredicate<Integer, Integer> predicate = MathUtils.getComparison(more_less_same);
+                check(getCheckedUnit() + "'s " + param + " has changed to " + value,
+                        predicate.test(value, checkParamMap.get(param)));
                 //++ prefix
-                SysLog.printLine(getCheckedUnit() , "'s " , param , " has not changed" );
+                SysLog.printLine(getCheckedUnit(), "'s ", param, getStatusDescription(more_less_same));
             }
         }
+    }
+
+    private String  getStatusDescription(Boolean moreLessSame) {
+        if (moreLessSame == null)
+            return " has not changed";
+        if (moreLessSame)
+            return " has increased";
+        return " has decreased";
     }
 
     protected void markValueToCheck(UnitParam... params) {

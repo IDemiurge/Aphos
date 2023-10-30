@@ -1,23 +1,30 @@
 package elements.exec.effect;
 
 import elements.exec.EntityRef;
+import elements.exec.build.VarHolder;
 import framework.data.TypeData;
+import org.apache.commons.lang3.NotImplementedException;
 import system.log.SysLog;
 import system.log.result.EffectResult;
+
+import java.util.Map;
 
 /**
  * Created by Alexander on 8/21/2023
  */
-public abstract class Effect {
+public abstract class Effect implements VarHolder {
     protected TypeData data;
     protected EffectResult effectResult;
 
     public TypeData getData() {
+        if (data == null) {
+            data = new TypeData();
+        }
         return data;
     }
 
     public final String[] getArgNames() {
-        return getArgs().split("\\|");
+         return getArgs().split("\\|");
     }
 
     public String getArgs() {
@@ -26,6 +33,10 @@ public abstract class Effect {
 
     public void setData(TypeData effectData) {
         this.data = effectData;
+    }
+
+    public void setData(Map<String, Object> map) {
+        setData(new TypeData(map));
     }
 
     public EffectResult apply(EntityRef ref) {
@@ -38,14 +49,16 @@ public abstract class Effect {
 
     protected abstract void applyThis(EntityRef ref);
 
+
+    @Override
+    public void set(String key, Object o) {
+        setValue(key, o);
+    }
     public Effect setValue(int index, Object value) {
         return setValue(getArgNames()[index], value);
     }
 
     public Effect setValue(String key, Object value) {
-        if (getData() == null) {
-            data = new TypeData();
-        }
         getData().set(key, value);
         return this;
     }
@@ -65,4 +78,7 @@ public abstract class Effect {
         return effectResult;
     }
 
+    public void setAdditionalFx(Effect additionalFx) {
+        throw new NotImplementedException();
+    }
 }

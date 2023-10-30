@@ -163,7 +163,7 @@ public class EntityData extends TypeData {
     }
 
 
-    public void setInt(String name, int newVal) {
+    protected void setInt(String name, int newVal) {
         if (intMapCur.containsKey(name))
             intMapCur.put(name, newVal);
         else intMap.put(name, newVal);

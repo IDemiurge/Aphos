@@ -20,6 +20,8 @@ public class WardTest extends BattleInitTest {
         //need actual attack for this!
         checkValueIsSame();
         check(ally.isTrue(WardRule.getBrokenKey(DamageType.Splash)));
+        stdAttack(enemy, ally);
+        checkValuesDecreased(UnitParam.Health, UnitParam.Armor);
         // check(ally.checkContainerProp(UnitProp.Wards, DamageType.Splash.toString()));
 
     }

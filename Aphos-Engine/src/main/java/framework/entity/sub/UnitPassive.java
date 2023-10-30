@@ -42,6 +42,7 @@ public class UnitPassive extends UnitSubEntity {
             EntityRef ref = new EntityRef(unit);
             ref.setMatch(unit);
             if (activationCondition.check(ref)) {
+                //TODO - REVAMP
                 //are execs free of side-effects, can they be cached?
                 Executable exec = ExecBuilder.getExecutable(getS("exec_data"));
                 ConditionTemplate tmplt = null;

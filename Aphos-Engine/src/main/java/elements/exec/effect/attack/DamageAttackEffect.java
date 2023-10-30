@@ -30,6 +30,7 @@ public class DamageAttackEffect extends AttackEffect {
         // effectResult.addAll(finalResult.getData());
     }
 
+
     @Override
     public String getArgs() {
         return "damage_type|" + super.getArgs();

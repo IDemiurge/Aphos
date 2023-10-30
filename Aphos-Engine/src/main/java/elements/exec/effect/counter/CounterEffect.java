@@ -1,14 +1,14 @@
 package elements.exec.effect.counter;
 
 import elements.exec.EntityRef;
-import elements.exec.effect.Effect;
+import elements.exec.effect.framework.ValueEffect;
 import elements.stats.Counter;
 import logic.rules.combat.CounterRule;
 
 /**
  * Created by Alexander on 8/27/2023
  */
-public class CounterEffect extends Effect {
+public class CounterEffect extends ValueEffect {
     @Override
     protected void applyThis(EntityRef ref) {
         Counter counter = CounterRule.dictionary.get(data.get(getArgNames()[0]));
@@ -20,6 +20,6 @@ public class CounterEffect extends Effect {
 
     @Override
     public String getArgs() {
-        return "counter|value";
+        return super.getArgs()+ "counter";
     }
 }

@@ -2,14 +2,12 @@ package tests.field;
 
 import elements.content.enums.FieldConsts.Cell;
 import elements.exec.EntityRef;
-import elements.exec.effect.Effect;
 import elements.exec.targeting.Targeting;
 import elements.exec.targeting.area.CellSets;
 import elements.exec.targeting.area.MeleeTargeter;
 import framework.entity.field.FieldEntity;
 import framework.entity.sub.UnitAction;
 import framework.field.Transformer;
-import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import system.log.SysLog;
@@ -65,15 +63,13 @@ public class MeleeTargetingTest extends BattleInitTest {
         UnitAction action = ally.getActionSet().getStandard();
         for (Cell pos : testPos) {
             ally.setPos(combat().getField().getPos(pos));
-            for (Pair<Targeting, Effect> targetedEffect : action.getExecutable().getTargetedEffects()) {
-                Targeting targeting = targetedEffect.getLeft();
+
+                Targeting targeting = action.getExecutable().getTargeting();
                 EntityRef ref = new EntityRef(ally);
                 List<FieldEntity> list = combat().getEntities().targetFilter(ref, targeting);
                 List<Cell> positions = Transformer.toCells(list);
 
                 check(checkPosMap.get(pos).containsAll(positions));
-
-            }
         }
         // action.getExecutable().
     }

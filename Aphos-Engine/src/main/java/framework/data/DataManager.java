@@ -24,6 +24,7 @@ public class DataManager {
     private static Map<String, Map<String, Object>> actionMap = new LinkedStringMap<>();
     private static Map<String, Map<String, Object>> passiveMap = new LinkedStringMap<>();
     private static Map<String, Map<String, Object>> partyMap = new LinkedStringMap<>();
+    private static Map<String, Map<String, Object>> varMap = new LinkedStringMap<>();
 
     public static Map<String, Object> getUnitData(String key) {
         return unitMap.get(key);
@@ -38,6 +39,9 @@ public class DataManager {
         return passiveMap.get(key);
     }
 
+    public static void addVarData(String name, Map data){
+        varMap.put(name, data);
+    }
     public static void addTypeData(String typeKey,String name, Map data){
         Map map = getTypeMap(typeKey);
         map.put(name, data);
@@ -54,6 +58,9 @@ public class DataManager {
         };
     }
 
+    public static Map<String, Object> getTypeVars(String actionName) {
+        return varMap.get(actionName);
+    }
     public static Map<String, Object> deconstructDataString(String dataString) {
         Map<String, Object> map = new XLinkedMap<>();
         for (String substring : ContainerUtils.openContainer(dataString)) {
@@ -102,6 +109,7 @@ public class DataManager {
     public static Map<String, Map<String, Object>> getPassiveMap() {
         return passiveMap;
     }
+
     // public static void init(String[][] data) {
     //     for (String[] datum : data) {
     //         Map<String, Object> collect = stringArrayToMap(datum);

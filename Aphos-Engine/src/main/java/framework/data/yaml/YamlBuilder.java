@@ -31,7 +31,7 @@ public class YamlBuilder {
     public void buildYamlFiles() {
         buildYamlFile("units", "Unit", "Faction", false);
         buildYamlFile("actions", "Action", "Faction", true);
-        buildYamlFile("passives", "Passive", "Faction", true);
+        // buildYamlFile("passives", "Passive", "Faction", true);
         buildYamlFile("party", "Party", "Faction", true);
         //PERKS can really just be an ENUM !
     }
@@ -78,23 +78,35 @@ public class YamlBuilder {
                 typeMap.put("Type", typeKey);
                 String name = typeNode.toString();
                 typeMap.put("Name", name);
-                Set set = new HashSet(typeMap.keySet());
+                Set valueKeySet = new HashSet(typeMap.keySet());
+
+                //save only data, parse on demand! (we'll have a test that parses all in advance)
                 if (parseVars) {
-                    for (Object o : set) {
-                        if (o.toString().equals(ActionProp.Exec_data.getName())) {
+                    boolean execType = docName.toLowerCase().contains("exec");
+                    for (Object value : valueKeySet) { //why not just get()?
+                        if (value.toString().equals(ActionProp.Exec_data.getName())) {
                             try {
-                                String execKey = parseExec(name, typeMap.get(o));
-                                typeMap.put(o, execKey);
+                                String execKey = parseExec(name, typeMap.get(value), execType);
+                                typeMap.put(value, execKey); //what is the point?
                             } catch (Exception e) {
-                                SysLog.printLine(SysLog.LogChannel.Error,"Exec build failed: ", typeKey, docName, name,
-                                        "; DATA ---> \n", typeMap.get(o));
+                                SysLog.printLine(SysLog.LogChannel.Error, "Exec build failed: ", typeKey, docName, name,
+                                        "; DATA ---> \n", typeMap.get(value));
                                 system.ExceptionMaster.printStackTrace(e);
 
                             }
                         }
                     }
-                    if (!docName.toLowerCase().contains("exec"))
+                    if (!execType) {
+                        //ACTIONS AND PASSIVES
+                        Map varMap = (Map) typeMap.remove("vars");
+                        if (varMap == null) {
+                            varMap = (Map) typeMap.remove("Vars");
+                        }
+                        if (varMap != null) {
+                            DataManager.addVarData(name, varMap);
+                        }
                         DataManager.addTypeData(typeKey, name, typeMap);
+                    }
                 } else {
                     DataManager.addTypeData(typeKey, name, typeMap);
                 }
@@ -103,30 +115,18 @@ public class YamlBuilder {
         }
     }
 
-    private String parseExec(String typeName, Object o) {
+    private String parseExec(String typeName, Object o, boolean execType) {
+        if (!execType) {
+            ExecBuilder.setExecData(typeName, o);
+            return typeName;
+        }
         Executable exec = ExecBuilder.build(o);
 
         StringBuilder execKey = new StringBuilder(typeName);
-
-        if (exec.isMultiExec()) {
-            // Map<String, Object> effectArgMap = new LinkedStringMap<>();
-            // ((List)o).
-            //         forEach(key -> {
-            //     String strKey = key.toString().toLowerCase();
-            //     if (strKey.startsWith("effect_")) {
-            //         strKey = strKey.replace("effect_", "");
-            //args node!
-            // effectArgMap.put(strKey, o.get(key));
-            // execKey.append("_").append(strKey).append("=").append(o.get(key));
-            //     }
-            // });
-            // applyEffectArgs(exec, effectArgMap);
-        } else {
-            Map args = getMap(o, "args");
-            if (args != null) {
-                for (Object key : args.keySet()) {
-                    execKey.append("_").append(key).append("=").append(args.get(key));
-                }
+        Map args = getMap(o, "args");
+        if (args != null) {
+            for (Object key : args.keySet()) {
+                execKey.append("_").append(key).append("=").append(args.get(key));
             }
         }
         ExecBuilder.addExec(execKey.toString(), exec);

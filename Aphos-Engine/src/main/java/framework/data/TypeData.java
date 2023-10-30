@@ -44,6 +44,7 @@ public class TypeData {
     protected <T> Map<String, T> createMap(Class<T> clazz) {
         return new LinkedStringMap<>();
     }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("Data: ");
@@ -55,13 +56,13 @@ public class TypeData {
     protected Object initValue(String key, Object o) {
         Object val = getRawValue(o);
 
-        String s = StringConsts.MIN_BASE_MAX_SEPARATOR;
-        if (o.toString().contains(s) && !o.toString().contains("=")){
-            //triplet value
+        String string = o.toString();
+        if (isTripleValue(string) && !string.contains("=")) {
+            //TODO refactor for DRY
             Iterator<String> iterator = Arrays.asList(new String[]{"min", "base", "max"}).iterator();
-            for (String str : o.toString().split(s)) {
+            for (String str : string.split(StringConsts.MIN_BASE_MAX_SEPARATOR)) {
                 key = StringConsts.checkValueNameReplacement(key);
-                initValue( key + "_"+iterator.next(), NumberUtils.getInt(str));
+                initValue(key + "_" + iterator.next(), NumberUtils.getInt(str));
             }
         } else {
             set(key, val);
@@ -69,46 +70,47 @@ public class TypeData {
         return val;
     }
 
+    private boolean isTripleValue(String string) {
+        return string.contains(StringConsts.MIN_BASE_MAX_SEPARATOR);
+    }
+
     public void addIntValue(String valueName, Integer value) {
-        String[] values = null ;
-        if (checkTripleValue(valueName)) {
-             values = getTriplet(valueName);
+        String[] values = null;
+        if (isTripleValueName(valueName)) {
+            values = getTriplet(valueName);
         } else
             values = new String[]{valueName};
 
 
         for (String name : values) {
-            int prev =getIntOrZero(name);
+            int prev = getIntOrZero(name);
             int newVal = prev + value;
             setInt(name, newVal);
         }
     }
 
-    public void setInt(String name, int newVal) {
+    protected void setInt(String name, int newVal) {
         intMap.put(name, newVal);
     }
 
     private String[] getTriplet(String valueName) {
-        /*
-        blocks, res/def/atk , action value?
-        */
         valueName = valueName.toLowerCase();
+        String root =valueName;
         if (valueName.endsWith("_all")) {
-            String root = valueName.replace("_all", "");
-            return new String[]{ root+"_min",root+"_base",root+"_max" };
+            root = valueName.replace("_all", "");
         }
-        return new String[0];
+            return new String[]{root + "_min", root + "_base", root + "_max"};
     }
 
-    private boolean checkTripleValue(String valueName) {
+    private boolean isTripleValueName(String valueName) {
         if (valueName.endsWith("_all"))
             return true;
         return false;
     }
 
     private int getIntOrZero(String valueName) {
-        Integer integer =intMap.get(valueName);
-        if (integer!=null)
+        Integer integer = intMap.get(valueName);
+        if (integer != null)
             return integer;
         return 0;
     }
@@ -118,16 +120,33 @@ public class TypeData {
     public void set(Stat key, Object val) {
         set(key.getName(), val);
     }
-        //TODO
+
+    //TODO
     public void multiply(String key, Object val) {
 
     }
+
+    public void set(String key, Object val) {
+        String strValue = val.toString();
+        if (isTripleValue(strValue)) {
+            String[] valueNames = getTriplet(key);
+            List<Integer> values = getTripletValues(strValue);
+            int i = 0;
+            for (String name : valueNames) {
+                setInt(name, values.get(i++));
+            }
+        } else {
+            Map<String, Object> map = maps.get(val.getClass());
+            map.put(key.toString(), val);
+        }
+    }
+
+    private List<Integer> getTripletValues(String strValue) {
+        return Arrays.stream(strValue.split(StringConsts.MIN_BASE_MAX_SEPARATOR)).map(s-> NumberUtils.getInt(s)).collect(Collectors.toList());
+    }
+
     public void setPersistent(String key, Object val) {
         throw new NotImplementedException("Must be EntityData");
-    }
-    public void set(String key, Object val) {
-        Map<String, Object> map = maps.get(val.getClass());
-        map.put(key.toString(), val);
     }
 
     //endregion
@@ -154,7 +173,7 @@ public class TypeData {
             return b;
         }
         Integer i = getInt(key);
-        if (i != null ) {
+        if (i != null) {
             // if (i != MathConsts.minValue) {
             getterCache.put(key, s -> getInt(s));
             return i;
@@ -179,9 +198,11 @@ public class TypeData {
     public String getS(Stat stat) {
         return getS(stat.getName());
     }
+
     public String getS(String name) {
         return stringMap.get(name);
     }
+
     public String getStr(String name) {
         String s = stringMap.get(name);
         if (s == null) {
@@ -189,6 +210,7 @@ public class TypeData {
         }
         return s;
     }
+
     public Object get(Stat stat) {
         return get(stat.getName());
     }
@@ -202,7 +224,7 @@ public class TypeData {
     }
 
     public boolean isTrue(String s) {
-        return  Boolean.TRUE.equals(getB(s));
+        return Boolean.TRUE.equals(getB(s));
     }
 
     public boolean has(String key) {
@@ -212,11 +234,11 @@ public class TypeData {
     public Set<String> keySet() {
         return ListUtils.mergeToSet(intMap.keySet(),
                 boolMap.keySet(),
-                stringMap.keySet() );
+                stringMap.keySet());
     }
 
     public String toSimpleString() {
-       return keySet().stream().map(key -> key + "=" + get(key)).collect(Collectors.joining(", "));
+        return keySet().stream().map(key -> key + "=" + get(key)).collect(Collectors.joining(", "));
     }
 
     public boolean valueContains(String name, String value) {
@@ -224,7 +246,7 @@ public class TypeData {
         String s = getStr(name).toLowerCase();
         if (s.endsWith(value))
             return true;
-        return s.contains(value+StringConsts.CONTAINER_SEPARATOR)
-                || s.contains(value+StringConsts.CONTAINER_PROP_SEPARATOR);
+        return s.contains(value + StringConsts.CONTAINER_SEPARATOR)
+                || s.contains(value + StringConsts.CONTAINER_PROP_SEPARATOR);
     }
 }

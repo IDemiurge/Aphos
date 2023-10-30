@@ -2,6 +2,7 @@ package elements.exec.effect;
 
 import elements.content.enums.types.CombatTypes;
 import elements.exec.EntityRef;
+import elements.exec.effect.framework.ValueEffect;
 import logic.calculation.damage.DamageCalc;
 import logic.calculation.damage.DamageDealer;
 import system.log.result.DamageCalcResult;
@@ -12,20 +13,28 @@ import system.log.result.DamageCalcResult;
  * should this ADD damage instead? Otherwise, this matreshka is for naught! Maybe damage should not have a map in
  * fact...
  */
-public class DamageEffect extends Effect {
+public class DamageEffect extends ValueEffect {
 
-    private final CombatTypes.DamageType type;
-    private final Object formula;
+    private  CombatTypes.DamageType type;
+
+    public DamageEffect() {
+    }
 
     public DamageEffect(CombatTypes.DamageType type, Object formula) {
         this.type = type;
-        this.formula = formula;
+        this.valueFormula = formula;
+        getData().set("damage_type", type.toString());
+        getData().set("value", valueFormula);
     }
 
-
+    @Override
+    protected void init() {
+        super.init();
+        type = data.getEnum("damage_type", CombatTypes.DamageType.class);
+    }
     protected void applyThis(EntityRef ref) {
         //where is it even used without Attack?
-        int amount = system.math.Formula.getInt(formula); //formula.getInt(ref);
+        int amount = system.math.Formula.getInt(valueFormula); //formula.getInt(ref);
         ref.setValueInt(amount);
         ref.setDamageType(type);
         DamageCalcResult result = new DamageCalc(ref).calculate(false);
@@ -33,4 +42,5 @@ public class DamageEffect extends Effect {
         // boolean dead =!ref.get("target").isDead()
         // result.add("killed", true)
     }
+
 }

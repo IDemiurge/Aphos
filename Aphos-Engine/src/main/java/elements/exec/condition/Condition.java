@@ -11,14 +11,14 @@ import java.util.function.Supplier;
  * Created by Alexander on 8/22/2023
  */
 @FunctionalInterface
-public interface Condition  {
+public interface Condition   {
     boolean check(EntityRef ref);
 
     default boolean check(Supplier<Unit> matchFunc) {
         return check(new EntityRef(matchFunc.get()).setMatch(matchFunc.get()));
     }
 
-    default String[] getArgs() {
+    default String[] getArgNames() {
         return new String[0];
     }
     default TypeData getData() {

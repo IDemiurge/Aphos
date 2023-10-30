@@ -5,6 +5,7 @@ import elements.stats.Counter;
 import elements.stats.UnitProp;
 import framework.entity.field.FieldEntity;
 import framework.entity.field.Unit;
+import system.log.SysLog;
 
 import static elements.content.enums.types.CombatTypes.DamageType;
 
@@ -38,6 +39,7 @@ public class WardRule {
 
     private static boolean breakWard(FieldEntity target, DamageType type, Unit source) {
         target.setValuePersistent(getBrokenKey(type), true);
+        SysLog.printLine(SysLog.LogChannel.Combat, "Ward Rule: ", source, " breaks ward on ", target, " - " , type);
         //some overrides?
         return true;
     }

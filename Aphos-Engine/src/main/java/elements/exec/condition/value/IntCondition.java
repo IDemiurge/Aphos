@@ -42,7 +42,7 @@ public class IntCondition extends ConditionImpl {
     }
 
     @Override
-    public String[] getArgs() {
+    public String[] getArgNames() {
         return new String[]{
                 "value",
                 "key"

@@ -19,8 +19,8 @@ import static combat.sub.BattleManager.combat;
  */
 public class PositionCondition extends ConditionImpl {
     @Override
-    public String[] getArgs() {
-        return super.getArgs();
+    public String[] getArgNames() {
+        return super.getArgNames();
     }
 
     @Override

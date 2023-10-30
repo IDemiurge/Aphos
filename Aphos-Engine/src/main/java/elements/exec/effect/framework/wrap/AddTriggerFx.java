@@ -2,6 +2,7 @@ package elements.exec.effect.framework.wrap;
 
 import elements.content.enums.EnumFinder;
 import elements.exec.EntityRef;
+import elements.exec.Executable;
 import elements.exec.build.ExecBuilder;
 import elements.exec.condition.Condition;
 import elements.exec.effect.Effect;
@@ -18,8 +19,8 @@ import static combat.sub.BattleManager.combat;
  */
 public class AddTriggerFx extends Effect {
     private CombatEventType eventType;
-    private final Condition condition;
-    private final String execData;
+    private Condition condition;
+    private Executable executable;
     private ExecTrigger trigger;
 
     @Override
@@ -30,20 +31,27 @@ public class AddTriggerFx extends Effect {
         // trigger = new Trigger(ExecBuilder.initExecutable());
     }
 
+    public AddTriggerFx(CombatEventType eventType, Condition condition, Effect effect) {
+        this(eventType, condition, ExecBuilder.fromEffect(effect));
+    }
     public AddTriggerFx(CombatEventType eventType, Condition condition, String execData) {
-        this.eventType = eventType;
-        this.condition = condition;
-        this.execData = execData;
+        this(eventType, condition, ExecBuilder.getExecutable(execData));
     }
 
+    public AddTriggerFx(CombatEventType eventType, Condition condition, Executable executable) {
+        this.eventType = eventType;
+        this.condition = condition;
+        this.executable = executable;
+    }
 
     @Override
     protected void applyThis(EntityRef ref) {
         //clone trigger?!
         //continuous addTriggerEffect does not make much sense now, does it?
         if (trigger==null){
-            this.trigger = new ExecTrigger(condition, ExecBuilder.getExecutable(execData));
+            this.trigger = new ExecTrigger(condition, executable);
         }
+        // trigger.setAfter(getData().getB("after"));
         trigger.setTargetRef(ref.copy());
         combat().getEventHandler().addTrigger(trigger, eventType);
     }

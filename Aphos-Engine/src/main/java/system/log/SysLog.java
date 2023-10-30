@@ -35,7 +35,7 @@ public class SysLog {
     }
 
     public enum LogChannel implements LogMeta{
-        Main, Values, Gameflow, Error,
+        Main, Values, Gameflow, Error, Build, Combat,
     }
     ////////////////////region STD LOG SHORTCUTS
 

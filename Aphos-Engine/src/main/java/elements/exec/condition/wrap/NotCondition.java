@@ -16,8 +16,8 @@ public class NotCondition implements Condition {
     }
 
     @Override
-    public String[] getArgs() {
-        return condition.getArgs();
+    public String[] getArgNames() {
+        return condition.getArgNames();
     }
 
     @Override

@@ -119,7 +119,7 @@ public class ConditionBuilder {
 
     public ConditionBuilder append(Map args) {
         Condition last = conditions.getLast();
-        for (String arg : last.getArgs()) {
+        for (String arg : last.getArgNames()) {
             last.getData().set(arg, args.get(arg));
         }
         return this;

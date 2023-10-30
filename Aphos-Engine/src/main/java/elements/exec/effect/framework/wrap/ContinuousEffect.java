@@ -9,17 +9,16 @@ import static combat.sub.BattleManager.combat;
 /**
  * Created by Alexander on 8/23/2023
  */
-public class ContinuousEffect extends Effect {
+public class ContinuousEffect extends WrapEffect {
 
-    private final Effect effect;
     private Condition retainCondition;
 
     public ContinuousEffect(Effect effect) {
-        this.effect = effect;
+        this(effect, null);
     }
 
     public ContinuousEffect(Effect effect, Condition retainCondition) {
-        this.effect = effect;
+        super(effect);
         this.retainCondition = retainCondition;
     }
 

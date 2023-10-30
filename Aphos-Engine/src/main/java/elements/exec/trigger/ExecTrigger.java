@@ -4,6 +4,8 @@ import elements.exec.EntityRef;
 import elements.exec.Executable;
 import elements.exec.condition.Condition;
 
+import static combat.sub.BattleManager.combat;
+
 /**
  * Created by Alexander on 8/22/2023
  */
@@ -23,8 +25,9 @@ public class ExecTrigger implements Trigger<EntityRef> {
         // lastRef = new EntityRef(); //may lead to NPE's?
     }
 
-    public void apply(EntityRef arg) {
-        executable.execute(arg);
+    public void apply(EntityRef ref) {
+        combat().getExecutor().executeTrigger(executable,  ref);
+        // executable.execute(ref);
     }
 
     public Condition getCondition() {

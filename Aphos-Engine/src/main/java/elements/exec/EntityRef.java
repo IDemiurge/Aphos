@@ -234,8 +234,8 @@ public class EntityRef {
         return this;
     }
 
-    public void setAction(UnitAction action) {
-        set("action", action);
+    public EntityRef setAction(UnitAction action) {
+        return set("action", action);
     }
 
     public void setDamageType(CombatTypes.DamageType damageType) {

@@ -1,6 +1,7 @@
 package elements.exec.condition;
 
 import elements.exec.EntityRef;
+import elements.exec.build.VarHolder;
 import elements.exec.build.condition.ConditionContext;
 import framework.data.TypeData;
 
@@ -9,7 +10,7 @@ import java.util.function.Supplier;
 /**
  * Created by Alexander on 8/22/2023
  */
-public abstract class ConditionImpl implements Condition {
+public abstract class ConditionImpl implements Condition, VarHolder {
     protected ConditionContext context;
     protected TypeData data;
 
@@ -24,6 +25,16 @@ public abstract class ConditionImpl implements Condition {
             context.init(ref);
         }
         return checkThis(ref);
+    }
+
+    @Override
+    public String[] getArgNames() {
+        return Condition.super.getArgNames();
+    }
+
+    @Override
+    public void set(String key, Object o) {
+        getData().set(key, o);
     }
 
     @Override

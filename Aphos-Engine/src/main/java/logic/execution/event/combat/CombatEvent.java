@@ -1,5 +1,6 @@
 package logic.execution.event.combat;
 
+import elements.content.enums.EnumFinder;
 import elements.exec.EntityRef;
 
 import java.util.Map;
@@ -34,5 +35,9 @@ public class CombatEvent {
 
     public Map getArgMap() {
         return argMap;
+    }
+
+    public static CombatEventType event(Object s) {
+        return EnumFinder.get(CombatEventType.class, s.toString());
     }
 }

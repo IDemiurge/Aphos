@@ -42,6 +42,12 @@ public class Targeting {
         return condition;
     }
 
+    public boolean canSelect(EntityRef ref) {
+        List<FieldEntity> fieldEntities = combat().getEntities().targetFilter(ref, this);
+        if (fieldEntities.isEmpty())
+            return false;
+        return true;
+    }
     public boolean select(EntityRef ref) {
         //if there is only Self - will auto-target (if some option is checked)
         //modify conditions based on data
@@ -115,6 +121,7 @@ public class Targeting {
     public TargetingType getType() {
         return type;
     }
+
 
     public enum TargetingType {
         FIXED, SELECTIVE, ALL, RANDOM,

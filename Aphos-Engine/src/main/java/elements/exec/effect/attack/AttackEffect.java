@@ -22,6 +22,8 @@ import logic.calculation.GradeCalc;
 public abstract class AttackEffect extends Effect {
 
 
+    private Effect onHit;
+
     public abstract void process(CombatTypes.RollGrade grade, EntityRef ref);
 
     @Override
@@ -32,21 +34,36 @@ public abstract class AttackEffect extends Effect {
             int def = target.getDefOrRes(action, ref);
             int die = action.getInt("die");
             int offset = 0;
-            CombatTypes.RollGrade grade=null ;
-            if (data.has("grade")){
+            CombatTypes.RollGrade grade = null;
+            if (getData().has("grade")) {
                 grade = data.getEnum("grade", CombatTypes.RollGrade.class);
             } else
                 grade = GradeCalc.calculateGrade(atk, def, die, offset);
             // ref.getSource().omenUsed();
             // target.omenUsed();
+
+            //TODO CHECK RESULT!
             process(grade, ref);
+            applyOnHitFx(grade, ref);
         });
         // GradeCalcInfo info;
         // still events must be diff for single-attack vs zone-atk!
     }
 
     @Override
+    public void setAdditionalFx(Effect additionalFx) {
+        onHit = additionalFx;
+    }
+
+    private void applyOnHitFx(CombatTypes.RollGrade grade, EntityRef ref) {
+        if (onHit != null) {
+            onHit.setValue("grade", grade.getName());
+            onHit.apply(ref);
+        }
+    }
+
+    @Override
     public String getArgs() {
-        return "grade|";
+        return "value|grade|";
     }
 }

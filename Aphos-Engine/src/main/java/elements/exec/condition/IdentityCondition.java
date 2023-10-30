@@ -18,7 +18,7 @@ public class IdentityCondition extends ConditionImpl {
     }
 
     @Override
-    public String[] getArgs() {
+    public String[] getArgNames() {
         return new String[0];
     }
 

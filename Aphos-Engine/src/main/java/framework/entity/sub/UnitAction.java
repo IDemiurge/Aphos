@@ -1,10 +1,12 @@
 package framework.entity.sub;
 
 import elements.content.enums.types.EntityTypes;
+import elements.exec.EntityRef;
 import elements.exec.Executable;
 import elements.exec.build.ExecBuilder;
 import framework.entity.field.Unit;
 import logic.execution.cost.Cost;
+import logic.execution.cost.CostFactory;
 
 import java.util.Map;
 
@@ -12,22 +14,28 @@ import java.util.Map;
  * Created by Alexander on 8/20/2023
  */
 public class UnitAction extends UnitSubEntity {
+    private final Map<String, Object> varMap;
     private EntityTypes.ActionType type;
-    private Executable executable;
+    private Cost boostCost;
     private Cost cost;
-    // ActiveAbility active;  encapsulate targeting, wrap in props.get(targeting)
-    // Effects boostEffects; //modify, add trigger fx, etc
-    // boostMode //how to apply fx
 
-    public UnitAction(Map<String, Object> valueMap, Unit unit) {
+    public UnitAction(Map<String, Object> valueMap, Map<String, Object> varMap, Unit unit) {
         super(valueMap, unit);
-        executable = ExecBuilder.initExecutable(this);
-        cost = logic.execution.cost.CostFactory.get(valueMap);
+        cost = CostFactory.get(valueMap);
+        this.varMap = varMap;
+
+        if (isBoostable()) {
+            //TODO
+            // boosted = AbilExtensions.boosted(this, executable);
+            // boostCost = CostFactory.getBoost(valueMap);
+        }
     }
 
-    public Executable getExecutable() {
-        return executable;
+    public boolean isBoostable() {
+        //can be other
+        return getType() == EntityTypes.ActionType.Power_Attack;
     }
+
 
     public boolean isSpell() {
         return false;
@@ -38,17 +46,38 @@ public class UnitAction extends UnitSubEntity {
     }
 
     public EntityTypes.ActionType getType() {
-        if (type==null) {
+        if (type == null) {
             type = getEnum("action_type", EntityTypes.ActionType.class);
         }
         return type;
     }
 
     public Cost getCost() {
-        return cost;
+        return getCost(false);
+    }
+    public Cost getCost(boolean boost) {
+        return boost ? boostCost : cost;
+    }
+
+    public Executable getExecutable() {
+        return getExecutable(false);
+    }
+    public Executable getExecutable(boolean boost) {
+        Executable executable = ExecBuilder.initExecutable(this, boost);
+        //are they stateful? Or are we just creating anew to support Var Map changes?
+        return executable;
+    }
+
+    public Map<String, Object> getVarMap() {
+        return varMap;
     }
 
     public void executed() {
         unit.getActionSet().setLastAction(this);
+    }
+
+    @Override
+    public EntityRef ref() {
+        return new EntityRef(unit).setAction(this);
     }
 }

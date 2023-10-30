@@ -1,17 +1,19 @@
 package elements.exec;
 
 import elements.exec.effect.Effect;
+import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.exec.targeting.Targeting;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
 
 public interface Executable {
-    List<Pair<Targeting, Effect>> getTargetedEffects();
+    List<CustomTargetEffect> getTargetedEffects();
 
-    void execute(EntityRef ref);
+    Targeting getTargeting();
 
-    default boolean isMultiExec(){
-        return getTargetedEffects().size() > 1;
+    Effect getEffect();
+
+    default boolean isMultiExec() {
+        return getTargetedEffects() != null ;
     }
 }

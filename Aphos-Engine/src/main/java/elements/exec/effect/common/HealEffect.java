@@ -24,12 +24,11 @@ public class HealEffect extends ValueEffect {
         this.overflowEffect = overflowEffect;
     }
 
-    public void init(){
-        // getData().get
-    }
+    // public void init(){
+    //     // getData().get
+    // }
     @Override
     protected void applyThis(EntityRef ref) {
-        super.applyThis(ref);
         // int overflow = HealRule.heal(ref, param, valueFormula);
         // if (overflow>0 && overflowEffect!=null){
         //     overflowEffect.setValue("value", overflow);
