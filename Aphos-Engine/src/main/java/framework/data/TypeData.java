@@ -54,6 +54,8 @@ public class TypeData {
     }
 
     protected Object initValue(String key, Object o) {
+        if (o == null)
+            return null;
         Object val = getRawValue(o);
 
         String string = o.toString();

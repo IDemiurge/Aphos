@@ -82,7 +82,8 @@ public class EntityData extends TypeData {
 
     protected Object initValue(String key, Object o) {
         Object val = super.initValue(key, o);
-        setBase(key, val);
+        if (val!=null)
+            setBase(key, val);
         return val;
     }
 

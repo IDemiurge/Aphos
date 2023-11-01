@@ -1,6 +1,6 @@
 package elements.exec.effect.attack;
 
-import elements.content.enums.types.CombatTypes;
+import elements.content.enums.types.CombatTypes.RollGrade;
 import elements.exec.EntityRef;
 import elements.exec.effect.Effect;
 import framework.entity.sub.UnitAction;
@@ -24,7 +24,7 @@ public abstract class AttackEffect extends Effect {
 
     private Effect onHit;
 
-    public abstract void process(CombatTypes.RollGrade grade, EntityRef ref);
+    public abstract void process(RollGrade grade, EntityRef ref);
 
     @Override
     protected void applyThis(EntityRef ref) {
@@ -34,11 +34,13 @@ public abstract class AttackEffect extends Effect {
             int def = target.getDefOrRes(action, ref);
             int die = action.getInt("die");
             int offset = 0;
-            CombatTypes.RollGrade grade = null;
+            RollGrade grade = system.utils.TestUtils.getFix("grade", RollGrade.class);
+            if (grade==null){
             if (getData().has("grade")) {
-                grade = data.getEnum("grade", CombatTypes.RollGrade.class);
+                grade = data.getEnum("grade", RollGrade.class);
             } else
                 grade = GradeCalc.calculateGrade(atk, def, die, offset);
+            }
             // ref.getSource().omenUsed();
             // target.omenUsed();
 
@@ -55,7 +57,7 @@ public abstract class AttackEffect extends Effect {
         onHit = additionalFx;
     }
 
-    private void applyOnHitFx(CombatTypes.RollGrade grade, EntityRef ref) {
+    private void applyOnHitFx(RollGrade grade, EntityRef ref) {
         if (onHit != null) {
             onHit.setValue("grade", grade.getName());
             onHit.apply(ref);

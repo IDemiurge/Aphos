@@ -2,8 +2,6 @@ package framework.entity.sub;
 
 import elements.content.enums.types.EntityTypes;
 import elements.exec.EntityRef;
-import elements.exec.Executable;
-import elements.exec.build.ExecBuilder;
 import framework.entity.field.Unit;
 import logic.execution.cost.Cost;
 import logic.execution.cost.CostFactory;
@@ -13,16 +11,14 @@ import java.util.Map;
 /**
  * Created by Alexander on 8/20/2023
  */
-public class UnitAction extends UnitSubEntity {
-    private final Map<String, Object> varMap;
+public class UnitAction extends ExecEntity {
     private EntityTypes.ActionType type;
     private Cost boostCost;
     private Cost cost;
 
     public UnitAction(Map<String, Object> valueMap, Map<String, Object> varMap, Unit unit) {
-        super(valueMap, unit);
+        super(valueMap, varMap, unit);
         cost = CostFactory.get(valueMap);
-        this.varMap = varMap;
 
         if (isBoostable()) {
             //TODO
@@ -32,10 +28,9 @@ public class UnitAction extends UnitSubEntity {
     }
 
     public boolean isBoostable() {
-        //can be other
+        //TODO can be other
         return getType() == EntityTypes.ActionType.Power_Attack;
     }
-
 
     public boolean isSpell() {
         return false;
@@ -57,19 +52,6 @@ public class UnitAction extends UnitSubEntity {
     }
     public Cost getCost(boolean boost) {
         return boost ? boostCost : cost;
-    }
-
-    public Executable getExecutable() {
-        return getExecutable(false);
-    }
-    public Executable getExecutable(boolean boost) {
-        Executable executable = ExecBuilder.initExecutable(this, boost);
-        //are they stateful? Or are we just creating anew to support Var Map changes?
-        return executable;
-    }
-
-    public Map<String, Object> getVarMap() {
-        return varMap;
     }
 
     public void executed() {

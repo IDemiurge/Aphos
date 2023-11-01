@@ -31,7 +31,7 @@ public class YamlBuilder {
     public void buildYamlFiles() {
         buildYamlFile("units", "Unit", "Faction", false);
         buildYamlFile("actions", "Action", "Faction", true);
-        // buildYamlFile("passives", "Passive", "Faction", true);
+        buildYamlFile("passives", "Passive", "Faction", true);
         buildYamlFile("party", "Party", "Faction", true);
         //PERKS can really just be an ENUM !
     }
@@ -86,6 +86,7 @@ public class YamlBuilder {
                     for (Object value : valueKeySet) { //why not just get()?
                         if (value.toString().equals(ActionProp.Exec_data.getName())) {
                             try {
+                                //are we still parsing it all on init()? just save data!
                                 String execKey = parseExec(name, typeMap.get(value), execType);
                                 typeMap.put(value, execKey); //what is the point?
                             } catch (Exception e) {
@@ -116,21 +117,21 @@ public class YamlBuilder {
     }
 
     private String parseExec(String typeName, Object o, boolean execType) {
-        if (!execType) {
+        // if (!execType) {
             ExecBuilder.setExecData(typeName, o);
             return typeName;
-        }
-        Executable exec = ExecBuilder.build(o);
-
-        StringBuilder execKey = new StringBuilder(typeName);
-        Map args = getMap(o, "args");
-        if (args != null) {
-            for (Object key : args.keySet()) {
-                execKey.append("_").append(key).append("=").append(args.get(key));
-            }
-        }
-        ExecBuilder.addExec(execKey.toString(), exec);
-        return execKey.toString();
+        // }
+        // Executable exec = ExecBuilder.build(o);
+        //
+        // StringBuilder execKey = new StringBuilder(typeName);
+        // Map args = getMap(o, "args");
+        // if (args != null) {
+        //     for (Object key : args.keySet()) {
+        //         execKey.append("_").append(key).append("=").append(args.get(key));
+        //     }
+        // }
+        // ExecBuilder.addExec(execKey.toString(), exec);
+        // return execKey.toString();
     }
 
 

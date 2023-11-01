@@ -1,21 +1,20 @@
 Exec: # These are ONLY for anchors!
-#  - Hit_Adj_On_Miss:
-#      exec data: &Hit_Adj_On_Miss
-#        targeting: self
-#        effect: Trigger
-#        nested:
-#          event: Miss
-#          condition: self_source # use , for multiple templates!
-#          args:
-#            after: true
-#          effect:
-#            targeting:
-#              type: Random
-#              condition: Pos
-#            effect: DamageAttackEffect
-#            args:
-#              grade: Hit
-#              adj: up,down
+  - Hit_Adj_On_Miss:
+      exec data: &Hit_Adj_On_Miss
+        targeting: self
+        effect: Trigger
+        nested:
+          event: Miss
+          condition: self_source # use , for multiple templates!
+          args:
+            after: true
+          effect:
+            targeting:
+              type: Random
+              condition: Pos
+              args:
+                adj: up,down
+            effect: DamageAttackEffect
   - For_Each_Adjacent:
       exec data: &For_Each_Adjacent
         targeting:
@@ -33,6 +32,10 @@ Temple:
   - Formation:
       exec data:
         <<: *For_Each_Adjacent
+        vars:
+          value: 1
+          value$2: 1
+          value_name: defense_all
         effect:
           - effect:
               effect: EndOfRound
@@ -47,8 +50,8 @@ Temple:
                 value: 1
 
 Sylvans:
-#  - Clumsy:
-#      exec data:
-#        <<: *Hit_Adj_On_Miss
-#        args:
-#          grade: Graze
+  - Clumsy:
+      exec data:
+        <<: *Hit_Adj_On_Miss
+        vars:
+          grade: Graze

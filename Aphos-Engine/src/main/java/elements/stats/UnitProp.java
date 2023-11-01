@@ -10,6 +10,10 @@ public enum UnitProp implements Stat {
     Waiting(true), Active(true),FinishedTurn(true),
     Dead(true), Death_Door(true),
     Wound_Body(true),Wound_Head(true),Wound_Limbs(true),
+    //ap regen mod?
+    Mind_Restore_Blocked, //apply dynamically while wound is there
+
+
     Summoned(true),
     //containers
     Wards, Immune, Vulnerable,

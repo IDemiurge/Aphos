@@ -6,7 +6,7 @@ import elements.exec.effect.Effect;
 import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.stats.ActionProp;
 import framework.data.yaml.EffectYmlBuilder;
-import framework.entity.sub.UnitAction;
+import framework.entity.sub.ExecEntity;
 import system.datatypes.LinkedStringMap;
 
 import java.util.Map;
@@ -30,14 +30,18 @@ public class ExecBuilder {
     //so could this be useful outside of Actions? Maybe not as per GAME needs, but TEST?
     //well, now most of these EXECS will not be self-sufficient without VARS, eh?!
     public static Executable getExecutable(String execKey) {
+        if (execMap.containsKey(execKey))
         return execMap.get(execKey);
+        //so testing execs outside pas/act is hard now, eh?
+        //TODO
+        return null;
     }
 
     public static void addExec(String execKey, Executable exec) {
         execMap.put(execKey, exec);
     }
 
-    public static Executable initExecutable(UnitAction unitAction, boolean boost) {
+    public static Executable initExecutable(ExecEntity unitAction, boolean boost) {
         String execKey = unitAction.get(boost? ActionProp.Exec_data_boost : ActionProp.Exec_data).toString();
         // if (execKey.isEmpty())
         //     execKey = unitAction.getName();

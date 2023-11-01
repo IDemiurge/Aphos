@@ -14,6 +14,7 @@ import framework.entity.field.FieldOmen;
 import framework.entity.field.HeroUnit;
 import framework.entity.field.Unit;
 import framework.entity.sub.UnitAction;
+import framework.entity.sub.UnitPassive;
 import logic.execution.event.combat.CombatEventType;
 import system.consts.StatUtils;
 
@@ -38,6 +39,7 @@ public class BattleEntities extends BattleHandler {
         entityMaps.put(Unit.class, new HashMap<>());
         entityMaps.put(HeroUnit.class, new HashMap<>());
         entityMaps.put(UnitAction.class, new HashMap<>());
+        entityMaps.put(UnitPassive.class, new HashMap<>());
         entityMaps.put(FieldEntity.class, new HashMap<>());
         entityMaps.put(FieldOmen.class, new HashMap<>());
     }

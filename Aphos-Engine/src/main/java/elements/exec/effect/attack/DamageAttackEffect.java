@@ -4,6 +4,7 @@ import elements.content.enums.types.CombatTypes;
 import elements.exec.EntityRef;
 import logic.calculation.damage.DamageCalc;
 import logic.calculation.damage.DamageDealer;
+import logic.execution.event.combat.CombatEventType;
 import system.log.result.DamageCalcResult;
 import system.log.result.DamageResult;
 
@@ -22,6 +23,7 @@ public class DamageAttackEffect extends AttackEffect {
         damageCalc.setValues(data.getInt("value_min"), data.getInt("value_base"), data.getInt("value_max"));
         DamageCalcResult result = damageCalc.calculate(false);
         if (result.isMiss()){
+            combat().event(CombatEventType.Miss, ref);
             // handleMiss();
         }
         DamageResult finalResult = DamageDealer.deal(result);

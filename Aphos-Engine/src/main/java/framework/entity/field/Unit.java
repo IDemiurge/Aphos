@@ -36,12 +36,18 @@ public class Unit extends FieldEntity {
         this.faction = faction;
         initCurrentValues();
         actionSet = ActionInitializer.initActionSet(this);
-        initPerks();
+        passiveSet = new PassiveSet(this);
         initDone();
     }
 
-    private void initPerks() {
-
+    protected void initAndRemoveFromMap(Map<String, Object> valueMap) {
+        initPerks(valueMap);
+    }
+    private void initPerks(Map<String, Object> valueMap) {
+        Object perks = valueMap.remove("Perks");
+        if (perks!=null){
+            //TODO add as plain params?
+        }
     }
 
     private void initCurrentValues() {
@@ -127,4 +133,7 @@ public class Unit extends FieldEntity {
         return getInt(p) > value;
     }
 
+    public PassiveSet getPassives() {
+        return passiveSet;
+    }
 }

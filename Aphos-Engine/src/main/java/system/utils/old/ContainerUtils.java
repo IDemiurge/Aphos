@@ -70,7 +70,7 @@ public class ContainerUtils {
         if (StringMaster.isEmpty(containerString))
             return new String[]{};
         if (!containerString.contains(separator))
-            return new String[]{};
+            return new String[]{containerString};
 
         String[] array = containerString.split(Pattern.quote(separator));
         int n = 0;

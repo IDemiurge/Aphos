@@ -33,11 +33,16 @@ public abstract class Entity {
     //maybe this DATA thingy can be used like ObjType before? Clone units with it?
 
     public Entity(Map<String, Object> valueMap) {
+        initAndRemoveFromMap(valueMap);
         data = new EntityData(valueMap);
         this.name = data.getS(Property.Name).toString();
         data.setName(name);
         //TODO
         id = combat().getEntities().addEntity(this);
+
+    }
+
+    protected void initAndRemoveFromMap(Map<String, Object> valueMap) {
 
     }
 

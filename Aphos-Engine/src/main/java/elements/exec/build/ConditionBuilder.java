@@ -83,7 +83,7 @@ public class ConditionBuilder {
             case POS_CHECK -> builder.pos();
             case TARGET -> builder.target();
             case SELF -> builder.self();
-            case SELF_IDENTITY_CHECK -> builder.identity("source");
+            case SELF_SOURCE -> builder.identity("source");
             case IDENTITY_CHECK -> builder.identity(args);
             case SELF_VALUE_CHECK -> builder.value(args).self(); //"targeted condition?"
             //can we add data later?

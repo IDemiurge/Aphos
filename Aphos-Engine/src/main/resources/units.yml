@@ -56,10 +56,12 @@ Temple:
       Energy Block: 1
       Vulnerable: Psychic
       Wards: Splash
-      Passives: Patience 2
+      Passives:
       Standard Attack: Sword Swing
       Defense Action: Brace
       Pure: true
+      Perks:
+        Patience: 2
   - Crossbowman:
         Health: 7
         Armor: 4
@@ -76,7 +78,7 @@ Temple:
         Energy Block: 1
         Vulnerable: Psychic
         Wards: Splash
-        Passives: Patience 2
+        Passives:
         Standard Attack: Sword Swing
         Defense Action: Brace
         Pure: true

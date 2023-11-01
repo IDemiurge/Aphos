@@ -8,7 +8,7 @@ public enum ConditionTemplate {
     SELF,
     ENEMY,
     SELF_VALUE_CHECK,
-    SELF_IDENTITY_CHECK,
+    SELF_SOURCE,
     IDENTITY_CHECK,
     POS_CHECK,
     UNTIL_ATTACK_OR_FALL

@@ -10,6 +10,7 @@ import elements.exec.targeting.TargetGroup;
 import framework.client.user.UserEventHandler;
 import framework.entity.field.FieldEntity;
 import framework.entity.sub.UnitAction;
+import framework.entity.sub.UnitPassive;
 import logic.execution.event.user.UserEventType;
 import system.log.result.EffectResult;
 
@@ -25,25 +26,27 @@ public class ActionExecutor extends BattleHandler {
         UserEventHandler.bind(UserEventType.activate_action, p ->
                 activate(manager.getEntities().getEntityById(p.getInt("action"), UnitAction.class)));
     }
+//TODO MOVE!
 
+//     public boolean canActivate(UnitAction action) {
+//         //sometimes this would be part of target filtering?!
+//         //will we have actions that will cost, say, % of target's HP or so?
+//         if (action.getCost().canPay(action.ref()) != null)
+//             return false;
+//         return true;
+//     }
+//     public boolean canBoost(UnitAction action) {
+//         if (action.isBoostable()) {
+//             if (action.getCost(true).canPay(action.ref()) != null)
+//                 return false;
+//             return true;
+//         }
+//         return false;
+//     }
 
-    public boolean canActivate(UnitAction action) {
-        //sometimes this would be part of target filtering?!
-        //will we have actions that will cost, say, % of target's HP or so?
-        if (action.getCost().canPay(action.ref()) != null)
-            return false;
-        return true;
+    public void passiveApplies(UnitPassive unitPassive, Executable exec) {
+        execute(unitPassive.ref(), exec);
     }
-
-    public boolean canBoost(UnitAction action) {
-        if (action.isBoostable()) {
-            if (action.getCost(true).canPay(action.ref()) != null)
-                return false;
-            return true;
-        }
-        return false;
-    }
-
     public void activate(UnitAction action) {
         activate(action, false);
     }
