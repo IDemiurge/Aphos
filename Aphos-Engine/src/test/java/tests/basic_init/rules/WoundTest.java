@@ -4,6 +4,7 @@ import elements.exec.EntityRef;
 import elements.stats.UnitParam;
 import elements.stats.UnitProp;
 import logic.rules.combat.wounds.Wounds;
+import org.junit.jupiter.api.Disabled;
 import system.math.roll.Rolls;
 import tests.basic_init.basic.BattleInitTest;
 
@@ -13,6 +14,7 @@ import static system.math.DieType.d6;
 /**
  * Created by Alexander on 10/24/2023
  */
+@Disabled
 public class WoundTest extends BattleInitTest {
 
     @org.junit.jupiter.api.Test

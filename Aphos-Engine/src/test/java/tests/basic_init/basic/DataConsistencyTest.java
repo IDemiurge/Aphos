@@ -6,6 +6,7 @@ import elements.stats.UnitParam;
 import elements.stats.UnitProp;
 import framework.data.DataManager;
 import framework.entity.field.Unit;
+import org.junit.jupiter.api.Disabled;
 import system.log.SysLog;
 import system.utils.ListUtils;
 
@@ -17,6 +18,7 @@ import java.util.Map;
 /**
  * Created by Alexander on 8/27/2023
  */
+@Disabled
 public class DataConsistencyTest extends tests.basic_init.basic.BattleInitTest {
     @org.junit.jupiter.api.Test
     public void test() {

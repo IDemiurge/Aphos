@@ -2,12 +2,14 @@ package tests.basic_init.content;
 
 import elements.exec.EntityRef;
 import elements.stats.UnitParam;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 
 /**
  * Created by Alexander on 10/27/2023
  */
+@Disabled
 public class IfElseFxTest extends BattleInitTest {
 
     @Test

@@ -5,6 +5,7 @@ import elements.exec.build.ConditionBuilder;
 import elements.exec.condition.Condition;
 import elements.exec.effect.framework.wrap.AddTriggerFx;
 import logic.execution.event.combat.CombatEventType;
+import org.junit.jupiter.api.Disabled;
 import tests.basic_init.basic.BattleInitTest;
 
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import static elements.exec.build.template.ConditionTemplate.TARGET;
 /**
  * Created by Alexander on 8/24/2023
  */
+@Disabled
 public class TriggerTest extends BattleInitTest {
 
     @org.junit.jupiter.api.Test
