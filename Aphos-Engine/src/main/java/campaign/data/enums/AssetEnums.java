@@ -1,6 +1,6 @@
 package campaign.data.enums;
 
-import apps.prompt.token.Weighted;
+import apps.utils.prompt.token.Weighted;
 
 /**
  * Created by Alexander on 9/2/2023

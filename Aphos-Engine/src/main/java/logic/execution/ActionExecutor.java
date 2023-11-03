@@ -7,11 +7,9 @@ import elements.exec.Executable;
 import elements.exec.effect.Effect;
 import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.exec.targeting.TargetGroup;
-import framework.client.user.UserEventHandler;
 import framework.entity.field.FieldEntity;
 import framework.entity.sub.UnitAction;
 import framework.entity.sub.UnitPassive;
-import logic.execution.event.user.UserEventType;
 import system.log.result.EffectResult;
 
 import static combat.sub.BattleManager.combat;
@@ -23,60 +21,75 @@ public class ActionExecutor extends BattleHandler {
 
     public ActionExecutor(BattleManager manager) {
         super(manager);
-        UserEventHandler.bind(UserEventType.activate_action, p ->
-                activate(manager.getEntities().getEntityById(p.getInt("action"), UnitAction.class)));
+        //this is a very simplistic approach, eh?
+        // UserEventHandler.bind(UserEventType.activate_action, p ->
+        //         activate(manager.getEntities().getEntityById(p.getInt("action"), UnitAction.class)));
     }
-//TODO MOVE!
+    //TODO MOVE!
 
-//     public boolean canActivate(UnitAction action) {
-//         //sometimes this would be part of target filtering?!
-//         //will we have actions that will cost, say, % of target's HP or so?
-//         if (action.getCost().canPay(action.ref()) != null)
-//             return false;
-//         return true;
-//     }
-//     public boolean canBoost(UnitAction action) {
-//         if (action.isBoostable()) {
-//             if (action.getCost(true).canPay(action.ref()) != null)
-//                 return false;
-//             return true;
-//         }
-//         return false;
-//     }
+    //     public boolean canActivate(UnitAction action) {
+    //         //sometimes this would be part of target filtering?!
+    //         //will we have actions that will cost, say, % of target's HP or so?
+    //         if (action.getCost().canPay(action.ref()) != null)
+    //             return false;
+    //         return true;
+    //     }
+    //     public boolean canBoost(UnitAction action) {
+    //         if (action.isBoostable()) {
+    //             if (action.getCost(true).canPay(action.ref()) != null)
+    //                 return false;
+    //             return true;
+    //         }
+    //         return false;
+    //     }
 
     public void passiveApplies(UnitPassive unitPassive, Executable exec) {
         execute(unitPassive.ref(), exec);
     }
+
     public void activate(UnitAction action) {
         activate(action, false);
     }
 
     public void activate(UnitAction action, boolean boosted) {
+        //can't this be triggered also? we should have distinct entry points then!
         EntityRef ref = action.ref();
+        // Packets.create(Packet.ACTION, action.getAndCreatePacketKey(), ref);
+        // Packets.get(action.key());
         execute(ref, action.getExecutable(boosted));
 
         action.getCost(boosted).pay(ref);
         manager.executableActivated(action, ref);
-
-        //triggers visual effect and waits for input
-        //pack all the cost/boost/targeting/fx into 'executable'?
-
-        // action.getCost().pay();
-        //set each action to disabled after a toBase() if can't pay; are there any fringe cases?
-
+        // new ActionPacket()
     }
 
+    //entry point for triggered?!
     public void executeTrigger(Executable executable, EntityRef ref) {
         execute(ref, executable);
     }
 
     private void execute(EntityRef ref, Executable executable) {
+
+        //separate phase?!
         executable.getTargeting().select(ref);
+        //how to combine this logic that must send AND receive with packet wrapping?
+        //at targeting step, what do we want to have in that packet?
+        //=> PRECALC!!!
+
+        //check interrupts
+
+        //here, even if there are some triggers and interrupts, we can precalculate everything because
+        //there is no Input required!
+
+        // HOWEVER - what about multi-executables with selective targeting?
         applyEffects(executable.getEffect(), ref);
         if (executable.getTargetedEffects() != null)
             for (CustomTargetEffect targetedEffect : executable.getTargetedEffects()) {
                 // targetsSet.add(ref.getTarget()); // group too
                 ref.setPrevTarget(ref.getTarget());
+
+                //start new packet?
+                targetedEffect.getTargeting().select(ref);
                 targetedEffect.apply(ref);
             }
     }

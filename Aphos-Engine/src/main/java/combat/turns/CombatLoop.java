@@ -8,6 +8,8 @@ import combat.sub.BattleManager;
  * controls game over etc? STRATEGIC PHASE! is this some kind of separate THREAD?
  */
 public class CombatLoop {
+    RoundPhase phase;
+
     public CombatLoop(BattleManager manager) {
 
     }
@@ -19,7 +21,20 @@ public class CombatLoop {
     public void start() {
         // client().sendEvent();
     }
+    public void nextPhase(){
+        //run thru all handlers at each new phase
+        //register for next() input event? Or via controller?
 
+    }
+
+    public enum RoundPhase {
+        player_strategy,
+        enemy_strategy,
+        player_deployment,
+        enemy_deployment,
+
+
+    }
     /*
     turn order
 

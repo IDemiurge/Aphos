@@ -25,6 +25,10 @@ public abstract class WoundsRule {
         effect = new ContinuousEffect(effect, getRetainCondition());
         effect.apply(ref.copy().setValueInt(excessDamage));
 
+        // effect = getDD_ConditionalEffect(wound);
+        // effect = new ContinuousEffect(effect, new Conditions(new DeathDoorCondition(), getRetainCondition()));
+        effect.apply(ref.copy());
+
         WoundResult result= new WoundResult();
         return result;
     }

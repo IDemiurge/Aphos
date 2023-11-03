@@ -11,10 +11,13 @@ import java.util.Map;
 import static combat.sub.BattleManager.combat;
 
 /**
- * Created by Alexander on 8/21/2023 Qualities are perhaps not part of this class? LARGE for example...
+ * Created by Alexander on 8/21/2023
+ *
+ *
+ *
  */
 public class UnitPassive extends ExecEntity {
-    protected EntityTypes.PassiveType type;
+    protected EntityTypes.PassiveType type; //NOT NEEDED? Only Trigger VS Stats , where stats might be diff CLASS
 
     public UnitPassive(Map<String, Object> valueMap, Map<String, Object> varMap, Unit unit) {
         super(valueMap, varMap, unit);
