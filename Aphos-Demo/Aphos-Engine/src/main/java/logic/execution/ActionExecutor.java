@@ -1,18 +1,18 @@
 package logic.execution;
 
-import combat.BattleHandler;
-import combat.sub.BattleManager;
+import combat.handler.BattleHandler;
+import combat.handler.BattleManager;
 import elements.exec.EntityRef;
 import elements.exec.Executable;
 import elements.exec.effect.Effect;
 import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.exec.targeting.TargetGroup;
-import framework.entity.field.FieldEntity;
-import framework.entity.sub.UnitAction;
-import framework.entity.sub.UnitPassive;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.entity.sub.UnitAction;
+import framework.combat.entity.sub.UnitPassive;
 import system.log.result.EffectResult;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/21/2023

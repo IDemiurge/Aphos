@@ -1,7 +1,7 @@
 package logic.rules.combat.wounds;
 
 import elements.exec.EntityRef;
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 import system.log.result.WoundResult;
 
 /**

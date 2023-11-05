@@ -1,6 +1,6 @@
 package elements.exec.effect.framework.wrap;
 
-import elements.content.enums.EnumFinder;
+import system.utils.EnumFinder;
 import elements.exec.EntityRef;
 import elements.exec.Executable;
 import elements.exec.build.ExecBuilder;
@@ -10,7 +10,7 @@ import elements.exec.trigger.ExecTrigger;
 import framework.data.TypeData;
 import logic.execution.event.combat.CombatEventType;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/24/2023

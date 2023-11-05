@@ -5,12 +5,12 @@ import elements.exec.condition.Condition;
 import elements.exec.condition.value.PropCondition;
 import elements.exec.effect.Effect;
 import elements.exec.effect.framework.wrap.ContinuousEffect;
-import elements.stats.UnitProp;
-import framework.entity.Entity;
+import elements.content.enums.stats.unit.UnitProp;
+import framework.combat.entity.Entity;
 import logic.rules.combat.wounds.content.Wound;
 import system.log.result.WoundResult;
-import system.math.DieType;
-import system.math.roll.Rolls;
+import framework.math.DieType;
+import framework.math.roll.Rolls;
 
 /**
  * Created by Alexander on 8/22/2023

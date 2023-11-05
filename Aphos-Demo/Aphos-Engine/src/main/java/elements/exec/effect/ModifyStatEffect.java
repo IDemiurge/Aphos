@@ -1,7 +1,7 @@
 package elements.exec.effect;
 
 import elements.exec.EntityRef;
-import framework.entity.Entity;
+import framework.combat.entity.Entity;
 
 /**
  * Created by Alexander on 8/23/2023

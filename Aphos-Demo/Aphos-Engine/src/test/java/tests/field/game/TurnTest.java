@@ -1,15 +1,14 @@
 package tests.field.game;
 
 import framework.data.DataManager;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 
 import java.util.Map;
 
-import static campaign.run.battle.BattleBuilder.*;
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/26/2023

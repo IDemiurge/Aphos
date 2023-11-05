@@ -1,7 +1,7 @@
 package combat.turns;
 
-import combat.init.BattleSetup;
-import combat.sub.BattleManager;
+import combat.handler.init.BattleSetup;
+import combat.handler.BattleManager;
 
 /**
  * Created by Alexander on 10/21/2023

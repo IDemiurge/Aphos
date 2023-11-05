@@ -1,7 +1,7 @@
 package elements.exec.condition;
 
 import elements.exec.EntityRef;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 
 /**
  * Created by Alexander on 10/27/2023

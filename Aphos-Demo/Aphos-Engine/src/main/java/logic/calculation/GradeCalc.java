@@ -1,9 +1,9 @@
 package logic.calculation;
 
 import elements.content.enums.types.CombatTypes;
-import elements.stats.sub.OmenRollFx;
+import elements.content.enums.entity.omen.OmenRollFx;
 import logic.calculation.grade_rolls.RollData;
-import system.math.roll.Rolls;
+import framework.math.roll.Rolls;
 import utils.collection.MathUtils;
 
 /**

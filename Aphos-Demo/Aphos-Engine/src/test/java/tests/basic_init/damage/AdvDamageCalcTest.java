@@ -3,7 +3,7 @@ package tests.basic_init.damage;
 import elements.content.enums.types.CombatTypes.DamageType;
 import elements.exec.EntityRef;
 import elements.exec.effect.DamageEffect;
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 import tests.basic_init.basic.BattleInitTest;
 
 /**

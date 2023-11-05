@@ -1,6 +1,6 @@
 package combat.turns;
 
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 
 import java.util.List;
 

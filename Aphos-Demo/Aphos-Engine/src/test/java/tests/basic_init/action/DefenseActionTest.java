@@ -1,10 +1,10 @@
 package tests.basic_init.action;
 
-import framework.entity.field.Unit;
-import framework.entity.sub.UnitAction;
+import framework.combat.entity.field.Unit;
+import framework.combat.entity.sub.UnitAction;
 import tests.basic_init.basic.BattleInitTest;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/22/2023

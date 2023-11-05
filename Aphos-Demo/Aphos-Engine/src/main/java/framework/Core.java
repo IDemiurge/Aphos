@@ -1,6 +1,6 @@
 package framework;
 
-import elements.content.enums.EnumFinder;
+import system.utils.EnumFinder;
 
 /**
  * Created by Alexander on 8/23/2023

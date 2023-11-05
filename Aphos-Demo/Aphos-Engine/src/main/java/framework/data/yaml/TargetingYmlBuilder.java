@@ -1,6 +1,6 @@
 package framework.data.yaml;
 
-import elements.content.enums.EnumFinder;
+import system.utils.EnumFinder;
 import elements.exec.build.ConditionBuilder;
 import elements.exec.build.template.ConditionTemplate;
 import elements.exec.build.template.TargetingTemplate;

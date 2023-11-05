@@ -2,7 +2,7 @@ package elements.exec.effect.counter;
 
 import elements.exec.EntityRef;
 import elements.exec.effect.framework.ValueEffect;
-import elements.stats.Counter;
+import elements.content.enums.entity.unit.Counter;
 import logic.rules.combat.CounterRule;
 
 /**

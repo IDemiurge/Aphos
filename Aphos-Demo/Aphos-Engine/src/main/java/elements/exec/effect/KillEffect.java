@@ -2,7 +2,7 @@ package elements.exec.effect;
 
 import elements.exec.EntityRef;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 10/19/2023

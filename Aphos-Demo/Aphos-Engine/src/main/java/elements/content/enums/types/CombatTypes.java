@@ -1,6 +1,6 @@
 package elements.content.enums.types;
 
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 
 /**
  * Created by Alexander on 6/10/2023

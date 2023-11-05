@@ -1,11 +1,11 @@
 package combat.turns;
 
 import apps.server.internal.InputKey;
-import combat.BattleHandler;
-import combat.sub.BattleManager;
-import elements.stats.UnitParam;
-import elements.stats.UnitProp;
-import framework.entity.field.Unit;
+import combat.handler.BattleHandler;
+import combat.handler.BattleManager;
+import elements.content.enums.stats.unit.UnitParam;
+import elements.content.enums.stats.unit.UnitProp;
+import framework.combat.entity.field.Unit;
 
 import java.util.*;
 import java.util.stream.Collectors;

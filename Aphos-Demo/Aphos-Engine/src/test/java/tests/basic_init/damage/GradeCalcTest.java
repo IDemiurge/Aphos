@@ -2,7 +2,7 @@ package tests.basic_init.damage;
 
 import elements.content.enums.types.CombatTypes;
 import framework.AphosTest;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 import logic.calculation.GradeCalc;
 import utils.old.MapMaster;
 

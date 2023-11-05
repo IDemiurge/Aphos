@@ -1,13 +1,13 @@
 package tests.field;
 
-import elements.content.enums.FieldConsts.Cell;
+import framework.combat.field.FieldConsts.Cell;
 import elements.exec.EntityRef;
 import elements.exec.targeting.Targeting;
 import elements.exec.targeting.area.CellSets;
 import elements.exec.targeting.area.MeleeTargeter;
-import framework.entity.field.FieldEntity;
-import framework.entity.sub.UnitAction;
-import framework.field.Transformer;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.entity.sub.UnitAction;
+import framework.combat.field.Transformer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import system.log.SysLog;
@@ -16,7 +16,7 @@ import tests.basic_init.basic.BattleInitTest;
 
 import java.util.*;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 10/19/2023 Substitute diff targeting for unit's attack? targeting should at first return us

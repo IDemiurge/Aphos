@@ -3,12 +3,12 @@ package logic.rules.combat.wounds;
 import elements.exec.EntityRef;
 import elements.exec.effect.Effect;
 import elements.exec.effect.ModifyStatEffect;
-import elements.stats.UnitParam;
-import elements.stats.UnitProp;
+import elements.content.enums.stats.unit.UnitParam;
+import elements.content.enums.stats.unit.UnitProp;
 import logic.rules.combat.wounds.content.BodyWound;
 import logic.rules.combat.wounds.content.Wound;
 import system.log.result.WoundResult;
-import system.math.DieType;
+import framework.math.DieType;
 
 /**
  * Created by Alexander on 8/22/2023

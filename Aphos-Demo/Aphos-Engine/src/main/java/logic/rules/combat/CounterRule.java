@@ -1,9 +1,9 @@
 package logic.rules.combat;
 
-import elements.stats.Counter;
-import elements.stats.UnitParam;
+import elements.content.enums.entity.unit.Counter;
+import elements.content.enums.stats.unit.UnitParam;
 import framework.data.DataManager;
-import framework.entity.field.FieldEntity;
+import framework.combat.entity.field.FieldEntity;
 import system.consts.StatUtils;
 import datatypes.LinkedStringMap;
 

@@ -2,10 +2,10 @@ package tests.basic_init.basic;
 
 import elements.exec.Executable;
 import elements.exec.build.ExecBuilder;
-import elements.stats.UnitParam;
-import elements.stats.UnitProp;
+import elements.content.enums.stats.unit.UnitParam;
+import elements.content.enums.stats.unit.UnitProp;
 import framework.data.DataManager;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 import org.junit.jupiter.api.Disabled;
 import system.log.SysLog;
 import utils.collection.ListUtils;

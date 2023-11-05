@@ -1,7 +1,7 @@
 package combat.turns;
 
-import combat.init.BattleSetup;
-import combat.sub.skirmish.BattleTypeData;
+import combat.handler.init.BattleSetup;
+import combat.handler.sub.BattleTypeData;
 
 import java.util.Map;
 

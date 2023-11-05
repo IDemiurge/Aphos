@@ -1,14 +1,14 @@
 package tests.field;
 
-import framework.entity.field.Unit;
-import framework.field.FieldPos;
+import framework.combat.entity.field.Unit;
+import framework.combat.field.FieldPos;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 
 import java.util.Set;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/22/2023

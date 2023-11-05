@@ -4,7 +4,7 @@ import elements.exec.EntityRef;
 import elements.exec.Executable;
 import elements.exec.condition.Condition;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/22/2023

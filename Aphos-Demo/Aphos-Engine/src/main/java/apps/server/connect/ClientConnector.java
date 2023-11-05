@@ -1,7 +1,7 @@
 package apps.server.connect;
 
 import apps.SHARED.UserEventBuilder;
-import framework.entity.field.FieldEntity;
+import framework.combat.entity.field.FieldEntity;
 import logic.execution.event.LogicEvent;
 import logic.execution.event.user.UserEvent;
 import logic.execution.event.user.UserEventType;
@@ -10,7 +10,7 @@ import utils.threading.WaitMaster;
 import java.util.ArrayList;
 import java.util.List;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/22/2023

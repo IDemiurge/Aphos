@@ -1,6 +1,6 @@
 package logic.execution.event.combat;
 
-import elements.content.enums.EnumFinder;
+import system.utils.EnumFinder;
 import elements.exec.EntityRef;
 
 import java.util.Map;

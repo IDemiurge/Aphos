@@ -6,13 +6,13 @@ package elements.exec.targeting;
 import elements.exec.EntityRef;
 import elements.exec.condition.Condition;
 import framework.data.TypeData;
-import framework.entity.field.FieldEntity;
+import framework.combat.entity.field.FieldEntity;
 import system.KotlinUtils;
 import utils.collection.ListUtils;
 
 import java.util.List;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 6/11/2023 Special rules will be for Flank-to-Flank etc * or should these all be aggregated

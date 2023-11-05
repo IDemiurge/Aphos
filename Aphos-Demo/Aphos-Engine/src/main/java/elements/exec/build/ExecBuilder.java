@@ -4,9 +4,9 @@ import elements.exec.Ability;
 import elements.exec.Executable;
 import elements.exec.effect.Effect;
 import elements.exec.effect.framework.wrap.CustomTargetEffect;
-import elements.stats.ActionProp;
+import elements.content.enums.stats.action.ActionProp;
 import framework.data.yaml.EffectYmlBuilder;
-import framework.entity.sub.ExecEntity;
+import framework.combat.entity.sub.ExecEntity;
 import datatypes.LinkedStringMap;
 
 import java.util.Map;

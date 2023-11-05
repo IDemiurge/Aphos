@@ -2,7 +2,7 @@ package elements.exec.condition.value;
 
 import elements.exec.EntityRef;
 import elements.exec.condition.ConditionImpl;
-import elements.stats.generic.Stat;
+import elements.content.enums.stats.generic.Stat;
 
 /**
  * Created by Alexander on 10/24/2023

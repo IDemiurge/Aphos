@@ -3,7 +3,7 @@ package elements.exec.condition;
 import elements.exec.EntityRef;
 import elements.exec.build.condition.ConditionContext;
 import framework.data.TypeData;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 
 import java.util.function.Supplier;
 

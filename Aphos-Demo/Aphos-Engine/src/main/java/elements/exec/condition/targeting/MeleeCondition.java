@@ -1,10 +1,10 @@
 package elements.exec.condition.targeting;
 
-import elements.content.enums.FieldConsts;
+import framework.combat.field.FieldConsts;
 import elements.exec.EntityRef;
 import elements.exec.condition.Condition;
 import elements.exec.targeting.area.MeleeTargeter;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 
 /**
  * Created by Alexander on 10/20/2023

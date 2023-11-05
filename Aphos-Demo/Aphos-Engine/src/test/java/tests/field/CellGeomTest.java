@@ -1,8 +1,8 @@
 package tests.field;
 
-import elements.content.enums.FieldConsts;
+import framework.combat.field.FieldConsts;
 import framework.AphosTest;
-import framework.field.FieldGeometry;
+import framework.combat.field.FieldGeometry;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

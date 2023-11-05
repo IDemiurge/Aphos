@@ -1,6 +1,6 @@
 package elements.exec.build;
 
-import elements.content.enums.EnumFinder;
+import system.utils.EnumFinder;
 import elements.exec.EntityRef;
 import elements.exec.build.condition.AdvancedContext;
 import elements.exec.build.condition.ConditionContext;

@@ -2,14 +2,14 @@ package elements.exec.targeting.area;
 
 import elements.exec.condition.Condition;
 import elements.exec.condition.targeting.MeleeCondition;
-import framework.field.FieldAnalyzer;
-import framework.field.FieldGeometry;
+import framework.combat.field.FieldAnalyzer;
+import framework.combat.field.FieldGeometry;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static elements.content.enums.FieldConsts.Cell;
+import static framework.combat.field.FieldConsts.Cell;
 
 /**
  * Created by Alexander on 8/23/2023

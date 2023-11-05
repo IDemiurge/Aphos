@@ -1,6 +1,6 @@
 package tests.basic_init.action;
 
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 

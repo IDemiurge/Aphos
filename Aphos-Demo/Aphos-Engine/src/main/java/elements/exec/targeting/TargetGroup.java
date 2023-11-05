@@ -1,14 +1,14 @@
 package elements.exec.targeting;
 
-import framework.entity.field.FieldEntity;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.entity.field.Unit;
 import utils.old.NumberUtils;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/22/2023

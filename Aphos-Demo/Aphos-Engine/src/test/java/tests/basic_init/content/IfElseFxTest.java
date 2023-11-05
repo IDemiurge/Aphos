@@ -1,7 +1,7 @@
 package tests.basic_init.content;
 
 import elements.exec.EntityRef;
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;

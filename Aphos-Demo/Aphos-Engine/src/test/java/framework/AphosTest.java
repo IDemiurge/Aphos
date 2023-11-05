@@ -1,9 +1,9 @@
 package framework;
 
-import elements.stats.UnitParam;
-import elements.stats.UnitProp;
+import elements.content.enums.stats.unit.UnitParam;
+import elements.content.enums.stats.unit.UnitProp;
 import framework.data.yaml.YamlBuilder;
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 import system.log.SysLog;
 import utils.collection.MathUtils;
 
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiPredicate;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**

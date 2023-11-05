@@ -1,6 +1,6 @@
 package system.consts;
 
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 import utils.collection.MapUtils;
 
 import java.util.Map;

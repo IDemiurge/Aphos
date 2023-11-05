@@ -1,10 +1,10 @@
 package logic.rules.combat;
 
 import elements.exec.EntityRef;
-import elements.stats.Counter;
-import elements.stats.UnitProp;
-import framework.entity.field.FieldEntity;
-import framework.entity.field.Unit;
+import elements.content.enums.entity.unit.Counter;
+import elements.content.enums.stats.unit.UnitProp;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.entity.field.Unit;
 import system.log.SysLog;
 
 import static elements.content.enums.types.CombatTypes.DamageType;

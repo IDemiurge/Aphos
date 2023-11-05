@@ -3,7 +3,7 @@ package elements.exec.effect.common;
 import elements.exec.EntityRef;
 import elements.exec.effect.Effect;
 import elements.exec.effect.framework.ValueEffect;
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 
 /**
  * Created by Alexander on 10/28/2023

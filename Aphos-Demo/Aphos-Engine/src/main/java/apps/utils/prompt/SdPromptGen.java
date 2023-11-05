@@ -3,7 +3,7 @@ package apps.utils.prompt;
 import apps.utils.prompt.data.PromptDataManager;
 import apps.utils.prompt.enums.PromptEnums;
 import apps.utils.prompt.token.TokenMixer;
-import campaign.data.enums.AssetEnums;
+import module.campaign.data.enums.AssetEnums;
 import utils.old.swing.DialogMaster;
 import utils.old.swing.EnumChooser;
 

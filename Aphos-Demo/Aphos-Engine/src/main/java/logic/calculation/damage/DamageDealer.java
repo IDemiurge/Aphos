@@ -1,9 +1,9 @@
 package logic.calculation.damage;
 
 import elements.exec.EntityRef;
-import elements.stats.UnitParam;
-import elements.stats.UnitProp;
-import framework.entity.field.FieldEntity;
+import elements.content.enums.stats.unit.UnitParam;
+import elements.content.enums.stats.unit.UnitProp;
+import framework.combat.entity.field.FieldEntity;
 import logic.rules.combat.wounds.Wounds;
 import system.log.result.DamageCalcResult;
 import system.log.result.DamageResult;

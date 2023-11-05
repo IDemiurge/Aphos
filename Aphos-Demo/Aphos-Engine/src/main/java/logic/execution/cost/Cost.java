@@ -1,11 +1,11 @@
 package logic.execution.cost;
 
 import elements.exec.EntityRef;
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 
 import java.util.Map;
 
-import static system.math.Formula.eval;
+import static framework.math.Formula.eval;
 
 /**
  * Created by Alexander on 10/27/2023

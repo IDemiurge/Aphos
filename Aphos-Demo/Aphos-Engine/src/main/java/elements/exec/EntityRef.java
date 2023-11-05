@@ -2,10 +2,10 @@ package elements.exec;
 
 import elements.content.enums.types.CombatTypes;
 import elements.exec.targeting.TargetGroup;
-import framework.entity.Entity;
-import framework.entity.field.FieldEntity;
-import framework.entity.field.Unit;
-import framework.entity.sub.UnitAction;
+import framework.combat.entity.Entity;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.entity.field.Unit;
+import framework.combat.entity.sub.UnitAction;
 import logic.execution.event.IdRef;
 import datatypes.LinkedStringMap;
 import utils.collection.StringUtils;

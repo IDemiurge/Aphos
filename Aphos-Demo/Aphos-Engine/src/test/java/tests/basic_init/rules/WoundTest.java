@@ -1,14 +1,14 @@
 package tests.basic_init.rules;
 
 import elements.exec.EntityRef;
-import elements.stats.UnitParam;
-import elements.stats.UnitProp;
+import elements.content.enums.stats.unit.UnitParam;
+import elements.content.enums.stats.unit.UnitProp;
 import logic.rules.combat.wounds.Wounds;
 import org.junit.jupiter.api.Disabled;
-import system.math.roll.Rolls;
+import framework.math.roll.Rolls;
 import tests.basic_init.basic.BattleInitTest;
 
-import static system.math.DieType.d6;
+import static framework.math.DieType.d6;
 
 
 /**

@@ -3,6 +3,7 @@ package elements.exec.effect;
 import elements.content.enums.types.CombatTypes;
 import elements.exec.EntityRef;
 import elements.exec.effect.framework.ValueEffect;
+import framework.math.Formula;
 import logic.calculation.damage.DamageCalc;
 import logic.calculation.damage.DamageDealer;
 import system.log.result.DamageCalcResult;
@@ -34,7 +35,7 @@ public class DamageEffect extends ValueEffect {
     }
     protected void applyThis(EntityRef ref) {
         //where is it even used without Attack?
-        int amount = system.math.Formula.getInt(valueFormula); //formula.getInt(ref);
+        int amount = Formula.getInt(valueFormula); //formula.getInt(ref);
         ref.setValueInt(amount);
         ref.setDamageType(type);
         DamageCalcResult result = new DamageCalc(ref).calculate(false);

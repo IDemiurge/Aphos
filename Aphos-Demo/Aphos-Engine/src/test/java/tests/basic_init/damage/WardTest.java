@@ -1,8 +1,8 @@
 package tests.basic_init.damage;
 
 import elements.content.enums.types.CombatTypes.DamageType;
-import elements.stats.UnitParam;
-import elements.stats.UnitProp;
+import elements.content.enums.stats.unit.UnitParam;
+import elements.content.enums.stats.unit.UnitProp;
 import logic.rules.combat.WardRule;
 import org.junit.jupiter.api.Disabled;
 import tests.basic_init.basic.BattleInitTest;

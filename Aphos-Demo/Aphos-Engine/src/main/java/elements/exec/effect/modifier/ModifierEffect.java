@@ -7,7 +7,7 @@ import logic.execution.event.combat.CombatEventType;
 
 import java.util.Map;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/25/2023

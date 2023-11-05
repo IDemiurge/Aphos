@@ -2,8 +2,8 @@ package tests.basic_init.rules;
 
 import elements.exec.EntityRef;
 import elements.exec.effect.counter.CounterEffect;
-import elements.stats.Counter;
-import elements.stats.UnitParam;
+import elements.content.enums.entity.unit.Counter;
+import elements.content.enums.stats.unit.UnitParam;
 import tests.basic_init.basic.BattleInitTest;
 
 /**

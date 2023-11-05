@@ -1,11 +1,11 @@
 package logic.calculation.damage;
 
 import elements.exec.EntityRef;
-import elements.stats.ActionParam;
-import elements.stats.UnitParam;
-import framework.entity.field.FieldEntity;
-import framework.entity.field.Unit;
-import framework.entity.sub.UnitAction;
+import elements.content.enums.stats.action.ActionParam;
+import elements.content.enums.stats.unit.UnitParam;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.entity.field.Unit;
+import framework.combat.entity.sub.UnitAction;
 import system.log.result.DamageCalcResult;
 import utils.old.RandomWizard;
 

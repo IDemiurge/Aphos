@@ -1,6 +1,6 @@
 package apps.utils.prompt.enums;
 
-import campaign.data.enums.AssetEnums;
+import module.campaign.data.enums.AssetEnums;
 
 /**
  * Created by Alexander on 9/2/2023

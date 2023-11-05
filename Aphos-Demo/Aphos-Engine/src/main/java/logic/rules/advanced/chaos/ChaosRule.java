@@ -2,8 +2,8 @@ package logic.rules.advanced.chaos;
 
 import elements.content.enums.types.CombatTypes;
 import elements.exec.EntityRef;
-import elements.stats.UnitParam;
-import framework.entity.field.Unit;
+import elements.content.enums.stats.unit.UnitParam;
+import framework.combat.entity.field.Unit;
 import logic.calculation.damage.DamageCalc;
 import logic.calculation.damage.DamageDealer;
 import system.log.result.DamageCalcResult;

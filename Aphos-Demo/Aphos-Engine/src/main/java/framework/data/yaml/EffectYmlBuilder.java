@@ -1,6 +1,6 @@
 package framework.data.yaml;
 
-import elements.content.enums.EnumFinder;
+import system.utils.EnumFinder;
 import elements.exec.build.VarHolder;
 import elements.exec.build.VarTracker;
 import elements.exec.build.template.NestingEffect;

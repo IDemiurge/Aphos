@@ -1,6 +1,6 @@
 package logic.execution.cost;
 
-import elements.stats.UnitParam;
+import elements.content.enums.stats.unit.UnitParam;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

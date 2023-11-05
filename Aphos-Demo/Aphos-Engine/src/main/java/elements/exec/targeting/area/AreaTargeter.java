@@ -1,7 +1,7 @@
 package elements.exec.targeting.area;
 
-import elements.content.enums.FieldConsts;
-import framework.field.FieldPos;
+import framework.combat.field.FieldConsts;
+import framework.combat.field.FieldPos;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

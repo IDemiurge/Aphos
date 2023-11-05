@@ -1,18 +1,18 @@
 package elements.exec.condition;
 
-import elements.content.enums.EnumFinder;
-import elements.content.enums.FieldConsts;
+import system.utils.EnumFinder;
+import framework.combat.field.FieldConsts;
 import elements.exec.EntityRef;
-import framework.entity.Entity;
-import framework.entity.field.FieldEntity;
-import framework.field.FieldPos;
+import framework.combat.entity.Entity;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.field.FieldPos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/26/2023

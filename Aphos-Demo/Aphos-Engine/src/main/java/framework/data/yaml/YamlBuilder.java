@@ -2,7 +2,7 @@ package framework.data.yaml;
 
 import elements.exec.Executable;
 import elements.exec.build.ExecBuilder;
-import elements.stats.ActionProp;
+import elements.content.enums.stats.action.ActionProp;
 import framework.data.DataManager;
 import org.yaml.snakeyaml.Yaml;
 import system.log.SysLog;

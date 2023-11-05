@@ -1,9 +1,9 @@
 package logic.rules.combat.wounds;
 
 import elements.exec.effect.Effect;
-import elements.stats.UnitProp;
+import elements.content.enums.stats.unit.UnitProp;
 import logic.rules.combat.wounds.content.Wound;
-import system.math.DieType;
+import framework.math.DieType;
 
 /**
  * Created by Alexander on 8/21/2023

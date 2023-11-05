@@ -3,7 +3,7 @@ package elements.exec.effect.attack;
 import elements.content.enums.types.CombatTypes.RollGrade;
 import elements.exec.EntityRef;
 import elements.exec.effect.Effect;
-import framework.entity.sub.UnitAction;
+import framework.combat.entity.sub.UnitAction;
 import logic.calculation.GradeCalc;
 
 /**

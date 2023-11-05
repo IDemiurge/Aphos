@@ -1,9 +1,9 @@
 package tests.basic_init.exec;
 
-import framework.entity.field.Unit;
+import framework.combat.entity.field.Unit;
 import tests.basic_init.basic.BattleInitTest;
 
-import static combat.sub.BattleManager.combat;
+import static combat.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/23/2023

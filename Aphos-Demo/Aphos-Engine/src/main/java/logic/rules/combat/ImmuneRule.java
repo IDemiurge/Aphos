@@ -1,9 +1,9 @@
 package logic.rules.combat;
 
 import elements.content.enums.types.CombatTypes;
-import elements.stats.UnitProp;
-import framework.entity.field.FieldEntity;
-import framework.entity.field.Unit;
+import elements.content.enums.stats.unit.UnitProp;
+import framework.combat.entity.field.FieldEntity;
+import framework.combat.entity.field.Unit;
 
 /**
  * Created by Alexander on 10/24/2023

@@ -2,9 +2,9 @@ package combat;
 
 import apps.server.internal.InputKey;
 import async.Async;
-import combat.init.BattleSetup;
-import combat.sub.BattleManager;
-import combat.sub.skirmish.SkirmishManager;
+import combat.handler.init.BattleSetup;
+import combat.handler.BattleManager;
+import combat.handler.sub.skirmish.SkirmishManager;
 import combat.turns.CombatLoop;
 import elements.content.enums.types.MiscTypes;
 import utils.threading.WaitMaster;
