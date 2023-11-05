@@ -25,11 +25,12 @@ sourceSets {
     }
 }
 dependencies {
-    implementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    implementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    implementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
+    implementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")
+    implementation(project(":Aphos-Commons"))
     implementation("org.apache.commons:commons-lang3:3.12.0")
     implementation("org.yaml:snakeyaml:1.8")
-
+    implementation ("com.google.code.gson:gson:2.8.8")
     implementation(kotlin("stdlib-jdk8"))
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.basic_init.action.CostTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-05T14:46:31" hostname="HMS-INTREPID" time="0.039">
+  <properties/>
+  <testcase name="test()" classname="tests.basic_init.action.CostTest" time="0.039"/>
+  <system-out><![CDATA[15:46:31 --- New Round:  0 
+15:46:31 --- Brace :  value  VAR set to  2  for  CustomTargetEffect 
+15:46:31 --- Brace :  value_name  VAR set to  defense_all  for  CustomTargetEffect 
+15:46:31 --- Applying Continuous ModifyStatEffect with VALUE=2, VALUE_NAME=defense_all
+ retainCondition: elements.exec.condition.Conditions@f6c03cb on Soldier id-0 
+15:46:31 --- Applying ModifyStatEffect with VALUE=2, VALUE_NAME=defense_all on Soldier id-0 
+15:46:31 --- Soldier's  defense_min :  2  --->  4 
+15:46:31 --- Soldier's  defense_base :  4  --->  6 
+15:46:31 --- Soldier's  defense_max :  5  --->  7 
+15:46:31 --- Applied ModifyStatEffect with VALUE=2, VALUE_NAME=defense_all on Soldier id-0  
+15:46:31 --- Applied Continuous ModifyStatEffect with VALUE=2, VALUE_NAME=defense_all
+ retainCondition: elements.exec.condition.Conditions@f6c03cb on Soldier id-0  
+15:46:31 --- Soldier's cur  AP :  3  --->  1 
+15:46:31 --- Applying ModifyStatEffect with VALUE=2, VALUE_NAME=defense_all on Soldier id-0 
+15:46:31 --- Applied ModifyStatEffect with VALUE=2, VALUE_NAME=defense_all on Soldier id-0  
+15:46:31 --- Soldier id-0 's  AP  has changed by -2 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

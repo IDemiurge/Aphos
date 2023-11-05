@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.basic_init.damage.GradeCalcTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-05T14:46:31" hostname="HMS-INTREPID" time="0.005">
+  <properties/>
+  <testcase name="test()" classname="tests.basic_init.damage.GradeCalcTest" time="0.005"/>
+  <system-out><![CDATA[Hit(674)
+Miss(17)
+Critical(10)
+Graze(54)
+Feeble Blow(166)
+Fair Blow(79)
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

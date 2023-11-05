@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.basic_init.rules.ChaosTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-05T14:46:31" hostname="HMS-INTREPID" time="0.0">
+  <properties/>
+  <testcase name="test()" classname="tests.basic_init.rules.ChaosTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
