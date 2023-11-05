@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 10/19/2023

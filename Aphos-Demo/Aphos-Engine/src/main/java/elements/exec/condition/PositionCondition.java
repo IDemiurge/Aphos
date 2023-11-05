@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/26/2023

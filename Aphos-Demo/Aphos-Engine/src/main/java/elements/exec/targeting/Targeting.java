@@ -12,7 +12,7 @@ import utils.collection.ListUtils;
 
 import java.util.List;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 6/11/2023 Special rules will be for Flank-to-Flank etc * or should these all be aggregated

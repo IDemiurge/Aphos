@@ -1,7 +1,7 @@
 package logic.execution;
 
-import combat.handler.BattleHandler;
-import combat.handler.BattleManager;
+import battle.handler.BattleHandler;
+import battle.handler.BattleManager;
 import elements.exec.EntityRef;
 import elements.exec.Executable;
 import elements.exec.effect.Effect;
@@ -12,7 +12,7 @@ import framework.combat.entity.sub.UnitAction;
 import framework.combat.entity.sub.UnitPassive;
 import system.log.result.EffectResult;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/21/2023

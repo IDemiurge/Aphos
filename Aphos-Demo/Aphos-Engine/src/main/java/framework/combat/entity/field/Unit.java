@@ -1,6 +1,6 @@
 package framework.combat.entity.field;
 
-import combat.handler.init.ActionInitializer;
+import battle.handler.init.ActionInitializer;
 import framework.combat.entity.sub.ActionSet;
 import framework.combat.entity.sub.OmenStack;
 import framework.combat.field.FieldConsts;

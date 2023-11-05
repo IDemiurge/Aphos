@@ -3,7 +3,7 @@ package tests.basic_init.exec;
 import framework.combat.entity.field.Unit;
 import tests.basic_init.basic.BattleInitTest;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/23/2023

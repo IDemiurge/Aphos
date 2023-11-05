@@ -10,7 +10,7 @@ import elements.exec.trigger.ExecTrigger;
 import framework.data.TypeData;
 import logic.execution.event.combat.CombatEventType;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/24/2023

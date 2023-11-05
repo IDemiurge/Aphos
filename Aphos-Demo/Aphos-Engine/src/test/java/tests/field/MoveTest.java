@@ -8,7 +8,7 @@ import tests.basic_init.basic.BattleInitTest;
 
 import java.util.Set;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/22/2023

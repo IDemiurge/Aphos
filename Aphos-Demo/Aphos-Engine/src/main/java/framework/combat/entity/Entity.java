@@ -8,7 +8,7 @@ import system.consts.MathConsts;
 
 import java.util.Map;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 6/10/2023

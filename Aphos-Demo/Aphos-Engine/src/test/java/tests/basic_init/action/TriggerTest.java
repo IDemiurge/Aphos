@@ -11,7 +11,7 @@ import tests.basic_init.basic.BattleInitTest;
 import java.util.HashMap;
 import java.util.Map;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 import static elements.exec.build.template.ConditionTemplate.IDENTITY_CHECK;
 import static elements.exec.build.template.ConditionTemplate.TARGET;
 

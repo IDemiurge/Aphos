@@ -8,7 +8,7 @@ import logic.execution.event.combat.CombatEventType;
 import system.log.result.DamageCalcResult;
 import system.log.result.DamageResult;
 
-import static combat.handler.BattleManager.combat;
+import static battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/25/2023

@@ -1,7 +1,5 @@
 package apps.utils;
 
-import apps.Consts;
-
 import javax.swing.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
