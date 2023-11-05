@@ -5,7 +5,7 @@ import elements.stats.UnitParam;
 import framework.data.DataManager;
 import framework.entity.field.FieldEntity;
 import system.consts.StatUtils;
-import system.datatypes.LinkedStringMap;
+import datatypes.LinkedStringMap;
 
 import java.util.HashMap;
 import java.util.Map;

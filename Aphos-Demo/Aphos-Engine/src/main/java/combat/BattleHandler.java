@@ -14,7 +14,7 @@ import logic.execution.ActionExecutor;
 import logic.execution.event.combat.CombatEventHandler;
 import logic.execution.event.combat.CombatEventType;
 import async.Async;
-import system.threading.WaitMaster;
+import utils.threading.WaitMaster;
 
 import java.util.function.Consumer;
 

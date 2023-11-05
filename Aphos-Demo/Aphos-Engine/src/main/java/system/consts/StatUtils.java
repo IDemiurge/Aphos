@@ -1,7 +1,7 @@
 package system.consts;
 
 import elements.stats.UnitParam;
-import system.utils.MapUtils;
+import utils.collection.MapUtils;
 
 import java.util.Map;
 

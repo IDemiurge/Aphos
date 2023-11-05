@@ -4,7 +4,7 @@ import elements.content.enums.types.CombatTypes;
 import elements.stats.sub.OmenRollFx;
 import logic.calculation.grade_rolls.RollData;
 import system.math.roll.Rolls;
-import system.utils.MathUtils;
+import utils.collection.MathUtils;
 
 /**
  * Created by Alexander on 8/19/2023

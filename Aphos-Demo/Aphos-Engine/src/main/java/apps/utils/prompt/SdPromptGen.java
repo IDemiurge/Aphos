@@ -4,8 +4,8 @@ import apps.utils.prompt.data.PromptDataManager;
 import apps.utils.prompt.enums.PromptEnums;
 import apps.utils.prompt.token.TokenMixer;
 import campaign.data.enums.AssetEnums;
-import system.utils.swing.DialogMaster;
-import system.utils.swing.EnumChooser;
+import utils.old.swing.DialogMaster;
+import utils.old.swing.EnumChooser;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;

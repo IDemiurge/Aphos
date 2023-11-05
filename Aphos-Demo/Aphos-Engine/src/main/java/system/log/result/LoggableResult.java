@@ -1,7 +1,7 @@
 package system.log.result;
 
-import system.datatypes.LinkedStringMap;
-import system.utils.MapUtils;
+import datatypes.LinkedStringMap;
+import utils.collection.MapUtils;
 
 import java.util.Map;
 

@@ -5,7 +5,7 @@ import elements.stats.UnitProp;
 import framework.data.yaml.YamlBuilder;
 import framework.entity.field.Unit;
 import system.log.SysLog;
-import system.utils.MathUtils;
+import utils.collection.MathUtils;
 
 import java.util.HashMap;
 import java.util.Map;

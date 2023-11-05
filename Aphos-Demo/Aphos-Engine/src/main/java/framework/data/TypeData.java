@@ -4,11 +4,11 @@ import elements.content.enums.EnumFinder;
 import elements.stats.generic.Stat;
 import org.apache.commons.lang3.NotImplementedException;
 import system.consts.StringConsts;
-import system.datatypes.LinkedStringMap;
-import system.utils.ListUtils;
-import system.utils.MapUtils;
-import system.utils.old.NumberUtils;
-import system.utils.old.StringMaster;
+import datatypes.LinkedStringMap;
+import utils.collection.ListUtils;
+import utils.collection.MapUtils;
+import utils.old.NumberUtils;
+import utils.old.StringMaster;
 
 import java.util.*;
 import java.util.function.Function;

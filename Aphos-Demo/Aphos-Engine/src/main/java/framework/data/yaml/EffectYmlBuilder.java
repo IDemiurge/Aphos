@@ -12,7 +12,7 @@ import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.exec.effect.framework.wrap.Effects;
 import elements.exec.targeting.Targeting;
 import system.datatypes.ArgMap;
-import system.utils.MapUtils;
+import utils.collection.MapUtils;
 
 import java.util.List;
 import java.util.Map;

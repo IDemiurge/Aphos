@@ -8,7 +8,7 @@ import elements.exec.condition.Condition;
 import framework.data.TypeData;
 import framework.entity.field.FieldEntity;
 import system.KotlinUtils;
-import system.utils.ListUtils;
+import utils.collection.ListUtils;
 
 import java.util.List;
 

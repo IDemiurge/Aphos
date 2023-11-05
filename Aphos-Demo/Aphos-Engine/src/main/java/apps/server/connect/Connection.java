@@ -2,6 +2,7 @@ package apps.server.connect;
 
 import apps.SHARED.NetworkMessage;
 import com.google.gson.Gson;
+import system.ExceptionMaster;
 
 /**
  * Created by Alexander on 11/4/2023
@@ -24,7 +25,7 @@ public class Connection {
             queueResponse(data.type, key);
             process(data.type, data.body);
         } catch (Exception e) {
-            system.ExceptionMaster.printStackTrace(e);
+            ExceptionMaster.printStackTrace(e);
         } finally {
             sendResponse(data.type, key);
         }

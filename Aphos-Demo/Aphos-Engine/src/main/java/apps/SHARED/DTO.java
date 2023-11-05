@@ -1,6 +1,6 @@
 package apps.SHARED;
 
-import system.datatypes.LinkedStringMap;
+import datatypes.LinkedStringMap;
 
 import java.util.Map;
 

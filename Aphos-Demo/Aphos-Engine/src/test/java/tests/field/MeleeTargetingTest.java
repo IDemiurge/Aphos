@@ -11,7 +11,7 @@ import framework.field.Transformer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import system.log.SysLog;
-import system.utils.ListUtils;
+import utils.collection.ListUtils;
 import tests.basic_init.basic.BattleInitTest;
 
 import java.util.*;

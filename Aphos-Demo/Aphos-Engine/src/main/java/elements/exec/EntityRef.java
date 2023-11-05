@@ -7,8 +7,8 @@ import framework.entity.field.FieldEntity;
 import framework.entity.field.Unit;
 import framework.entity.sub.UnitAction;
 import logic.execution.event.IdRef;
-import system.datatypes.LinkedStringMap;
-import system.utils.StringUtils;
+import datatypes.LinkedStringMap;
+import utils.collection.StringUtils;
 
 import java.util.Map;
 import java.util.function.Consumer;

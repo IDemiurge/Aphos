@@ -2,7 +2,7 @@ package apps.utils.prompt.token;
 
 import apps.utils.prompt.data.PromptTextData;
 import apps.utils.prompt.enums.PromptEnums;
-import system.datatypes.WeightMap;
+import datatypes.WeightMap;
 
 /**
  * Created by Alexander on 9/2/2023

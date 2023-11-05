@@ -4,7 +4,7 @@ import elements.content.enums.types.CombatTypes;
 import framework.AphosTest;
 import framework.entity.field.Unit;
 import logic.calculation.GradeCalc;
-import system.utils.old.MapMaster;
+import utils.old.MapMaster;
 
 import java.util.HashMap;
 import java.util.Map;

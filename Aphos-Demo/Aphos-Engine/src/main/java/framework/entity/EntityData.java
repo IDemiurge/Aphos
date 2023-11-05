@@ -5,9 +5,9 @@ import elements.stats.UnitProp;
 import elements.stats.generic.Stat;
 import elements.stats.generic.StatConsts;
 import framework.data.TypeData;
-import system.datatypes.LinkedStringMap;
+import datatypes.LinkedStringMap;
 import system.datatypes.LogStatMap;
-import system.utils.MapUtils;
+import utils.collection.MapUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

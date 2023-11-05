@@ -1,7 +1,7 @@
 package combat.sub;
 
 import system.log.result.LoggableResult;
-import system.utils.ListUtils;
+import utils.collection.ListUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,7 +1,7 @@
 package system.log;
 
-import system.utils.StringUtils;
-import system.utils.old.TimeMaster;
+import utils.collection.StringUtils;
+import utils.old.TimeMaster;
 
 /**
  * Created by Alexander on 8/25/2023

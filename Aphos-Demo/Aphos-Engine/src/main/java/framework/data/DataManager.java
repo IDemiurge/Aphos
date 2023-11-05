@@ -1,10 +1,10 @@
 package framework.data;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import system.datatypes.LinkedStringMap;
-import system.datatypes.XLinkedMap;
-import system.utils.old.ContainerUtils;
-import system.utils.old.NumberUtils;
+import datatypes.LinkedStringMap;
+import datatypes.XLinkedMap;
+import utils.old.ContainerUtils;
+import utils.old.NumberUtils;
 
 import java.util.Arrays;
 import java.util.Map;

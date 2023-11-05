@@ -1,8 +1,8 @@
 package apps.utils.prompt.data;
 
 import org.apache.commons.lang3.tuple.Pair;
-import system.datatypes.WeightMap;
-import system.utils.CollectionsUtils;
+import datatypes.WeightMap;
+import utils.collection.CollectionsUtils;
 
 import java.util.*;
 

@@ -1,6 +1,7 @@
 package system.datatypes;
 
 
+import datatypes.LinkedStringMap;
 import system.log.SysLog;
 
 public class LogStatMap<T> extends LinkedStringMap<T> {

@@ -5,7 +5,7 @@ import framework.entity.field.FieldEntity;
 import logic.execution.event.LogicEvent;
 import logic.execution.event.user.UserEvent;
 import logic.execution.event.user.UserEventType;
-import system.threading.WaitMaster;
+import utils.threading.WaitMaster;
 
 import java.util.ArrayList;
 import java.util.List;

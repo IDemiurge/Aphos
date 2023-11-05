@@ -47,6 +47,7 @@ project(":desktop") {
 
     dependencies {
         implementation project(":commons")
+        api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         
@@ -56,9 +57,7 @@ project(":desktop") {
 project(":commons") {
     apply plugin: "java-library"
 
-
     dependencies {
-        api "com.badlogicgames.gdx:gdx:$gdxVersion"
         
     }
 }

@@ -7,7 +7,7 @@ import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.stats.ActionProp;
 import framework.data.yaml.EffectYmlBuilder;
 import framework.entity.sub.ExecEntity;
-import system.datatypes.LinkedStringMap;
+import datatypes.LinkedStringMap;
 
 import java.util.Map;
 

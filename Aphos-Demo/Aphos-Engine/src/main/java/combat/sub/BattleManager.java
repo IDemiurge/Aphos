@@ -18,7 +18,7 @@ import logic.execution.event.combat.CombatEventHandler;
 import logic.execution.event.combat.CombatEventType;
 import system.log.SysLog;
 import system.log.result.EventResult;
-import system.utils.MapUtils;
+import utils.collection.MapUtils;
 
 import java.util.ArrayList;
 import java.util.List;

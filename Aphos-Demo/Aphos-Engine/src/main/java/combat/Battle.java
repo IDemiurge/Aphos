@@ -7,7 +7,7 @@ import combat.sub.BattleManager;
 import combat.sub.skirmish.SkirmishManager;
 import combat.turns.CombatLoop;
 import elements.content.enums.types.MiscTypes;
-import system.threading.WaitMaster;
+import utils.threading.WaitMaster;
 
 /**
  * Created by Alexander on 6/10/2023 Replay - set of states?
