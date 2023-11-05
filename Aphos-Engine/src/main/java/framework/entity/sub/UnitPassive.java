@@ -18,6 +18,8 @@ import static combat.sub.BattleManager.combat;
  */
 public class UnitPassive extends ExecEntity {
     protected EntityTypes.PassiveType type; //NOT NEEDED? Only Trigger VS Stats , where stats might be diff CLASS
+    // stat-based passives - auras or just boost e.g. at DD or other states/conditions
+
 
     public UnitPassive(Map<String, Object> valueMap, Map<String, Object> varMap, Unit unit) {
         super(valueMap, varMap, unit);

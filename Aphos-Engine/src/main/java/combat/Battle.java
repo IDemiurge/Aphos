@@ -27,7 +27,7 @@ public class Battle {
             // well, if it is all centralized.... maybe it won't be such a disaster?
             manager = new SkirmishManager(battleSetup);
         }
-        combatLoop = new CombatLoop(manager);
+        combatLoop = new CombatLoop(battleSetup, manager);
     }
 
     public void end() {

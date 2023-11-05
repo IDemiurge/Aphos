@@ -12,6 +12,9 @@ public class DeathRule {
     /**
      * @param entity
      * @return true for Soul-death, false for Body-death, null otherwise
+     * To be checked after modifications? Any effect that does anything should run this check after apply() and if for
+     * any reason a unit is dead - we will attribute death to this effect and its triggerer.
+     *
      */
     public static Boolean checkDead(FieldEntity entity){
         if (entity.getInt(UnitParam.Soul) <= 0) {

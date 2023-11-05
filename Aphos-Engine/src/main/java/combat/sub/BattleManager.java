@@ -69,6 +69,8 @@ public class BattleManager {
     }
     public void roundEnds() {
         handlers.forEach(handler -> handler.roundEnds());
+
+        // loop.
     }
     public void newRound() {
         // SysLog.increaseIndent();

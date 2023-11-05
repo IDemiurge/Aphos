@@ -1,5 +1,7 @@
 package combat;
 
+import apps.server.internal.InputHandler;
+import apps.server.internal.InputKey;
 import combat.battlefield.BattleField;
 import combat.state.BattleEntities;
 import combat.state.BattleState;
@@ -11,6 +13,7 @@ import framework.entity.field.Unit;
 import logic.execution.ActionExecutor;
 import logic.execution.event.combat.CombatEventHandler;
 import logic.execution.event.combat.CombatEventType;
+import system.async.Async;
 
 import java.util.function.Consumer;
 
@@ -37,6 +40,16 @@ public abstract class BattleHandler {
 
     public void roundEnds() {
     }
+
+    protected void await(InputKey key) {
+        Object input = Async.await(key);
+        getInputHandler(key).handle(input); //open receiver for data with this key?
+    }
+
+    private InputHandler getInputHandler(InputKey key) {
+        return null;
+    }
+
     public void resetAll() {
         manager.resetAll();
     }

@@ -1,5 +1,6 @@
 package combat.turns;
 
+import apps.server.internal.InputKey;
 import combat.BattleHandler;
 import combat.sub.BattleManager;
 import elements.stats.UnitParam;
@@ -22,11 +23,12 @@ public class TurnHandler extends BattleHandler {
     }
 
     public static int calcInitiative(Unit unit) {
-        return unit.getInt(UnitParam.AP) * 2 + getPositionModifier(unit) + unit.getInt(UnitParam.Chaos);
+        return unit.getInt(UnitParam.AP) * 2 + getPositionModifier(unit)
+                + unit.getInt(UnitParam.Chaos); //also modifier?
     }
 
     private static int getPositionModifier(Unit unit) {
-        return switch(unit.getPos().getCell().type){
+        return switch (unit.getPos().getCell().type) {
             case Flank -> -2;
             case Van -> 1;
             case Front -> 0;
@@ -38,18 +40,74 @@ public class TurnHandler extends BattleHandler {
 
     @Override
     public void newRound() {
-        forEach(unit -> unit.setValue(UnitParam.Initiative, calcInitiative(unit)));
+        reset();
+        groups = createInitiativeGroups(); //we'd send some info before first step()?
+    }
+
+    public boolean step() {
         groups = createInitiativeGroups();
-        groupFinished();
-    }
-
-    public List<InitiativeGroup> getInitiativeGroups() {
-        return groups;
-    }
-
-    public void groupFinished() {
         current = nextGroup();
-        current.units.forEach(unit -> unit.setProp(UnitProp.Active, true));
+        groupStarts(current);
+        while (true) {
+            if (!turn())
+                break;
+        }
+        groupFinished(current);
+        if (checkFinished())
+            return false;
+        return true;
+    }
+
+    private boolean turn() {
+        //wait for input?
+        // KotlinUtils.Companion.doWithInput();
+        //CONSIDER THAT NOT ONLY THIS HANDLER WILL NEED THIS AWAIT()!
+        if (!current.ally) {
+            //AI
+        } else {
+            await(InputKey.UnitTurn); //input for this must only be enabled HERE, eh?
+
+        }
+        //enable unit turn and wait for input; then execute and check results
+        //how will it work for TESTS? Test can send input repeatedly with ActionInput?
+
+        if (checkGroupDone(current))
+            return false;
+        //Vars.passed == true OR all done (ai/auto)
+        return true;
+    }
+
+
+    private boolean checkGroupDone(InitiativeGroup group) {
+        if (group.ally){
+            // Switches.player_group_done().if
+        } else {
+            //same with AI?
+        }
+        for (Unit unit : group.units) {
+            int minActionCost=0;
+            if (!unit.checkParam(UnitParam.AP, minActionCost)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean checkFinished() {
+        current = nextGroup();
+        return current==null;
+    }
+
+
+    public void groupFinished(InitiativeGroup group) {
+        group.units.forEach(unit -> unit.setProp(UnitProp.Active, false));
+        group.units.forEach(unit -> unit.setProp(UnitProp.FinishedTurn, true));
+    }
+
+    public void groupStarts(InitiativeGroup group) {
+        group.units.forEach(unit -> unit.setProp(UnitProp.Active, true));
+
     }
 
     public InitiativeGroup getCurrent() {
@@ -57,12 +115,19 @@ public class TurnHandler extends BattleHandler {
     }
 
 
-    public InitiativeGroup nextGroup(){
-        return groups.get(0) ;
+    public InitiativeGroup nextGroup() {
+        return groups.get(0);
+    }
+
+
+    public List<Unit> sorted(List<Unit> list) {
+        return list.stream().sorted(getComparator()).collect(Collectors.toList());
     }
 
     @Override
     public void reset() {
+        forEach(unit -> unit.setValue(UnitParam.Initiative, calcInitiative(unit)));
+        //[03-11-23] - we may have to update to show Preview of future
         //what should be done after each ACTION? same init recalc?
 
         //ONLY AFTER GROUP IS FINISHED! But we can displayed some future precalc
@@ -74,10 +139,6 @@ public class TurnHandler extends BattleHandler {
         //use some history manager? with all actions etc?
         //some units will PASS their turn without spending all AP! So - 'over' status, as well as WAIT?
 
-    }
-
-    public List<Unit> sorted(List<Unit> list) {
-        return list.stream().sorted(getComparator()).collect(Collectors.toList());
     }
 
     private Comparator<Unit> getComparator() {
@@ -151,4 +212,5 @@ public class TurnHandler extends BattleHandler {
         return groups;
 
     }
+
 }

@@ -1,5 +1,6 @@
 package combat.init;
 
+import combat.sub.skirmish.BattleTypeData;
 import elements.content.enums.types.MiscTypes;
 
 import java.util.Map;
@@ -13,6 +14,7 @@ import java.util.Map;
 public class BattleSetup {
     MiscTypes.BattleType battleType;
     Map<String, Object> data;
+    BattleTypeData battleTypeData;
     CombatParty ally;
     CombatParty enemy;
 
@@ -21,10 +23,15 @@ public class BattleSetup {
         this.ally = ally;
         this.enemy = enemy;
         battleType = MiscTypes.BattleType.Skirmish;// EnumFinder.get(MiscTypes.BattleType.class, data.get("battle_type"));
+        battleTypeData = new BattleTypeData(battleType);
     }
 
     public MiscTypes.BattleType getBattleType() {
         return battleType;
+    }
+
+    public BattleTypeData getBattleTypeData() {
+        return battleTypeData;
     }
 
     public Map<String, Object> getData() {

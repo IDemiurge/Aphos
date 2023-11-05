@@ -7,6 +7,7 @@ import kotlinx.coroutines.runBlocking
 import kotlin.concurrent.thread
 
 class KotlinUtils {
+    //so we'd need to create such waiters in a map again?
     class AsyncWaiter {
         private val deferred = CompletableDeferred<Any>()
 

@@ -3,8 +3,9 @@ package apps.client.data;
 /**
  * Created by Alexander on 11/3/2023
  *
- * the input data coming from client
+ * combat_init { entities }
+ *
  *
  */
-public class ClientData {
+public class ClientInput {
 }
