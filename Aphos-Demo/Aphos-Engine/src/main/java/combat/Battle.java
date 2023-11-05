@@ -1,10 +1,13 @@
 package combat;
 
+import apps.server.internal.InputKey;
+import async.Async;
 import combat.init.BattleSetup;
 import combat.sub.BattleManager;
 import combat.sub.skirmish.SkirmishManager;
 import combat.turns.CombatLoop;
 import elements.content.enums.types.MiscTypes;
+import system.threading.WaitMaster;
 
 /**
  * Created by Alexander on 6/10/2023 Replay - set of states?
@@ -36,8 +39,15 @@ public class Battle {
 
     public void start() {
         manager.battleStarts();
-        // combatLoop.start();
-        manager.newRound();
+        new Thread("Combat Loop"){
+            @Override
+            public void run() {
+                combatLoop.start();
+            }
+        }.start();
+        WaitMaster.WAIT(100);
+        Async.receive(InputKey.UnitTurn, "100ms => Fake Turn Started!");
+        // manager.newRound();
     }
 
 

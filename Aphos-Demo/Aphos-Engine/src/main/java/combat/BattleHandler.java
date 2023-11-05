@@ -14,6 +14,7 @@ import logic.execution.ActionExecutor;
 import logic.execution.event.combat.CombatEventHandler;
 import logic.execution.event.combat.CombatEventType;
 import async.Async;
+import system.threading.WaitMaster;
 
 import java.util.function.Consumer;
 
@@ -43,6 +44,7 @@ public abstract class BattleHandler {
 
     protected void await(InputKey key) {
          Async.await(key, input -> getInputHandler(key).handle(input));
+         WaitMaster.WAIT(100);
          //open receiver for data with this key?
     }
 
