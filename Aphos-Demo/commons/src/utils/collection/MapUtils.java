@@ -1,6 +1,6 @@
 package utils.collection;
 
-import datatypes.LinkedStringMap;
+import framework.datatypes.LinkedStringMap;
 
 import java.util.Arrays;
 import java.util.HashMap;

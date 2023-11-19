@@ -8,7 +8,7 @@ import tests.basic_init.basic.BattleInitTest;
 
 import java.util.Map;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 import static module.campaign.run.battle.BattleBuilder.*;
 
 /**

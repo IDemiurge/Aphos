@@ -5,7 +5,7 @@ import elements.content.enums.stats.unit.UnitProp;
 import elements.content.enums.stats.generic.Stat;
 import elements.content.enums.stats.generic.StatConsts;
 import framework.data.TypeData;
-import datatypes.LinkedStringMap;
+import framework.datatypes.LinkedStringMap;
 import system.datatypes.LogStatMap;
 import utils.collection.MapUtils;
 

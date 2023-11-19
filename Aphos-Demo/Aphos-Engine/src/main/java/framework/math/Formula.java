@@ -1,6 +1,7 @@
 package framework.math;
 
 import elements.exec.EntityRef;
+import org.mariuszgromada.math.mxparser.*;
 
 /**
  * Created by Alexander on 8/25/2023
@@ -14,6 +15,14 @@ public class Formula {
 
         if (formula.length()==1)
             return Integer.valueOf(formula);
+        Expression e = new Expression();
+        // mXparser.
+        // e.setArgumentValue();
+
+        //here it must have resolved all internal expressions etc
+        double calculate = e.calculate();
+
+        int result = (int) Math.round(calculate);
         return 0;
     }
     public static int getInt(Object formula) {

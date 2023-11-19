@@ -7,7 +7,7 @@ import framework.combat.entity.field.FieldEntity;
 import framework.combat.entity.field.Unit;
 import framework.combat.entity.sub.UnitAction;
 import logic.execution.event.IdRef;
-import datatypes.LinkedStringMap;
+import framework.datatypes.LinkedStringMap;
 import utils.collection.StringUtils;
 
 import java.util.Map;

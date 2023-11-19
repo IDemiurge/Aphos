@@ -16,7 +16,7 @@ import tests.basic_init.basic.BattleInitTest;
 
 import java.util.*;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 10/19/2023 Substitute diff targeting for unit's attack? targeting should at first return us

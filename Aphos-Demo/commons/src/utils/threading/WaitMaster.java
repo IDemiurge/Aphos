@@ -1,7 +1,7 @@
 package utils.threading;
 
 
-import datatypes.DequeImpl;
+import framework.datatypes.DequeImpl;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;

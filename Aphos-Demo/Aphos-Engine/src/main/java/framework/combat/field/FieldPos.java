@@ -1,6 +1,6 @@
 package framework.combat.field;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 6/10/2023

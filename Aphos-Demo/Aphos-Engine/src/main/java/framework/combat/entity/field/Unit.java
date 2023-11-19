@@ -1,6 +1,6 @@
 package framework.combat.entity.field;
 
-import battle.handler.init.ActionInitializer;
+import module.battle.handler.init.ActionInitializer;
 import framework.combat.entity.sub.ActionSet;
 import framework.combat.entity.sub.OmenStack;
 import framework.combat.field.FieldConsts;
@@ -8,7 +8,7 @@ import elements.exec.EntityRef;
 import elements.content.enums.stats.unit.UnitParam;
 import elements.content.enums.stats.unit.UnitProp;
 import elements.content.enums.stats.generic.StatConsts;
-import framework.combat.entity.sub.PassiveSet;
+import framework.combat.entity.sub.TriggerPassiveSet;
 import framework.combat.entity.sub.UnitAction;
 import framework.combat.field.FieldPos;
 import system.consts.StatUtils;
@@ -23,7 +23,7 @@ public class Unit extends FieldEntity {
 
     private final int faction;
     protected ActionSet actionSet; //HeroActionSet?
-    protected PassiveSet passiveSet;
+    protected TriggerPassiveSet triggerPassiveSet;
     protected OmenStack omens;
 
     public Unit(Map<String, Object> valueMap, int faction) {
@@ -36,7 +36,7 @@ public class Unit extends FieldEntity {
         this.faction = faction;
         initCurrentValues();
         actionSet = ActionInitializer.initActionSet(this);
-        passiveSet = new PassiveSet(this);
+        triggerPassiveSet = new TriggerPassiveSet(this);
         initDone();
     }
 
@@ -133,7 +133,7 @@ public class Unit extends FieldEntity {
         return getInt(p) > value;
     }
 
-    public PassiveSet getPassives() {
-        return passiveSet;
+    public TriggerPassiveSet getPassives() {
+        return triggerPassiveSet;
     }
 }

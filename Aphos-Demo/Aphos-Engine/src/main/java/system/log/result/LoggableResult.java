@@ -1,6 +1,6 @@
 package system.log.result;
 
-import datatypes.LinkedStringMap;
+import framework.datatypes.LinkedStringMap;
 import utils.collection.MapUtils;
 
 import java.util.Map;

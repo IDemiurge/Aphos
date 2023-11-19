@@ -1,15 +1,15 @@
 package tests.basic_init.basic;
 
 import module.campaign.run.battle.BattleBuilder;
-import battle.Battle;
-import battle.handler.init.BattleSetup;
+import module.battle.Battle;
+import module.battle.handler.init.BattleSetup;
 import framework.AphosTest;
 import framework.combat.entity.field.Unit;
 import framework.combat.entity.sub.UnitAction;
 import framework.combat.field.FieldPos;
 import system.KotlinUtils;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static resources.TestData.battleData;
 

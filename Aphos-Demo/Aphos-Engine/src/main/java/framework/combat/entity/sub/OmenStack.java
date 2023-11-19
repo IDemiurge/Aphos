@@ -12,7 +12,7 @@ import java.util.List;
  * then the other
  */
 public class OmenStack {
-    List<UnitOmen> omens = new LinkedList<>();
+    List<Omen> omens = new LinkedList<>();
 
     public void roundEnds() {
         //usually, remove
@@ -24,16 +24,16 @@ public class OmenStack {
         //return rollModData?!
     }
 
-    private UnitOmen getActiveOmen() {
+    private Omen getActiveOmen() {
         Collections.sort(omens, getSorter());
         return omens.get(0);
     }
 
-    private Comparator<UnitOmen> getSorter() {
+    private Comparator<Omen> getSorter() {
         return (o1, o2) -> 0;
     }
 
-    public void add(UnitOmen omen) {
+    public void add(Omen omen) {
         //add chaos... init effect...
         omen.applied();
         omens.add(omen);

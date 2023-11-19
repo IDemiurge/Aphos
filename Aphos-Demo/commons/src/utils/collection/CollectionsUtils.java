@@ -1,7 +1,7 @@
 package utils.collection;
 
 
-import datatypes.WeightMap;
+import framework.datatypes.WeightMap;
 
 import java.util.*;
 

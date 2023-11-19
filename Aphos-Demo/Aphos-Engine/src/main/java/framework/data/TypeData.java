@@ -4,7 +4,7 @@ import system.utils.EnumFinder;
 import elements.content.enums.stats.generic.Stat;
 import org.apache.commons.lang3.NotImplementedException;
 import system.consts.StringConsts;
-import datatypes.LinkedStringMap;
+import framework.datatypes.LinkedStringMap;
 import utils.collection.ListUtils;
 import utils.collection.MapUtils;
 import utils.old.NumberUtils;

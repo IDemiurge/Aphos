@@ -1,8 +1,8 @@
 package framework.data;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import datatypes.LinkedStringMap;
-import datatypes.XLinkedMap;
+import framework.datatypes.LinkedStringMap;
+import framework.datatypes.XLinkedMap;
 import utils.old.ContainerUtils;
 import utils.old.NumberUtils;
 

@@ -1,7 +1,7 @@
 package module.campaign.run.battle;
 
 import module.campaign.run.RunHandler;
-import battle.handler.init.BattleSetup;
+import module.battle.handler.init.BattleSetup;
 import framework.data.DataManager;
 
 import java.util.HashMap;

@@ -1,7 +1,7 @@
 package utils.old;
 
 
-import datatypes.XLinkedMap;
+import framework.datatypes.XLinkedMap;
 
 import java.util.*;
 import java.util.Map.Entry;

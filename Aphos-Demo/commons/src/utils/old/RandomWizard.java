@@ -1,6 +1,6 @@
 package utils.old;
 
-import datatypes.WeightMap;
+import framework.datatypes.WeightMap;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;

@@ -5,7 +5,7 @@ import elements.content.enums.stats.unit.UnitParam;
 import framework.data.DataManager;
 import framework.combat.entity.field.FieldEntity;
 import system.consts.StatUtils;
-import datatypes.LinkedStringMap;
+import framework.datatypes.LinkedStringMap;
 
 import java.util.HashMap;
 import java.util.Map;

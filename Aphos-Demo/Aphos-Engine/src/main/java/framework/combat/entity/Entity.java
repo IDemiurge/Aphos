@@ -8,7 +8,7 @@ import system.consts.MathConsts;
 
 import java.util.Map;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 6/10/2023
@@ -20,19 +20,10 @@ public abstract class Entity {
     protected String name;
     protected int id;
     protected EntityData data;
-    // protected Map<String, Object> valueMap; // from yaml, xml, enum
-    // protected Map<String, Integer> intMap = new LinkedStringMap<>();
-    // protected Map<String, String> stringMap = new LinkedStringMap<>();
-    // protected Map<String, Boolean> boolMap = new LinkedStringMap<>();
-
-
-    // protected Map<String, Object> baseValueMap;
-    //MAYBE a map per Integer/Boolean/String?
-    //Container properties are still a must - but more atomization would be nice
-
-    //maybe this DATA thingy can be used like ObjType before? Clone units with it?
 
     public Entity(Map<String, Object> valueMap) {
+        //IDEA: split further into DataHandler and actual DATA which will be in the most simple form possible!
+        //then extract all these data-methods there, keeping entity REALLY LEAN
         initAndRemoveFromMap(valueMap);
         data = new EntityData(valueMap);
         this.name = data.getS(Property.Name).toString();

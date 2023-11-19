@@ -6,8 +6,8 @@ import elements.exec.effect.Effect;
 import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.content.enums.stats.action.ActionProp;
 import framework.data.yaml.EffectYmlBuilder;
-import framework.combat.entity.sub.ExecEntity;
-import datatypes.LinkedStringMap;
+import framework.combat.entity.sub.generic.ExecEntity;
+import framework.datatypes.LinkedStringMap;
 
 import java.util.Map;
 

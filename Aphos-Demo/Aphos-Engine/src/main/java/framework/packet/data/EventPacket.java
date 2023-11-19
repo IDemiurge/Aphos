@@ -1,7 +1,7 @@
 package framework.packet.data;
 
 import framework.packet.Packet;
-import datatypes.LinkedStringMap;
+import framework.datatypes.LinkedStringMap;
 import system.log.result.LoggableResult;
 
 import java.util.Map;

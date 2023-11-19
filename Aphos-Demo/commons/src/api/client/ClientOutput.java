@@ -1,6 +1,6 @@
 package api.client;
 
-import dto.DTO;
+import api.dto.DTO;
 import api.server.ServerInputType;
 
 /**

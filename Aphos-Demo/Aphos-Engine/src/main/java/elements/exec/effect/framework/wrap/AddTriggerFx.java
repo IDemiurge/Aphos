@@ -10,7 +10,7 @@ import elements.exec.trigger.ExecTrigger;
 import framework.data.TypeData;
 import logic.execution.event.combat.CombatEventType;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/24/2023
@@ -48,11 +48,14 @@ public class AddTriggerFx extends Effect {
     protected void applyThis(EntityRef ref) {
         //clone trigger?!
         //continuous addTriggerEffect does not make much sense now, does it?
+        // trigger.setAfter(getData().getB("after"));
+        getTrigger().setTargetRef(ref.copy());
+        combat().getEventHandler().addTrigger(trigger, eventType);
+    }
+    public ExecTrigger getTrigger(){
         if (trigger==null){
             this.trigger = new ExecTrigger(condition, executable);
         }
-        // trigger.setAfter(getData().getB("after"));
-        trigger.setTargetRef(ref.copy());
-        combat().getEventHandler().addTrigger(trigger, eventType);
+        return trigger;
     }
 }

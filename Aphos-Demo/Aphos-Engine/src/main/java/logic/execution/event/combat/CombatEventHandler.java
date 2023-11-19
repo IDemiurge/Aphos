@@ -1,7 +1,7 @@
 package logic.execution.event.combat;
 
-import battle.handler.BattleHandler;
-import battle.handler.BattleManager;
+import module.battle.handler.BattleHandler;
+import module.battle.handler.BattleManager;
 import elements.exec.EntityRef;
 import elements.exec.condition.Condition;
 import elements.exec.trigger.MapModTrigger;

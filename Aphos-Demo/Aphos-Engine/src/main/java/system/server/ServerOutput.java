@@ -1,6 +1,6 @@
 package system.server;
 
-import dto.DTO;
+import api.dto.DTO;
 import api.client.ClientInputType;
 
 /**

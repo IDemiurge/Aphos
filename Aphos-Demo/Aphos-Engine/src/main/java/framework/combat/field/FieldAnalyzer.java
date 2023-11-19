@@ -4,7 +4,7 @@ import elements.exec.targeting.area.CellSets;
 
 import java.util.Set;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 import static framework.combat.field.FieldConsts.Cell;
 import static framework.combat.field.FieldConsts.CellType;
 

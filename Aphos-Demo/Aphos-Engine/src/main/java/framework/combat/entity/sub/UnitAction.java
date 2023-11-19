@@ -3,6 +3,7 @@ package framework.combat.entity.sub;
 import elements.content.enums.types.EntityTypes;
 import elements.exec.EntityRef;
 import framework.combat.entity.field.Unit;
+import framework.combat.entity.sub.generic.ExecEntity;
 import logic.execution.cost.Cost;
 import logic.execution.cost.CostFactory;
 

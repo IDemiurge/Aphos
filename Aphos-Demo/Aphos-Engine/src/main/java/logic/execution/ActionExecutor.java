@@ -1,7 +1,7 @@
 package logic.execution;
 
-import battle.handler.BattleHandler;
-import battle.handler.BattleManager;
+import module.battle.handler.BattleHandler;
+import module.battle.handler.BattleManager;
 import elements.exec.EntityRef;
 import elements.exec.Executable;
 import elements.exec.effect.Effect;
@@ -9,10 +9,10 @@ import elements.exec.effect.framework.wrap.CustomTargetEffect;
 import elements.exec.targeting.TargetGroup;
 import framework.combat.entity.field.FieldEntity;
 import framework.combat.entity.sub.UnitAction;
-import framework.combat.entity.sub.UnitPassive;
+import framework.combat.entity.sub.TriggerPassive;
 import system.log.result.EffectResult;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/21/2023
@@ -43,7 +43,7 @@ public class ActionExecutor extends BattleHandler {
     //         return false;
     //     }
 
-    public void passiveApplies(UnitPassive unitPassive, Executable exec) {
+    public void passiveApplies(TriggerPassive unitPassive, Executable exec) {
         execute(unitPassive.ref(), exec);
     }
 

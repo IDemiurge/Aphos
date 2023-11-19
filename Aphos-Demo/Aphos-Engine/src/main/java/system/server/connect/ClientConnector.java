@@ -9,7 +9,7 @@ import utils.threading.WaitMaster;
 import java.util.ArrayList;
 import java.util.List;
 
-import static battle.handler.BattleManager.combat;
+import static module.battle.handler.BattleManager.combat;
 
 /**
  * Created by Alexander on 8/22/2023
