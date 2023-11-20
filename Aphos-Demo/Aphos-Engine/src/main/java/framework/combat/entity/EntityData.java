@@ -6,6 +6,7 @@ import elements.content.enums.stats.generic.Stat;
 import elements.content.enums.stats.generic.StatConsts;
 import framework.data.TypeData;
 import framework.datatypes.LinkedStringMap;
+import framework.math.RefCalc;
 import system.datatypes.LogStatMap;
 import utils.collection.MapUtils;
 
@@ -126,6 +127,13 @@ public class EntityData extends TypeData {
         stringMap.keySet().retainAll(getRetainedProps()); //same with params?
         stringMap.putAll(stringMapBase);
         setMuted(muted);
+    }
+
+    RefCalc calc;
+    public void syncArgVals() {
+        intMap.forEach((key, val) ->  calc.addArgument(key, val));
+        intMapCur.forEach((key, val) ->  calc.addArgument(key, val));
+
     }
 
     private List<String> getRetainedProps() {
