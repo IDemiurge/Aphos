@@ -2,14 +2,14 @@ package elements.exec.targeting.area;
 
 import elements.exec.condition.Condition;
 import elements.exec.condition.targeting.MeleeCondition;
-import framework.combat.field.FieldAnalyzer;
-import framework.combat.field.FieldGeometry;
+import framework.combat.field.helpers.FieldAnalyzer;
+import framework.combat.field.helpers.XYGeometry;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static framework.combat.field.FieldConsts.Cell;
+import framework.combat.field.enums.Cell;
 
 /**
  * Created by Alexander on 8/23/2023
@@ -121,7 +121,7 @@ public class MeleeTargeter {
             } else {
                 // ----- FRONT: 5/5 -----
                 /* for front, enemies in same row can block | enemy farthest target */
-                if (srcCell.y != FieldGeometry.MIDDLE_Y)
+                if (srcCell.y != XYGeometry.MIDDLE_Y)
                     if (!longReach) {
                         if (removeFarthestBack) {
                             if (closeQuarters || !FieldAnalyzer.isAllButFarthestFree(false, srcCell.y, !ally)) {

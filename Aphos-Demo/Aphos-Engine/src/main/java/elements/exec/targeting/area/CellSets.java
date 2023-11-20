@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static framework.combat.field.FieldConsts.Cell;
-import static framework.combat.field.FieldConsts.Cell.*;
+import framework.combat.field.enums.Cell;
+import static framework.combat.field.enums.Cell.*;
 
 /**
  * Created by Alexander on 10/20/2023

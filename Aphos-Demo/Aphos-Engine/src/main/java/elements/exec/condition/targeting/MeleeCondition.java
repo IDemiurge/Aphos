@@ -1,6 +1,6 @@
 package elements.exec.condition.targeting;
 
-import framework.combat.field.FieldConsts;
+import framework.combat.field.enums.Cell;
 import elements.exec.EntityRef;
 import elements.exec.condition.Condition;
 import elements.exec.targeting.area.MeleeTargeter;
@@ -15,8 +15,8 @@ public class MeleeCondition implements Condition {
 
     @Override
     public boolean check(EntityRef ref) {
-        FieldConsts.Cell srcCell = ref.getSource().getPos().getCell();
-        FieldConsts.Cell targetCell =((Unit)ref.getMatch()).getPos().getCell();
+        Cell srcCell = ref.getSource().getPos().getCell();
+        Cell targetCell =((Unit)ref.getMatch()).getPos().getCell();
         // MeleeTargeter
         return MeleeTargeter.checkTarget(srcCell, targetCell, ref.getSource().isAlly(), closeQuarters, longReach);
 

@@ -1,4 +1,4 @@
-package framework.combat.field;
+package framework.combat.field.enums;
 
 /**
  * Created by Alexander on 8/21/2023

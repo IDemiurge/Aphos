@@ -1,7 +1,8 @@
 package elements.exec.condition;
 
+import framework.combat.field.enums.Cell;
+import framework.combat.field.enums.Direction;
 import system.utils.EnumFinder;
-import framework.combat.field.FieldConsts;
 import elements.exec.EntityRef;
 import framework.combat.entity.Entity;
 import framework.combat.entity.field.FieldEntity;
@@ -40,7 +41,7 @@ public class PositionCondition extends ConditionImpl {
             return null;
         }
         if (data.has("cell")) {
-            FieldConsts.Cell cell = EnumFinder.get(FieldConsts.Cell.class, data.has("cell"));
+            Cell cell = EnumFinder.get(Cell.class, data.has("cell"));
             return combat().getField().getPos(cell);
         }
         if (data.has("type")) {
@@ -63,13 +64,13 @@ public class PositionCondition extends ConditionImpl {
                         //any of these positions will satisfy
 
                         FieldPos[] positions = list.stream().map
-                                (s -> pos.getAdjacent(FieldConsts.Direction.get(s)))
+                                (s -> pos.getAdjacent(Direction.get(s)))
                                 .collect(Collectors.toList()).toArray(new FieldPos[0]);
 
                        return  new FieldPos(positions);
                     } else {
                         return
-                                pos.getAdjacent(FieldConsts.Direction.get(dir.toString()));
+                                pos.getAdjacent(Direction.get(dir.toString()));
                     }
                 }
             }

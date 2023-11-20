@@ -35,7 +35,7 @@ public class DamageEffect extends ValueEffect {
     }
     protected void applyThis(EntityRef ref) {
         //where is it even used without Attack?
-        int amount = Formula.getInt(valueFormula); //formula.getInt(ref);
+        int amount = Formula.eval(valueFormula, ref); //formula.getInt(ref);
         ref.setValueInt(amount);
         ref.setDamageType(type);
         DamageCalcResult result = new DamageCalc(ref).calculate(false);

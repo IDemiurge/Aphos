@@ -7,7 +7,7 @@ import framework.combat.entity.Entity;
 import framework.combat.entity.sub.CountersSet;
 import framework.combat.entity.sub.UnitAction;
 import framework.combat.field.FieldPos;
-import framework.combat.field.Visibility;
+import framework.combat.field.enums.Visibility;
 
 import java.util.Map;
 

@@ -1,11 +1,14 @@
-package framework.combat.field;
+package framework.combat.field.helpers;
 
 import elements.exec.targeting.area.CellSets;
+import framework.combat.field.CellFinder;
+import framework.combat.field.FieldPos;
+import framework.combat.field.enums.Cell;
 
 import java.util.Set;
 
 import static module.battle.handler.BattleManager.combat;
-import static framework.combat.field.FieldConsts.Cell;
+
 import static framework.combat.field.FieldConsts.CellType;
 
 /**
@@ -35,14 +38,14 @@ public class FieldAnalyzer {
     }
 
     public static Set<Cell> getClosestToFlank(boolean ally, Boolean top) {
-        Cell c1 = FieldGeometry.get(CellType.Back, ally, top);
-        Cell c2 = FieldGeometry.get(CellType.Front, ally, top);
+        Cell c1 = CellFinder.get(CellType.Back, ally, top);
+        Cell c2 = CellFinder.get(CellType.Front, ally, top);
 
         return Set.of(c1, c2);
     }
 
     public static Cell getFarthest(boolean front, Integer srcY, boolean ally) {
-        return FieldGeometry.get(front ? CellType.Front : CellType.Back, ally, srcY < 1); //get top for src bottom and vice versa
+        return CellFinder.get(front ? CellType.Front : CellType.Back, ally, srcY < 1); //get top for src bottom and vice versa
     }
 
     public static boolean isAllButFarthestFree(boolean front, Integer y, boolean ally) {

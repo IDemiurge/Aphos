@@ -1,30 +1,33 @@
-package framework.combat.field;
+package framework.combat.field.helpers;
 
 import framework.combat.field.FieldConsts.CellType;
+import framework.combat.field.enums.Cell;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static framework.combat.field.FieldConsts.Cell;
-
 /**
  * Created by Alexander on 10/21/2023
  */
-public class FieldGeometry {
-    public static final Map<Integer, Cell> cellMap = new HashMap<>();
+public class XYGeometry {
+    private static final Map<Integer, Cell> cellMap = new HashMap<>();
     public static final Integer MIDDLE_Y = 1;
 
-    public static Cell get(CellType type, boolean ally, Boolean top) {
-        int x = getX(type);
-        int y = getY(type, top);
-        if (!ally)
-            x = -x;
+    static {
+        //Initialize XY Cells
+        for (Cell cell : Cell.values()) {
+            cellMap.put(getKey(cell.x, cell.y), cell);
+        }
+    }
 
-        return get(x, y).cell();
+    private static Integer getKey(Integer x, Integer y) {
+        int key = Math.abs(x) * 10 + y;
+        if (x < 0) key = -key;
+        return key;
     }
 
     //duplicates logic in ENUM - could use enum.get + abs
-    private static int getX(CellType type) {
+    public static int getX(CellType type) {
         return switch (type) {
             case Rear -> 3;
             case Back -> 2;
@@ -35,7 +38,7 @@ public class FieldGeometry {
         };
     }
 
-    private static int getY(CellType type, Boolean top) {
+    public static int getY(CellType type, Boolean top) {
         if (type == CellType.Rear) {
             return Cell.Rear_Enemy.y;
         }
@@ -54,16 +57,10 @@ public class FieldGeometry {
         return new XYCell(x, y);
     }
 
-    static {
-        for (Cell cell : Cell.values()) {
-            cellMap.put(getKey(cell.x, cell.y), cell);
-        }
-    }
-
-    private static Integer getKey(Integer x, Integer y) {
-        int key = Math.abs(x) * 10 + y;
-        if (x < 0) key = -key;
-        return key;
+    public static int dst(XYCell cell1, XYCell cell2) {
+        int diffX = Math.abs(cell1.x - cell2.x);
+        int diffY = Math.abs(cell1.y - cell2.y);
+        return (int) Math.round(Math.sqrt(diffX*diffX+diffY*diffY));
     }
 
     public static class XYCell {

@@ -1,5 +1,10 @@
 package module.battle.parts.battlefield;
 
+import framework.combat.field.*;
+import framework.combat.field.enums.Cell;
+import framework.combat.field.enums.Direction;
+import framework.combat.field.enums.Visibility;
+import framework.combat.field.env.Environment;
 import module.battle.handler.BattleHandler;
 import module.battle.handler.BattleManager;
 import elements.exec.condition.Condition;
@@ -11,9 +16,6 @@ import elements.content.enums.stats.unit.UnitProp;
 import framework.combat.entity.Entity;
 import framework.combat.entity.field.FieldEntity;
 import framework.combat.entity.field.Unit;
-import framework.combat.field.Environment;
-import framework.combat.field.FieldPos;
-import framework.combat.field.Visibility;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -41,7 +43,7 @@ public class BattleField extends BattleHandler {
         }
         for (FieldPos cell : cells) {
             //the best we can do is mirror some preset I guess
-            Set<Cell> adjCells = getAdjacent(cell.getCell());
+            Set<Cell> adjCells =GeomFunctions.getAdjacent(cell.getCell());
             Set<FieldPos> set = adjCells.stream().map(c -> cellMap.get(c)).collect(Collectors.toSet());
             adjacentMap.put(cell, set); //such that step-movement is in theory possible between these cells
         }

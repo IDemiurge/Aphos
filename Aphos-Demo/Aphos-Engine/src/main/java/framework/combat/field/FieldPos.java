@@ -1,5 +1,8 @@
 package framework.combat.field;
 
+import framework.combat.field.enums.Cell;
+import framework.combat.field.enums.Direction;
+
 import static module.battle.handler.BattleManager.combat;
 
 /**
@@ -11,16 +14,16 @@ import static module.battle.handler.BattleManager.combat;
  */
 public class FieldPos {
     private FieldPos[] areaPos;
-    private final FieldConsts.Cell cell;
+    private final Cell cell;
 
     public FieldPos(FieldPos... pos) {
         areaPos=pos;
-        cell = FieldConsts.Cell.Multi;
+        cell = Cell.Multi;
     }
     public FieldPos(int cardinal) {
         this(FieldConsts.all[cardinal].getCell());
     }
-    public FieldPos(FieldConsts.Cell cell) {
+    public FieldPos(Cell cell) {
         this.cell = cell;
     }
 
@@ -32,7 +35,7 @@ public class FieldPos {
     public boolean equals(Object obj) {
         //consider that we need intersection!
         if (obj instanceof FieldPos) {
-            if (cell == FieldConsts.Cell.Multi) {
+            if (cell == Cell.Multi) {
                 for (FieldPos pos : areaPos) {
                     if (obj.equals(pos))
                         return true;
@@ -44,12 +47,12 @@ public class FieldPos {
         }
         return false;
     }
-    public FieldConsts.Cell getCell() {
+    public Cell getCell() {
         return cell;
     }
 
-    public FieldPos getAdjacent(FieldConsts.Direction direction) {
-        return  combat().getField().getPos(FieldConsts.getAdjacent(getCell(), direction));
+    public FieldPos getAdjacent(Direction direction) {
+        return  combat().getField().getPos(GeomFunctions.getAdjacent(getCell(), direction));
     }
 
     // public FieldPos[] getAreaPos() {

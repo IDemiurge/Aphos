@@ -1,9 +1,9 @@
 package framework.combat.entity.field;
 
+import framework.combat.field.enums.Cell;
 import module.battle.handler.init.ActionInitializer;
 import framework.combat.entity.sub.ActionSet;
 import framework.combat.entity.sub.OmenStack;
-import framework.combat.field.FieldConsts;
 import elements.exec.EntityRef;
 import elements.content.enums.stats.unit.UnitParam;
 import elements.content.enums.stats.unit.UnitProp;
@@ -27,7 +27,7 @@ public class Unit extends FieldEntity {
     protected OmenStack omens;
 
     public Unit(Map<String, Object> valueMap, int faction) {
-        this(valueMap, faction  , new FieldPos(faction  > 0  ? FieldConsts.Cell.Reserve_ally : FieldConsts.Cell.Reserve_enemy));
+        this(valueMap, faction  , new FieldPos(faction  > 0  ? Cell.Reserve_ally : Cell.Reserve_enemy));
         //create w/o pos to deploy later? Or with default 'reserve pos'? To make it non-null!
     }
 

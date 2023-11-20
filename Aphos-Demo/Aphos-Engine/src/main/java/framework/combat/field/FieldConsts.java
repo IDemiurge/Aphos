@@ -1,6 +1,7 @@
 package framework.combat.field;
 
-import system.utils.EnumFinder;
+import framework.combat.field.enums.Cell;
+import framework.combat.field.enums.Direction;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,8 +11,8 @@ import java.util.Set;
  * Created by Alexander on 6/13/2023 what other static data do we need?
  */
 public class FieldConsts {
-    public static final Map<Cell, Set<Cell>> adjMap = new HashMap<>();
-    public static final Map<Cell, Map<Direction, Cell>> adjMapDirection = new HashMap<>();
+    private static final Map<Cell, Set<Cell>> adjMap = new HashMap<>();
+    private static final Map<Cell, Map<Direction, Cell>> adjMapDirection = new HashMap<>();
 
     //IDEA: what if the order of this set determined Direction? ...
     // OR we could try to use X:Y here
@@ -61,11 +62,11 @@ public class FieldConsts {
         adjMap.put(Cell.Vanguard_Bot, Set.of(Cell.Vanguard_Top,  Cell.Front_Enemy_2, Cell.Front_Enemy_3,Cell.Front_Player_2, Cell.Front_Player_3, Cell.Bottom_Flank_Enemy));
     }
 
-    public static Set<Cell> getAdjacent(Cell cell) {
+    protected static Set<Cell> getAdjacent(Cell cell) {
         return adjMap.get(cell);
     }
 
-    public static Cell getAdjacent(Cell cell, Direction direction) {
+    protected static Cell getAdjacent(Cell cell, Direction direction) {
         //aha! so left/right is actually top/bot? Yeah so far I don't wanna bother with FACING - but maybe we could
         //consider some FLIP ?
         return  adjMapDirection.get(cell).get(direction);
@@ -76,36 +77,6 @@ public class FieldConsts {
         Line,
     }
 
-    public enum Direction {
-        UP(false, 90, true, null, false),
-        DOWN(false, 270, true, null, true),
-        LEFT(false, 180, false, false, null),
-        RIGHT(false, 360, false, true, null),
-        UP_LEFT(true, 135, true, false, false),
-        UP_RIGHT(true, 45, true, true, false),
-        DOWN_RIGHT(true, 315, true, true, true),
-        DOWN_LEFT(true, 225, true, false, true),
-        ;
-        public Boolean growX;
-        public Boolean growY;
-        private boolean vertical;
-        private boolean diagonal;
-        private int degrees;
-
-        Direction(boolean diagonal, int degrees, boolean vertical,
-                  Boolean growX, Boolean growY) {
-            this.vertical = vertical;
-            this.growX = growX;
-            this.growY = growY;
-            this.diagonal = diagonal;
-            this.degrees = degrees;
-        }
-
-        public static Direction get(String name) {
-            return EnumFinder.get(Direction.class, name);
-        }
-    }
-
     public enum CellType {
         Flank,
         Van,
@@ -113,109 +84,6 @@ public class FieldConsts {
         Back,
         Rear,
         Reserve,
-    }
-
-    //X / Y are set wrong and may be deprecated!
-    public enum Cell {
-        Multi(555, 555, null),
-        Reserve_ally(999, 999, CellType.Reserve),
-        Reserve_enemy(666, 666, CellType.Reserve),
-
-        Vanguard_Bot(0,1,  CellType.Van), //2 vals? /100 and %100
-        Vanguard_Top(0,2,  CellType.Van),
-        //TODO SWAP minus
-        Rear_Player(3,1,  CellType.Rear),
-        Rear_Enemy(-3, 1, CellType.Rear),
-
-        Top_Flank_Player(100, 3, CellType.Flank),
-        Top_Flank_Enemy(-100, 3, CellType.Flank),
-
-        Bottom_Flank_Player(100, -1, CellType.Flank),
-        Bottom_Flank_Enemy(-100, -1, CellType.Flank),
-
-
-        Front_Player_1(1, 0, CellType.Front),
-        Back_Player_1(2, 0, CellType.Back),
-        Front_Enemy_1(-1, 0, CellType.Front),
-        Back_Enemy_1(-2, 0, CellType.Back),
-
-        Front_Player_2(1, 1, CellType.Front),
-        Back_Player_2(2, 1, CellType.Back),
-        Front_Enemy_2(-1, 1, CellType.Front),
-        Back_Enemy_2(-2, 1, CellType.Back),
-
-        Front_Player_3(1, 2, CellType.Front),
-        Back_Player_3(2, 2, CellType.Back),
-        Front_Enemy_3(-1, 2, CellType.Front),
-        Back_Enemy_3(-2, 2, CellType.Back),
-        ;
-        public final Integer x;
-        public final Integer y;
-        public final CellType type;
-
-        Cell(Integer x, Integer y, CellType type) {
-            this.x = x;
-            this.y = y;
-            this.type = type;
-        }
-
-        public boolean isPlayerZone() {
-            return x>0 && isMain();
-        }
-        public boolean isEnemyZone() {
-            return x<0 && isMain();
-        }
-        public boolean isFlank() {
-            return type == CellType.Flank;
-        }
-
-        public boolean isRear() {
-            return type == CellType.Rear;
-        }
-        public boolean isVan() {
-            return type == CellType.Van;
-        }
-
-        public boolean isBack() {
-            return type == CellType.Back;
-        }
-
-        public boolean isMain() {
-            return type == CellType.Front || type == CellType.Back;
-        }
-
-        public Direction getDirection(Cell cell) {
-            for (Direction direction : Direction.values()) {
-                if (check(direction, x, y, cell.x, cell.y))
-                    return direction;
-            }
-            return null;
-        }
-
-        private boolean check(Direction direction, Integer x, Integer y, Integer x1, Integer y1) {
-            //middle position - both? well this is kinda custom...
-            //there's UP_LEFT for that!
-            switch (direction) {
-                //what about positions that are between?
-                case UP: return x == x1 && y> y1;
-                case DOWN:
-                    break;
-                case LEFT:
-                    break;
-                case RIGHT:
-                    break;
-                case UP_LEFT:
-                    break;
-                case UP_RIGHT:
-                    break;
-                case DOWN_RIGHT:
-                    break;
-                case DOWN_LEFT:
-                    break;
-            }
-            return false;
-        }
-
     }
 
 
