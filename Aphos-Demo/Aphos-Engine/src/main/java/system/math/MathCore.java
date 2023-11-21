@@ -2,9 +2,13 @@ package system.math;
 
 import org.mariuszgromada.math.mxparser.Argument;
 import org.mariuszgromada.math.mxparser.Expression;
-import org.mariuszgromada.math.mxparser.Function;
+import system.math.wrap.IArgument;
 import system.math.wrap.IExpression;
-import system.math.wrap.MathExpression;
+import system.math.wrap.mx.MxArg;
+import system.math.wrap.mx.MxExpression;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 
 /**
  * Created by Alexander on 11/20/2023
@@ -12,17 +16,18 @@ import system.math.wrap.MathExpression;
  * WRAP 3rd party stuff!
  */
 public class MathCore {
+    static ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
     public static void main(String[] args) {
-
-        Function f = new Function("param(n) = ");
-        Function f1 = new Function("counter(n) = ");
-        Expression e = new Expression("", f);
-        Argument arg = new Argument("", 0); //only numeric args, eh?
-
-        e.calculate();
+        // engine = new org.mozilla.javascript.ScriptEngineManager().getEngineByName("JavaScript");
     }
 
-    public static IExpression expression() {
-        return new MathExpression(new Expression());
+    public static IExpression expression(String formula) {
+        // return mathImpl.expression(formula);
+        // return new KtExpression(engine, (formula));
+        return new MxExpression(new Expression(formula));
+    }
+
+    public static IArgument arg(String wrap, double value) {
+        return new MxArg(new Argument(wrap, value));
     }
 }

@@ -5,7 +5,7 @@ import elements.content.enums.stats.unit.UnitParam;
 
 import java.util.Map;
 
-import static framework.math.Formula.eval;
+import static system.math.Formula.eval;
 
 /**
  * Created by Alexander on 10/27/2023

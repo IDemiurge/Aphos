@@ -28,14 +28,16 @@ public abstract class AphosTest {
 
     protected void init() {
         if (testInitDone) return;
-        Core.init();
-        new YamlBuilder().buildYamlFiles();
+        AphosEngine.init();
         testInitDone = true;
     }
 
     //aggregate errors instead?
     public void check(boolean bool) {
         check(null, bool);
+    }
+    public void compare(Object o1, Object o2) {
+        check(o1+ " != " +o2, o1.equals(o2));
     }
 
     public void check(String comment, boolean bool) {

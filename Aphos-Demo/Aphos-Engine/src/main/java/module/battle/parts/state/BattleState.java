@@ -1,5 +1,6 @@
 package module.battle.parts.state;
 
+import framework.math.RefCalc;
 import module.battle.handler.BattleHandler;
 import module.battle.handler.BattleManager;
 import elements.exec.EntityRef;
@@ -40,6 +41,8 @@ public class BattleState extends BattleHandler {
     @Override
     public void afterReset() {
         forEach(u-> u.getCounters().apply());
+        //TODO refactor
+        RefCalc.syncArgVals();
     }
 
     public int getRound() {

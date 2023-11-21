@@ -4,6 +4,7 @@ import elements.exec.EntityRef;
 import elements.content.enums.stats.unit.UnitParam;
 import elements.content.enums.stats.generic.Property;
 import elements.content.enums.stats.generic.Stat;
+import framework.math.RefCalc;
 import system.consts.MathConsts;
 
 import java.util.Map;
@@ -30,7 +31,7 @@ public abstract class Entity {
         data.setName(name);
         //TODO
         id = combat().getEntities().addEntity(this);
-
+        RefCalc.init(this);
     }
 
     protected void initAndRemoveFromMap(Map<String, Object> valueMap) {

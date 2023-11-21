@@ -8,16 +8,22 @@ import system.math.MathException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 /**
  * Created by Alexander on 11/20/2023
  */
 public class RefCalc {
     private static Map<Entity, RefCalc> refMap = new HashMap<>();
+    private final Consumer<RefCalc> syncFunc;
     private Map<String, Double> argMap = new LinkedStringMap<>();
 
     public RefCalc(Entity entity) {
-        refMap.put(entity, this);
+        syncFunc = entity.getData().initSyncFunction();
+    }
+
+    public static void init(Entity entity) {
+        refMap.put(entity, new RefCalc(entity));
     }
 
     public void addArgument(String s, double val){
@@ -38,6 +44,14 @@ public class RefCalc {
     >> src_prop as 1/0 by default? Can just add 1's for existing True's
      */
 
+    //TODO
+    //DO AFTER RESETS ARE DONE
+    public static void syncArgVals() {
+        refMap.values().forEach(calc-> calc.syncArgVals_());
+    }
+    public void syncArgVals_() {
+        syncFunc.accept(this);
+    }
 
     //perhaps we should just have a separate calculator class for FUNCS - this works fine for val_args
     public static double eval(String s, EntityRef ref) {
@@ -56,7 +70,7 @@ public class RefCalc {
     }
 
     private static String format(String s) {
-        return s.substring(s.indexOf("_"));
+        return s.substring(s.indexOf("_")+1);
     }
 
     private static RefCalc getRefCalc(Entity source) {

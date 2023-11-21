@@ -2,7 +2,7 @@ package logic.execution.cost;
 
 import elements.exec.EntityRef;
 import elements.content.enums.stats.unit.UnitParam;
-import framework.math.Formula;
+import system.math.Formula;
 
 /**
  * Created by Alexander on 10/27/2023

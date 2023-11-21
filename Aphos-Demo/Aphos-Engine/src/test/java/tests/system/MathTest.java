@@ -1,9 +1,10 @@
 package tests.system;
 
+import elements.content.enums.stats.unit.UnitParam;
+import elements.exec.EntityRef;
+import system.math.Formula;
 import org.junit.jupiter.api.Test;
-import org.mariuszgromada.math.mxparser.Argument;
-import org.mariuszgromada.math.mxparser.Expression;
-import org.mariuszgromada.math.mxparser.Function;
+import tests.basic_init.basic.BattleInitTest;
 
 /**
  * Created by Alexander on 11/6/2023
@@ -15,16 +16,21 @@ import org.mariuszgromada.math.mxparser.Function;
  */
 
 //Wrap 3d Party API!
-public class MathTest {
+public class MathTest extends BattleInitTest {
 
     @Test
     public void test(){
-        Function f = new Function("param(n) = ");
-        Function f1 = new Function("counter(n) = ");
-        Expression e = new Expression("", f);
-        Argument arg = new Argument("", 0); //only numeric args, eh?
-
-        e.calculate();
+        reset(1);
+        String param= UnitParam.Health.getName();
+        String formula= "%Source_" +
+                param +
+                "%*3" +
+                "+2*" +
+                "%target_" +
+                param +
+                "%";
+        compare(Formula.eval(formula, new EntityRef(ally).setTarget(enemy)) ,
+                ally.getInt(param)*3+enemy.getInt(param)*2);
 
 
     }

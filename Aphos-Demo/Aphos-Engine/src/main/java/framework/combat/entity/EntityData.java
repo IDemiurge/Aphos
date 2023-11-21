@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 /**
  * Created by Alexander on 8/22/2023 maybe separate basic version from one with _Base and _Cur?
@@ -34,6 +35,7 @@ public class EntityData extends TypeData {
         intMap.keySet().removeAll(intMapCur.keySet());
 
     }
+
 
     public void setName(String name) {
         maps.values().forEach(m -> {
@@ -129,13 +131,6 @@ public class EntityData extends TypeData {
         setMuted(muted);
     }
 
-    RefCalc calc;
-    public void syncArgVals() {
-        intMap.forEach((key, val) ->  calc.addArgument(key, val));
-        intMapCur.forEach((key, val) ->  calc.addArgument(key, val));
-
-    }
-
     private List<String> getRetainedProps() {
         if (retainedProps == null) {
             retainedProps = new ArrayList<>();
@@ -171,11 +166,19 @@ public class EntityData extends TypeData {
         intMapCur.put(key.getName(), intMapCur.get(key) + i);
     }
 
-
     protected void setInt(String name, int newVal) {
         if (intMapCur.containsKey(name))
             intMapCur.put(name, newVal);
         else intMap.put(name, newVal);
     }
+
+    public Consumer<RefCalc> initSyncFunction() {
+        // set lambda with these maps for some external class
+        return calc->{
+            intMap.forEach((key, val) ->  calc.addArgument(key, val));
+            intMapCur.forEach((key, val) ->  calc.addArgument(key, val));
+        };
+    }
+
     //endregion
 }

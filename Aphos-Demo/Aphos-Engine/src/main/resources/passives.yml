@@ -5,9 +5,7 @@ Exec:
         effect: Trigger
         nested:
           targeting: self
-
-  - Variable_Stats_Self:
-
+  #- Variable_Stats_Self:
   - Conditional_Stats_Self:
       exec data: &Conditional_Stats_Self
         targeting: self
@@ -55,15 +53,13 @@ Trigger_Perks:
           counter_value: min(dmg,perkLvl) #there - we'd define Arguments globally while moving towards final calc
 
 Stat_Perks:
-  -
   - Pain Killer:
       exec data:
-        <<: *Stat_Perk
+        #<<: *Stat_Perk
         vars:
           value_name: Death Barrier
           value: counter(rage)
 Temple:
-  -
   - Formation:
       exec data:
         <<: *For_Each_Adjacent

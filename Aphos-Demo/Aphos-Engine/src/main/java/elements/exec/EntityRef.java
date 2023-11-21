@@ -54,9 +54,9 @@ public class EntityRef {
         return (UnitAction) get("action");
     }
 
-
+    //Should be the actual key in the map?!
     public enum ReferenceKey {
-        Source("Attacker,Source,Self"),
+        Source("Attacker,Source,Self,Src"),
         Target("Attacked"),
         ;
         String altNames;
@@ -128,6 +128,9 @@ public class EntityRef {
     public Entity get(String key) {
         if (key.startsWith(EVENT_PREFIX)) {
             return eventRef.get(key.substring((EVENT_PREFIX.length())));
+        }
+        if (!map.containsKey(key)){
+            //TODO
         }
         return map.get(key);
     }

@@ -3,7 +3,7 @@ package elements.exec.effect;
 import elements.content.enums.types.CombatTypes;
 import elements.exec.EntityRef;
 import elements.exec.effect.framework.ValueEffect;
-import framework.math.Formula;
+import system.math.Formula;
 import logic.calculation.damage.DamageCalc;
 import logic.calculation.damage.DamageDealer;
 import system.log.result.DamageCalcResult;

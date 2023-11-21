@@ -5,6 +5,8 @@ import elements.exec.build.ExecBuilder;
 import elements.content.enums.stats.action.ActionProp;
 import framework.data.DataManager;
 import org.yaml.snakeyaml.Yaml;
+import system.launch.Launch;
+import system.launch.LaunchException;
 import system.log.SysLog;
 import system.ExceptionMaster;
 import utils.old.FileManager;
@@ -26,7 +28,7 @@ import java.util.Set;
 public class YamlBuilder {
     private static String ROOT_PATH;
 
-    public void buildYamlFiles() {
+    public void buildYamlFiles() throws LaunchException {
         buildYamlFile("units", "Unit", "Faction", false);
         buildYamlFile("actions", "Action", "Faction", true);
         buildYamlFile("passives", "Passive", "Faction", true);
@@ -34,24 +36,16 @@ public class YamlBuilder {
         //PERKS can really just be an ENUM !
     }
 
-    public void buildYamlFile(String filename, String typeKey, String listNameProp, boolean parseVars) {
+    public void buildYamlFile(String filename, String typeKey, String listNameProp, boolean parseVars) throws LaunchException {
         // Yaml yaml = new Yaml(new CustomMapConstructor());
-        Yaml yaml = new Yaml();
-
         //set map constructor to STR!
         // Map<String, List<Map>> load = new LinkedStringMap();
+
+        Yaml yaml = new Yaml();
         File temp = new File(getClass().getClassLoader().getResource(filename + ".yml").getFile());
-        // ROOT_PATH = PathUtils.fixSlashes(new File(temp.getParentFile().toURI()).getPath());
-        // String path =
-        //         //TODO
-        //         //PathUtils.cropLastPathSegment(ROOT_PATH) +
-        //         // "main/java/framework/data/yaml/" +
-        //         "C:\\code\\Aphos\\Aphos-Engine\\src\\main\\java\\framework\\data\\yaml\\" +
-        //                 filename + ".yml";
-
         String content = FileManager.readFile(temp);
+        Map loaded = yaml.load(content);
 
-        Map loaded = (Map) yaml.load(content);
         for (Object key : loaded.keySet()) {
             processTypesMap(typeKey, key.toString(), (List<Map>) loaded.get(key), listNameProp, parseVars);
         }
@@ -61,53 +55,60 @@ public class YamlBuilder {
         for (Map types : typeData) {
             for (Object typeNode : types.keySet()) {
                 Map typeMap = (Map) types.get(typeNode);
-
-                typeMap.put(listNameProp, docName);
-                typeMap.put("Type", typeKey);
                 String name = typeNode.toString();
-                typeMap.put("Name", name);
-                Set valueKeySet = new HashSet(typeMap.keySet());
-
-                //save only data, parse on demand! (we'll have a test that parses all in advance)
-                if (parseVars) {
-                    boolean execType = docName.toLowerCase().contains("exec");
-                    for (Object value : valueKeySet) { //why not just get()?
-                        if (value.toString().equals(ActionProp.Exec_data.getName())) {
-                            try {
-                                //are we still parsing it all on init()? just save data!
-                                String execKey = parseExec(name, typeMap.get(value), execType);
-                                typeMap.put(value, execKey); //what is the point?
-                            } catch (Exception e) {
-                                SysLog.printLine(SysLog.LogChannel.Error, "Exec build failed: ", typeKey, docName, name,
-                                        "; DATA ---> \n", typeMap.get(value));
-                                ExceptionMaster.printStackTrace(e);
-
-                            }
-                        }
-                    }
-                    if (!execType) {
-                        //ACTIONS AND PASSIVES
-                        Map varMap = (Map) typeMap.remove("vars");
-                        if (varMap == null) {
-                            varMap = (Map) typeMap.remove("Vars");
-                        }
-                        if (varMap != null) {
-                            DataManager.addVarData(name, varMap);
-                        }
-                        DataManager.addTypeData(typeKey, name, typeMap);
-                    }
-                } else {
-                    DataManager.addTypeData(typeKey, name, typeMap);
+                try {
+                    initAndAddTypeMap(name, typeMap, typeKey, docName, listNameProp, parseVars);
+                } catch (Exception e) {
+                    Launch.handler().failYamlType(name, typeKey, typeNode, e);
                 }
             }
 
         }
     }
 
+    private void initAndAddTypeMap(String name, Map typeMap, String typeKey, String docName, String listNameProp, boolean parseVars) {
+        typeMap.put(listNameProp, docName);
+        typeMap.put("Type", typeKey);
+        typeMap.put("Name", name);
+        Set valueKeySet = new HashSet(typeMap.keySet());
+
+        //save only data, parse on demand! (we'll have a test that parses all in advance)
+        if (parseVars) {
+            boolean execType = docName.toLowerCase().contains("exec");
+            for (Object value : valueKeySet) { //why not just get()?
+                if (value.toString().equals(ActionProp.Exec_data.getName())) {
+                    try {
+                        //are we still parsing it all on init()? just save data!
+                        String execKey = parseExec(name, typeMap.get(value), execType);
+                        typeMap.put(value, execKey); //what is the point?
+                    } catch (Exception e) {
+                        SysLog.printLine(SysLog.LogChannel.Error, "Exec build failed: ", typeKey, docName, name,
+                                "; DATA ---> \n", typeMap.get(value));
+                        ExceptionMaster.printStackTrace(e);
+
+                    }
+                }
+            }
+            if (!execType) {
+                //ACTIONS AND PASSIVES
+                Map varMap = (Map) typeMap.remove("vars");
+                if (varMap == null) {
+                    varMap = (Map) typeMap.remove("Vars");
+                }
+                if (varMap != null) {
+                    DataManager.addVarData(name, varMap);
+                }
+                DataManager.addTypeData(typeKey, name, typeMap);
+            }
+        } else {
+            DataManager.addTypeData(typeKey, name, typeMap);
+        }
+    }
+
     private String parseExec(String typeName, Object o, boolean execType) {
         // if (!execType) {
-            ExecBuilder.setExecData(typeName, o);
-            return typeName;
+        ExecBuilder.setExecData(typeName, o);
+        return typeName;
         // }
         // Executable exec = ExecBuilder.build(o);
         //
