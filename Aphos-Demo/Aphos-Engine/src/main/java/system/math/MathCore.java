@@ -16,7 +16,7 @@ import javax.script.ScriptEngineManager;
  * WRAP 3rd party stuff!
  */
 public class MathCore {
-    static ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+    static ScriptEngine engine = new ScriptEngineManager().getEngineByName("Python");
     public static void main(String[] args) {
         // engine = new org.mozilla.javascript.ScriptEngineManager().getEngineByName("JavaScript");
     }

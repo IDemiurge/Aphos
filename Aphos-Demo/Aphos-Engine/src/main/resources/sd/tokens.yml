@@ -4,6 +4,118 @@ author:
   - token:
       text: seb mckinnon
       meta_data: default
+
+fire_env:
+  - token:
+      text: steaming fissure
+      meta_data: default
+  - token:
+      text: obsidian peaks
+      meta_data: default
+  - token:
+      text: jagged rocks
+      meta_data: default
+  - token:
+      text: obsidian pillars
+      meta_data: default
+  - token:
+      text: iceland
+      meta_data: default
+  - token:
+      text: geysers
+      meta_data: default
+  - token:
+      text: ash like snow
+      meta_data: default
+  - token:
+      text: magma
+      meta_data: default
+  - token:
+      text: volcanic
+      meta_data: default
+  - token:
+      text: crucible
+      meta_data: default
+  - token:
+      text: monumental
+      meta_data: default
+  - token:
+      text: underground
+      meta_data: default
+  - token:
+      text: undermountain
+      meta_data: default
+  - token:
+      text: fire mountain
+      meta_data: default
+  - token:
+      text: ruins of asgard
+      meta_data: default
+  - token:
+      text: fall of the old gods
+      meta_data: default
+
+fire_char:
+  - token:
+      text: colossus
+      meta_data: default
+  - token:
+      text: duergar
+      meta_data: default
+  - token:
+      text: nebelungen
+      meta_data: default
+  - token:
+      text: fafnir wyrm
+      meta_data: default
+  - token:
+      text: ice cyclops
+      meta_data: default
+  - token:
+      text: centaur raider
+      meta_data: default
+  - token:
+      text: khan horde
+      meta_data: default
+  - token:
+      text: beast herd
+      meta_data: default
+
+fire_event:
+  - token:
+      text: Stampede
+      meta_data: default
+  - token:
+      text: cataclysm
+      meta_data: default
+  - token:
+      text: fire tempest
+      meta_data: default
+  - token:
+      text: extermination
+      meta_data: default
+  - token:
+      text: extinction
+      meta_data: default
+  - token:
+      text: ragnarok
+      meta_data: default
+  - token:
+      text: eruption
+      meta_data: default
+  - token:
+      text: blizzard
+      meta_data: default
+  - token:
+      text: snowstorm
+      meta_data: default
+  - token:
+      text: doomsday
+      meta_data: default
+  - token:
+      text: hour of ruin
+      meta_data: default
+
 content_env_autumn:
   - token:
       text: dionysian shrine

@@ -7,6 +7,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.yaml.snakeyaml.Yaml;
 import utils.old.FileManager;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,8 @@ public class PromptDataManager {
     // };
 
     public static void read() {
-        String contents = FileManager.readFile(PATH);
+        // File temp = new File(getClass().getClassLoader().getResource(filename + ".yml").getFile());
+        String contents = FileManager.readFile(PromptDataManager.class.getClassLoader().getResource("sd/tokens.yml").getFile());
         Object data = new Yaml().load(contents);
 
         Map map = (Map) data;
@@ -46,6 +48,7 @@ public class PromptDataManager {
                 continue;
             List<Map> list = (List<Map>) map.get(processedType.toString());
             Set<Pair<String, String>> set = new HashSet<>();
+            if (list!=null)
             for (Map sub : list) {
                 sub = (Map) sub.get("token");
                 set.add(new ImmutablePair<>(sub.get("text").toString(), sub.get("meta_data").toString()));

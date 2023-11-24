@@ -74,13 +74,31 @@ public class ListMaster<E> {
     }
 
     public static List<String> toStringList(Object... values) {
-        return toStringList(null, values);
+        return toStringList(true, values);
     }
 
-    public static List<String> toStringList(Boolean preferEntityNameOrIfNameKnown, Object... values) {
-        return toStringList(false, preferEntityNameOrIfNameKnown, values);
+    public static List<String> toStringList(boolean wellFormatted, Object... values) {
+        List<String> list = new ArrayList<>();
+        if (values == null) {
+            return list;
+        }
+        for (Object v : values) {
+            if (v != null) {
+                String string;
+                    if (v instanceof Object[]) {
+                        Object[] objects = (Object[]) v;
+                        string = ContainerUtils.constructContainer(toStringList(objects));
+                    } else {
+                        string = v.toString();
+                    }
+                if (wellFormatted) {
+                    string = StringMaster.format(string);
+                }
+                list.add(string);
+            }
+        }
+        return list;
     }
-
 
     public static boolean isNotEmpty(Collection list) {
         if (list == null) {

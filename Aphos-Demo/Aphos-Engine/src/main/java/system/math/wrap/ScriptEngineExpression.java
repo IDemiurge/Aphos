@@ -1,4 +1,4 @@
-package system.math.wrap.kt;
+package system.math.wrap;
 
 import system.math.wrap.IExpression;
 
@@ -10,12 +10,12 @@ import java.util.Map;
 /**
  * Created by Alexander on 11/21/2023
  */
-public class KtExpression implements IExpression {
+public class ScriptEngineExpression implements IExpression {
     ScriptEngine engine;
     private Map<String, Double> argMap= new HashMap<>();
     private String formula;
 
-    public KtExpression(ScriptEngine engine, String formula) {
+    public ScriptEngineExpression(ScriptEngine engine, String formula) {
         this.engine = engine;
         this.formula = formula;
     }

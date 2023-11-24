@@ -37,9 +37,18 @@ content_scene_temple,
         content_character_autumn,
  */
     public enum PromptTemplate{
-        x(
-
-        ),
+    fire_event_(
+            fire_env,
+            fire_env,
+            fire_event,
+            fire_env
+    ),
+    fire_character(
+            fire_env,
+            fire_env,
+            fire_char,
+            fire_env
+    ),
     character_ice_bone(
                 content_character_ice,
                 content_character_ice,

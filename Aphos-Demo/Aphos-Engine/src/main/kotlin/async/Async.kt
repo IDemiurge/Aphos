@@ -25,7 +25,7 @@ object Async {
 
     @JvmStatic
     fun receive(key: Any, input: Any?) {
-        val waiter = //waiterMap[key]
+        val waiter =
         waiterMap.remove(key)
         waiter?.provideInput(input!!)
     }

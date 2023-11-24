@@ -44,14 +44,14 @@ public class SdPromptGen {
             String build = new PromptBuilder().build(promptModel, template);
 
             build += "close-up, epic view, low angle, scene illustration dramatic lighting " +
-                    "Foreshadowing, " +
-                    "Denouement, " +
-                    "Antagonist, " +
+                    // "Foreshadowing, " +
+                    // "Denouement, " +
+                    // "Antagonist, " +
                     "Climax, " +
-                    "Flashback, " +
+                    // "Flashback, " +
                     "sharp focus, " +
-                    "Color Grading, " +
-                    "Lens Flare " +
+                    // "Color Grading, " +
+                    // "Lens Flare " +
                     "ultrarealistic bloom perfect composition  " +
                     " professional concept art intense mood   " +
                     "a highly-detailed dark fantasy masterpiece painting by seb mckinnon, luis royo; " +
