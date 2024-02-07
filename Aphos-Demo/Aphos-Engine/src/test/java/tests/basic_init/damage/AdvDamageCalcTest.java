@@ -1,9 +1,9 @@
 package tests.basic_init.damage;
 
-import elements.content.enums.types.CombatTypes.DamageType;
+import elements.content.battle.types.CombatTypes.DamageType;
 import elements.exec.EntityRef;
-import elements.exec.effect.DamageEffect;
-import elements.content.enums.stats.unit.UnitParam;
+import elements.exec.battle.effect.DamageEffect;
+import elements.content.battle.stats.unit.UnitParam;
 import tests.basic_init.basic.BattleInitTest;
 
 /**

@@ -1,13 +1,13 @@
 package elements.exec.build.template;
 
-import elements.exec.effect.DamageEffect;
-import elements.exec.effect.Effect;
-import elements.exec.effect.KillEffect;
-import elements.exec.effect.ModifyStatEffect;
-import elements.exec.effect.attack.DamageAttackEffect;
-import elements.exec.effect.common.HealEffect;
-import elements.exec.effect.counter.BashEffect;
-import elements.exec.effect.counter.CounterEffect;
+import elements.exec.battle.effect.DamageEffect;
+import elements.exec.generic.effect.Effect;
+import elements.exec.battle.effect.KillEffect;
+import elements.exec.battle.effect.ModifyStatEffect;
+import elements.exec.battle.effect.attack.DamageAttackEffect;
+import elements.exec.battle.effect.common.HealEffect;
+import elements.exec.battle.effect.counter.BashEffect;
+import elements.exec.battle.effect.counter.CounterEffect;
 
 import java.util.function.Supplier;
 

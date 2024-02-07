@@ -2,11 +2,11 @@ package elements.exec.build;
 
 import elements.exec.Ability;
 import elements.exec.Executable;
-import elements.exec.effect.Effect;
-import elements.exec.effect.framework.wrap.CustomTargetEffect;
-import elements.content.enums.stats.action.ActionProp;
+import elements.exec.generic.effect.Effect;
+import elements.exec.generic.effect.wrap.CustomTargetEffect;
+import elements.content.battle.stats.action.ActionProp;
 import framework.data.yaml.EffectYmlBuilder;
-import framework.combat.entity.sub.generic.ExecEntity;
+import module.battle.foundation.entity.sub.generic.ExecEntity;
 import framework.datatypes.LinkedStringMap;
 
 import java.util.Map;

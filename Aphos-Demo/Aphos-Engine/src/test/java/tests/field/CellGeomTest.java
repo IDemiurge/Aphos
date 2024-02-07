@@ -1,10 +1,10 @@
 package tests.field;
 
-import framework.combat.field.CellFinder;
-import framework.combat.field.enums.Cell;
-import framework.combat.field.FieldConsts;
+import module.battle.foundation.battlefield.CellFinder;
+import module.battle.foundation.battlefield.enums.Cell;
+import module.battle.foundation.battlefield.FieldConsts;
 import framework.AphosTest;
-import logic.calculation.GeometryCalc;
+import module.battle.foundation.battlefield.helpers.GeometryCalc;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

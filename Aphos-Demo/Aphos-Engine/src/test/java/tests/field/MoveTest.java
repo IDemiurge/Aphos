@@ -1,7 +1,7 @@
 package tests.field;
 
-import framework.combat.entity.field.Unit;
-import framework.combat.field.FieldPos;
+import module.battle.foundation.entity.field.Unit;
+import module.battle.foundation.battlefield.FieldPos;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;

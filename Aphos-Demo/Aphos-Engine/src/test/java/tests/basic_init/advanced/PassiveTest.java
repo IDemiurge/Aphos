@@ -1,6 +1,6 @@
 package tests.basic_init.advanced;
 
-import elements.content.enums.types.CombatTypes;
+import elements.content.battle.types.CombatTypes;
 import elements.exec.EntityRef;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

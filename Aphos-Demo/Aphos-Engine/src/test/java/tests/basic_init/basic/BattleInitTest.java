@@ -4,9 +4,9 @@ import module.campaign.run.battle.BattleBuilder;
 import module.battle.Battle;
 import module.battle.handler.init.BattleSetup;
 import framework.AphosTest;
-import framework.combat.entity.field.Unit;
-import framework.combat.entity.sub.UnitAction;
-import framework.combat.field.FieldPos;
+import module.battle.foundation.entity.field.Unit;
+import module.battle.foundation.entity.sub.UnitAction;
+import module.battle.foundation.battlefield.FieldPos;
 import system.KotlinUtils;
 
 import static module.battle.handler.BattleManager.combat;

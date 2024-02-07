@@ -1,7 +1,7 @@
 package module.battle.handler.init;
 
 import module.battle.handler.subtypes.BattleTypeData;
-import elements.content.enums.types.MiscTypes;
+import elements.content.battle.types.MiscTypes;
 
 import java.util.Map;
 

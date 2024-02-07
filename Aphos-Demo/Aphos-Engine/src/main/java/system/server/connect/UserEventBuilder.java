@@ -1,6 +1,6 @@
 package system.server.connect;
 
-import logic.execution.event.user.UserEvent;
+import module.battle.foundation.execution.event.user.UserEvent;
 
 /**
  * Created by Alexander on 8/22/2023

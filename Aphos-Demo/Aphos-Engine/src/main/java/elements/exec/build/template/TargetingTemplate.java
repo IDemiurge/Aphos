@@ -1,16 +1,16 @@
 package elements.exec.build.template;
 
 import elements.exec.build.ConditionBuilder;
-import elements.exec.condition.Condition;
-import elements.exec.condition.PositionCondition;
-import elements.exec.targeting.Targeting;
-import elements.exec.targeting.area.MeleeTargeter;
-import elements.exec.targeting.area.RangeTargeter;
-import system.datatypes.ArgMap;
+import elements.exec.generic.condition.Condition;
+import elements.exec.battle.condition.PositionCondition;
+import elements.exec.battle.targeting.Targeting;
+import elements.exec.battle.targeting.area.MeleeTargeter;
+import elements.exec.battle.targeting.area.RangeTargeter;
+import framework.data.datatypes.ArgMap;
 
 import java.util.function.Supplier;
 
-import static elements.exec.targeting.Targeting.TargetingType.*;
+import static elements.exec.battle.targeting.Targeting.TargetingType.*;
 
 /**
  * Created by Alexander on 10/28/2023

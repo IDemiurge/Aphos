@@ -1,10 +1,10 @@
 package module.battle.handler.init;
 
-import elements.content.enums.stats.unit.UnitProp;
+import elements.content.battle.stats.unit.UnitProp;
 import framework.data.DataManager;
-import framework.combat.entity.field.Unit;
-import framework.combat.entity.sub.ActionSet;
-import framework.combat.entity.sub.UnitAction;
+import module.battle.foundation.entity.field.Unit;
+import module.battle.foundation.entity.sub.ActionSet;
+import module.battle.foundation.entity.sub.UnitAction;
 
 /**
  * Created by Alexander on 8/23/2023

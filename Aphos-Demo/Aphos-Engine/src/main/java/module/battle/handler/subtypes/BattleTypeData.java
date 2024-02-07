@@ -1,7 +1,7 @@
 package module.battle.handler.subtypes;
 
-import module.battle.turns.LoopHandler;
-import elements.content.enums.types.MiscTypes;
+import module.battle.foundation.turns.LoopHandler;
+import elements.content.battle.types.MiscTypes;
 
 import java.util.HashMap;
 import java.util.Map;

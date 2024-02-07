@@ -1,10 +1,8 @@
 package framework.math;
 
 import elements.exec.EntityRef;
-import framework.combat.entity.Entity;
-import framework.combat.entity.field.Unit;
+import module.battle.foundation.entity.Entity;
 import framework.datatypes.LinkedStringMap;
-import system.math.MathException;
 
 import java.util.HashMap;
 import java.util.Map;

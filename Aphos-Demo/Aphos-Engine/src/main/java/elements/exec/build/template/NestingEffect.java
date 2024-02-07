@@ -1,16 +1,16 @@
 package elements.exec.build.template;
 
-import elements.exec.effect.Effect;
-import elements.exec.effect.framework.wrap.AddTriggerFx;
-import elements.exec.effect.framework.wrap.IfElseEffect;
-import elements.exec.effect.framework.wrap.PeriodicEffect;
+import elements.exec.generic.effect.Effect;
+import elements.exec.generic.effect.wrap.AddTriggerFx;
+import elements.exec.generic.effect.wrap.IfElseEffect;
+import elements.exec.generic.effect.wrap.PeriodicEffect;
 import framework.data.yaml.EffectYmlBuilder;
 
 import java.util.Map;
 import java.util.function.Function;
 
 import static framework.data.yaml.ConditionYmlBuilder.condition;
-import static logic.execution.event.combat.CombatEvent.event;
+import static module.battle.foundation.execution.event.combat.CombatEvent.event;
 
 public enum NestingEffect {
 

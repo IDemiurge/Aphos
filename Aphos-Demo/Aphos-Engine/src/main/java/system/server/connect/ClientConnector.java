@@ -1,9 +1,9 @@
 package system.server.connect;
 
-import framework.combat.entity.field.FieldEntity;
-import logic.execution.event.LogicEvent;
-import logic.execution.event.user.UserEvent;
-import logic.execution.event.user.UserEventType;
+import module.battle.foundation.entity.field.FieldEntity;
+import module.battle.foundation.execution.event.LogicEvent;
+import module.battle.foundation.execution.event.user.UserEvent;
+import module.battle.foundation.execution.event.user.UserEventType;
 import utils.threading.WaitMaster;
 
 import java.util.ArrayList;

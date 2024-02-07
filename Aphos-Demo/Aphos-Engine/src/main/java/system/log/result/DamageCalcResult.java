@@ -1,7 +1,7 @@
 package system.log.result;
 
 import elements.exec.EntityRef;
-import logic.calculation.damage.MultiDamage;
+import module.battle.features.damage.MultiDamage;
 
 /**
  * Created by Alexander on 8/21/2023

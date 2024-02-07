@@ -1,8 +1,8 @@
 package framework;
 
 import framework.data.yaml.YamlBuilder;
-import system.launch.Launch;
-import system.launch.LaunchType;
+import framework.launch.Launch;
+import framework.launch.LaunchType;
 import system.utils.EnumFinder;
 
 /**

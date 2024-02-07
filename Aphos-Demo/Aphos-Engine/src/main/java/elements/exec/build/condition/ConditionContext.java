@@ -1,7 +1,7 @@
 package elements.exec.build.condition;
 
 import elements.exec.EntityRef;
-import framework.combat.entity.Entity;
+import module.battle.foundation.entity.Entity;
 
 import java.util.function.Function;
 

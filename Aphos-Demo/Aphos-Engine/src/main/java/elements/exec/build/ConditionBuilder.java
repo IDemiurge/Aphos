@@ -1,13 +1,18 @@
 package elements.exec.build;
 
+import elements.exec.battle.condition.PositionCondition;
+import elements.exec.generic.condition.Condition;
+import elements.exec.generic.condition.ConditionImpl;
+import elements.exec.generic.condition.Conditions;
+import elements.exec.generic.condition.common.AllyCondition;
+import elements.exec.generic.condition.common.IdentityCondition;
 import system.utils.EnumFinder;
 import elements.exec.EntityRef;
 import elements.exec.build.condition.AdvancedContext;
 import elements.exec.build.condition.ConditionContext;
 import elements.exec.build.template.ConditionTemplate;
-import elements.exec.condition.*;
-import elements.exec.condition.value.IntCondition;
-import elements.exec.condition.wrap.NotCondition;
+import elements.exec.generic.condition.value.IntCondition;
+import elements.exec.generic.condition.wrap.NotCondition;
 
 import java.util.Map;
 import java.util.function.Supplier;

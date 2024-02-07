@@ -3,10 +3,10 @@ package module.battle;
 import module.battle.handler.BattleManager;
 import module.battle.handler.init.BattleSetup;
 import module.battle.handler.subtypes.skirmish.SkirmishManager;
-import module.battle.turns.CombatLoop;
+import module.battle.foundation.turns.CombatLoop;
 import system.server.internal.InputKey;
 import async.Async;
-import elements.content.enums.types.MiscTypes;
+import elements.content.battle.types.MiscTypes;
 import utils.threading.WaitMaster;
 
 /**

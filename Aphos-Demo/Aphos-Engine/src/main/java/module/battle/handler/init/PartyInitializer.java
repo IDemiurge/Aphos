@@ -1,9 +1,9 @@
 package module.battle.handler.init;
 
-import module.battle.parts.battlefield.BattleField;
+import module.battle.foundation.battlefield.BattleField;
 import framework.data.DataManager;
-import framework.combat.entity.field.Unit;
-import framework.combat.field.FieldPos;
+import module.battle.foundation.entity.field.Unit;
+import module.battle.foundation.battlefield.FieldPos;
 import utils.old.NumberUtils;
 
 import java.util.HashSet;

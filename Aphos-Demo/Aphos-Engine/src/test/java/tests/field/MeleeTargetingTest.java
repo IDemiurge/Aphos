@@ -1,13 +1,13 @@
 package tests.field;
 
-import framework.combat.field.enums.Cell;
+import module.battle.foundation.battlefield.enums.Cell;
 import elements.exec.EntityRef;
-import elements.exec.targeting.Targeting;
-import elements.exec.targeting.area.CellSets;
-import elements.exec.targeting.area.MeleeTargeter;
-import framework.combat.entity.field.FieldEntity;
-import framework.combat.entity.sub.UnitAction;
-import framework.combat.field.helpers.Transformer;
+import elements.exec.battle.targeting.Targeting;
+import elements.exec.battle.targeting.area.CellSets;
+import elements.exec.battle.targeting.area.MeleeTargeter;
+import module.battle.foundation.entity.field.FieldEntity;
+import module.battle.foundation.entity.sub.UnitAction;
+import module.battle.foundation.battlefield.helpers.Transformer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import system.log.SysLog;

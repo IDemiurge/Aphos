@@ -2,11 +2,11 @@ package framework.data.yaml;
 
 import elements.exec.Executable;
 import elements.exec.build.ExecBuilder;
-import elements.content.enums.stats.action.ActionProp;
+import elements.content.battle.stats.action.ActionProp;
 import framework.data.DataManager;
 import org.yaml.snakeyaml.Yaml;
-import system.launch.Launch;
-import system.launch.LaunchException;
+import framework.launch.Launch;
+import framework.launch.LaunchException;
 import system.log.SysLog;
 import system.ExceptionMaster;
 import utils.old.FileManager;

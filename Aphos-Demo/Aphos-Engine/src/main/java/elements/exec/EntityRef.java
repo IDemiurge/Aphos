@@ -1,12 +1,12 @@
 package elements.exec;
 
-import elements.content.enums.types.CombatTypes;
-import elements.exec.targeting.TargetGroup;
-import framework.combat.entity.Entity;
-import framework.combat.entity.field.FieldEntity;
-import framework.combat.entity.field.Unit;
-import framework.combat.entity.sub.UnitAction;
-import logic.execution.event.IdRef;
+import elements.content.battle.types.CombatTypes;
+import elements.exec.battle.targeting.TargetGroup;
+import module.battle.foundation.entity.Entity;
+import module.battle.foundation.entity.field.FieldEntity;
+import module.battle.foundation.entity.field.Unit;
+import module.battle.foundation.entity.sub.UnitAction;
+import module.battle.foundation.execution.event.IdRef;
 import framework.datatypes.LinkedStringMap;
 import utils.collection.StringUtils;
 

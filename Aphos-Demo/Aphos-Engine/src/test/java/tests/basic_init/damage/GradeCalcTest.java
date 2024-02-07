@@ -1,9 +1,9 @@
 package tests.basic_init.damage;
 
-import elements.content.enums.types.CombatTypes;
+import elements.content.battle.types.CombatTypes;
 import framework.AphosTest;
-import framework.combat.entity.field.Unit;
-import logic.calculation.GradeCalc;
+import module.battle.foundation.entity.field.Unit;
+import module.battle.features.grade_rolls.GradeCalc;
 import utils.old.MapMaster;
 
 import java.util.HashMap;

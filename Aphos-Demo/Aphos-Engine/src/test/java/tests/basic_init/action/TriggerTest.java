@@ -2,9 +2,9 @@ package tests.basic_init.action;
 
 import elements.exec.EntityRef;
 import elements.exec.build.ConditionBuilder;
-import elements.exec.condition.Condition;
-import elements.exec.effect.framework.wrap.AddTriggerFx;
-import logic.execution.event.combat.CombatEventType;
+import elements.exec.generic.condition.Condition;
+import elements.exec.generic.effect.wrap.AddTriggerFx;
+import module.battle.foundation.execution.event.combat.CombatEventType;
 import org.junit.jupiter.api.Disabled;
 import tests.basic_init.basic.BattleInitTest;
 

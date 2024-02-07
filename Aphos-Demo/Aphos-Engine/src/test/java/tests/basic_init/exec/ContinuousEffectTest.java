@@ -1,6 +1,6 @@
 package tests.basic_init.exec;
 
-import framework.combat.entity.field.Unit;
+import module.battle.foundation.entity.field.Unit;
 import tests.basic_init.basic.BattleInitTest;
 
 import static module.battle.handler.BattleManager.combat;

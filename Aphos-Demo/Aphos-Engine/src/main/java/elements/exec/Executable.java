@@ -1,8 +1,8 @@
 package elements.exec;
 
-import elements.exec.effect.Effect;
-import elements.exec.effect.framework.wrap.CustomTargetEffect;
-import elements.exec.targeting.Targeting;
+import elements.exec.generic.effect.Effect;
+import elements.exec.generic.effect.wrap.CustomTargetEffect;
+import elements.exec.battle.targeting.Targeting;
 
 import java.util.List;
 

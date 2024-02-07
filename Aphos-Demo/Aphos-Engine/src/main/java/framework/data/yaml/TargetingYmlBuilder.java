@@ -4,7 +4,7 @@ import system.utils.EnumFinder;
 import elements.exec.build.ConditionBuilder;
 import elements.exec.build.template.ConditionTemplate;
 import elements.exec.build.template.TargetingTemplate;
-import elements.exec.targeting.Targeting;
+import elements.exec.battle.targeting.Targeting;
 import framework.data.TypeData;
 
 import java.util.Map;

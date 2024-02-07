@@ -1,17 +1,17 @@
 package module.battle.handler;
 
 import module.battle.handler.meta.BattleStatistics;
-import module.battle.parts.battlefield.BattleField;
-import module.battle.parts.state.BattleEntities;
-import module.battle.parts.state.BattleState;
+import module.battle.foundation.battlefield.BattleField;
+import module.battle.handler.state.BattleEntities;
+import module.battle.handler.state.BattleState;
 import system.server.internal.InputHandler;
 import system.server.internal.InputKey;
 import elements.exec.EntityRef;
-import framework.combat.entity.Entity;
-import framework.combat.entity.field.Unit;
-import logic.execution.ActionExecutor;
-import logic.execution.event.combat.CombatEventHandler;
-import logic.execution.event.combat.CombatEventType;
+import module.battle.foundation.entity.Entity;
+import module.battle.foundation.entity.field.Unit;
+import module.battle.foundation.execution.ActionExecutor;
+import module.battle.foundation.execution.event.combat.CombatEventHandler;
+import module.battle.foundation.execution.event.combat.CombatEventType;
 import async.Async;
 import utils.threading.WaitMaster;
 

@@ -1,7 +1,7 @@
 package framework.data.yaml;
 
 import elements.exec.build.ConditionBuilder;
-import elements.exec.condition.Condition;
+import elements.exec.generic.condition.Condition;
 
 import java.util.HashMap;
 import java.util.Map;

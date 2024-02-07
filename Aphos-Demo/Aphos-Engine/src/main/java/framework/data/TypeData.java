@@ -1,9 +1,9 @@
 package framework.data;
 
 import system.utils.EnumFinder;
-import elements.content.enums.stats.generic.Stat;
+import elements.content.generic.stats.Stat;
 import org.apache.commons.lang3.NotImplementedException;
-import system.consts.StringConsts;
+import framework.data.consts.StringConsts;
 import framework.datatypes.LinkedStringMap;
 import utils.collection.ListUtils;
 import utils.collection.MapUtils;

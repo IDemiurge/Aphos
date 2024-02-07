@@ -1,6 +1,6 @@
 package apps.utils;
 
-import logic.calculation.AttackCalc;
+import apps.utils.math.calculation.AttackCalc;
 
 import javax.swing.*;
 import java.util.LinkedHashMap;

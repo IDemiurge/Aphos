@@ -2,7 +2,7 @@ package tests.basic_init.exec;
 
 import elements.exec.EntityRef;
 import elements.exec.build.ConditionBuilder;
-import elements.exec.condition.Condition;
+import elements.exec.generic.condition.Condition;
 import framework.data.DataManager;
 import tests.basic_init.basic.BattleInitTest;
 

@@ -1,8 +1,8 @@
 package tests.system;
 
-import elements.content.enums.stats.unit.UnitParam;
+import elements.content.battle.stats.unit.UnitParam;
 import elements.exec.EntityRef;
-import system.math.Formula;
+import framework.math.Formula;
 import org.junit.jupiter.api.Test;
 import tests.basic_init.basic.BattleInitTest;
 

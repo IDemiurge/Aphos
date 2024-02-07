@@ -1,9 +1,9 @@
 package system.utils;
 
-import elements.content.enums.types.CombatTypes;
-import elements.content.enums.types.EntityTypes;
-import elements.content.enums.types.MiscTypes;
-import framework.combat.field.FieldConsts;
+import elements.content.battle.types.CombatTypes;
+import elements.content.battle.types.EntityTypes;
+import elements.content.battle.types.MiscTypes;
+import module.battle.foundation.battlefield.FieldConsts;
 
 import java.util.HashMap;
 import java.util.Map;

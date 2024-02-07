@@ -1,9 +1,8 @@
 package framework;
 
-import elements.content.enums.stats.unit.UnitParam;
-import elements.content.enums.stats.unit.UnitProp;
-import framework.data.yaml.YamlBuilder;
-import framework.combat.entity.field.Unit;
+import elements.content.battle.stats.unit.UnitParam;
+import elements.content.battle.stats.unit.UnitProp;
+import module.battle.foundation.entity.field.Unit;
 import system.log.SysLog;
 import utils.collection.MathUtils;
 
