@@ -1,0 +1,88 @@
+Exec:
+  - Trigger_Perk: #define default etc
+      exec data: &Trigger_Perk
+        targeting: self
+        effect: Trigger
+        nested:
+          targeting: self
+  #- Variable_Stats_Self:
+  - Conditional_Stats_Self:
+      exec data: &Conditional_Stats_Self
+        targeting: self
+        condition: ^VAR
+        effect: MultiModify
+        args:
+          value_map: ^VAR
+  - Hit_Adj_On_Miss:
+      exec data: &Hit_Adj_On_Miss
+        targeting: self
+        effect: Trigger
+        nested:
+          event: Miss
+          condition: self_source # use , for multiple templates!
+          args:
+            after: true
+          effect:
+            targeting:
+              type: Random
+              condition: Pos
+              args:
+                adj: up,down
+            effect: DamageAttackEffect
+  - For_Each_Adjacent:
+      exec data: &For_Each_Adjacent
+        targeting:
+          - condition: ally
+          - condition: adjacent
+          - condition: has_passive
+#          - condition:
+#              condition: ally
+#          - condition:
+#              condition: adjacent
+#          - condition:
+#              condition: has_passive #by default, check for {this}
+Trigger_Perks:
+  - Pettish:
+      exec data:
+        <<: *Trigger_Perk
+        condition: ally
+        event: hit
+        effect: counter
+        vars:
+          counter_name: rage
+          counter_value: min(dmg,perkLvl) #there - we'd define Arguments globally while moving towards final calc
+
+Stat_Perks:
+  - Pain Killer:
+      exec data:
+        #<<: *Stat_Perk
+        vars:
+          value_name: Death Barrier
+          value: counter(rage)
+Temple:
+  - Formation:
+      exec data:
+        <<: *For_Each_Adjacent
+        vars:
+          value: 1
+          value$2: 1
+          value_name: defense_all
+        effect:
+          - effect:
+              effect: EndOfRound
+              nested:
+                effect: Heal
+                args:
+                  value: 1
+          - effect:
+              effect: Modify
+              args:
+                value_name: defense_all
+                value: 1
+
+Sylvans:
+  - Clumsy:
+      exec data:
+        <<: *Hit_Adj_On_Miss
+        vars:
+          grade: Graze
