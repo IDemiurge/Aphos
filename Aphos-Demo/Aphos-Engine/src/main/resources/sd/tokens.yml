@@ -1,11 +1,198 @@
 # this format will lock tokens in single type/subtype
 # we wanna support inter-type mixing also?
+#- token:
+#    text: amethyst crystals
+#    meta_data: default
 author:
   - token:
       text: seb mckinnon
       meta_data: default
 
+Fey_Env:
+  - token:
+      text: swan lake
+      meta_data: default
+  - token:
+      text: purple butterfly
+      meta_data: default
+  - token:
+      text: elven groves
+      meta_data: default
+  - token:
+      text: pale moonlit
+      meta_data: default
+  - token:
+      text: starlit ponds
+      meta_data: default
+  - token:
+      text: enchanted woods
+      meta_data: default
+  - token:
+      text: bewitching landscape
+      meta_data: default
+  - token:
+      text: ensorcelled valley
+      meta_data: default
+  - token:
+      text: treacherous labyrinth
+      meta_data: default
+  - token:
+      text: magical maze
+      meta_data: default
+
+Fey_Char:
+  - token:
+      text: mushroom humanoid
+      meta_data: default
+  - token:
+      text: moth queen
+      meta_data: default
+  - token:
+      text: pale serpent
+      meta_data: default
+  - token:
+      text: fey creature
+      meta_data: default
+  - token:
+      text: fey prince
+      meta_data: default
+  - token:
+      text: graceful avatar
+      meta_data: default
+  - token:
+      text: fairy swarm
+      meta_data: default
+
+Fey_Theme:
+  - token:
+      text: dark fairy tale
+      meta_data: default
+  - token:
+      text: lunar eclipse
+      meta_data: default
+  - token:
+      text: emerald dream
+      meta_data: default
+  - token:
+      text: faerie fire
+      meta_data: default
+
+Fey_Scene:
+  - token:
+      text: swans swimming in a lake
+      meta_data: default
+  - token:
+      text: lost in a magical maze
+      meta_data: default
+  - token:
+      text: pale moonlight on the water's surface
+      meta_data: default
+  - token:
+      text: ethereal fireflies dancing in the air
+      meta_data: default
+  - token:
+      text: ancient trees whispering secrets
+      meta_data: default
+  - token:
+      text: starlight reflecting in the pond's mirror
+      meta_data: default
+
+Flesh_Env:
+  - token:
+      text: Blood capital
+      meta_data: default
+#  - token:
+#      text: roman architecture
+#      meta_data: default
+#  - token:
+#      text: ancient rome colliseum
+#      meta_data: default
+  - token:
+      text: grand palaces of constantinople
+      meta_data: default
+#  - token:
+#      text: Roman Monumentalism
+#      meta_data: default
+  - token:
+      text: torchlit palace
+      meta_data: default
+  - token:
+      text: drow city
+      meta_data: default
+  - token:
+      text: towering gothic spires
+      meta_data: default
+  - token:
+      text: nightly ambience
+      meta_data: default
+
+Flesh_Scene:
+  - token:
+      text: bloodthirsty crowd cheering
+      meta_data: default
+  - token:
+      text: Statues of porcelain perfection
+      meta_data: default
+  - token:
+      text: slave market
+      meta_data: default
+  - token:
+      text: gladiator contest of bloodsport
+      meta_data: default
+
+Flesh_Char:
+  - token:
+      text: barbarian Gladiator
+      meta_data: default
+  - token:
+      text: Flesh Thrall
+      meta_data: default
+  - token:
+      text: Vampire Guard
+      meta_data: default
+  - token:
+      text: Flesh Fiend
+      meta_data: default
+  - token:
+      text: Death Dealer
+      meta_data: default
+  - token:
+      text: Slave trader
+      meta_data: default
+  - token:
+      text: Flesh Mother
+      meta_data: default
+  - token:
+      text: Civilized vampires
+      meta_data: default
+
+Flesh_Theme:
+  - token:
+      text: heart of an old empire
+      meta_data: default
+  - token:
+      text: bloodborne
+      meta_data: default
+  - token:
+      text: Arabian nights
+      meta_data: default
+  - token:
+      text: alabaster statues
+      meta_data: default
+  - token:
+      text: decadence
+      meta_data: default
+  - token:
+      text: bloodsport
+      meta_data: default
+  - token:
+      text: drukhari
+      meta_data: default
+
 fire_env:
+  - token:
+      text: bleak northern misty horizon nilfheim
+      meta_data: default
   - token:
       text: steaming fissure
       meta_data: default
@@ -584,7 +771,7 @@ content_env_winter_kingdom:
       text: ancient castle
       meta_data: default
 
-content_env_ice:
+ice_env:
   - token:
       text: cold stone walls
       meta_data: default
@@ -628,7 +815,7 @@ content_env_ice:
       text: iron-bound door
       meta_data: default
 
-content_character_ice:
+ice_character:
   - token:
       text: stalwart viking
       meta_data: default

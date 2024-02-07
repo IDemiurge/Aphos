@@ -4,12 +4,18 @@ import apps.utils.prompt.data.PromptDataManager;
 import apps.utils.prompt.enums.PromptEnums;
 import apps.utils.prompt.token.TokenMixer;
 import module.campaign.data.enums.AssetEnums;
+import utils.old.ContainerUtils;
+import utils.old.StringMaster;
 import utils.old.swing.DialogMaster;
 import utils.old.swing.EnumChooser;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by Alexander on 9/2/2023
@@ -24,30 +30,49 @@ import java.awt.datatransfer.StringSelection;
  * append to some yaml file? What we'll save: successful prompt remixes w/ fixed input text (which can then be further
  * mixed or used AS IS )
  */
+/*
+
+ */
 public class SdPromptGen {
     public static void main(String[] args) {
 
         PromptDataManager.read();
+        int i = JOptionPane.showConfirmDialog(null, "Remix prompt?");
+        if (i == JOptionPane.OK_OPTION) {
+            while (true){
+            String prompt = JOptionPane.showInputDialog("Prompt");
+            java.util.List<String> strings = new ArrayList<>(Arrays.asList(prompt.split(";")));
+            Collections.shuffle(strings);
+            prompt = ContainerUtils.join("; ", strings);
+            StringSelection selection = new StringSelection(prompt);
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            clipboard.setContents(selection, selection);
+            if (!DialogMaster.confirm("Continue?"))
+                return;
+            }
+        }
+
+        PromptEnums.PromptStyle style = null;
+        PromptEnums.PromptType type = PromptEnums.PromptType.Event_Pic;
+        String input = "radiant";
+        String arg = ""; //more info for subtype?
+        Object subType = AssetEnums.AphosEventType.fascination;
+        PromptModel promptModel = new PromptModel(style, type, subType, input);
+
+        TokenMixer.PromptTemplate template = new EnumChooser().choose(TokenMixer.PromptTemplate.class);
+        while (true) {
 
 
-            PromptEnums.PromptStyle style = null;
-            PromptEnums.PromptType type = PromptEnums.PromptType.Event_Pic;
-            String input = "radiant";
-            String arg = ""; //more info for subtype?
-            Object subType = AssetEnums.AphosEventType.fascination;
-            PromptModel promptModel = new PromptModel(style, type, subType, input);
+            String build =
+                    "close-up shot, cinematic character portrait, mystery Antagonist, Climax, " +
+                            new PromptBuilder().build(promptModel, template);
 
-        TokenMixer.PromptTemplate template =  new EnumChooser().choose(TokenMixer.PromptTemplate.class);
-            while (true) {
-
-
-            String build = new PromptBuilder().build(promptModel, template);
-
-            build += "close-up, epic view, low angle, scene illustration dramatic lighting " +
+            build += " " +
+                    " epic view, low angle, scene illustration dramatic lighting " +
                     // "Foreshadowing, " +
                     // "Denouement, " +
-                    // "Antagonist, " +
-                    "Climax, " +
+                    // ", " +
+                    // "Climax, " +
                     // "Flashback, " +
                     "sharp focus, " +
                     // "Color Grading, " +
@@ -61,7 +86,6 @@ public class SdPromptGen {
             StringSelection selection = new StringSelection(build);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(selection, selection);
-
 
             if (!DialogMaster.confirm("Continue?"))
                 break;

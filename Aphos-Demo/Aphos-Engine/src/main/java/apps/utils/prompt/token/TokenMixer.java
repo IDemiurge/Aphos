@@ -37,52 +37,107 @@ content_scene_temple,
         content_character_autumn,
  */
     public enum PromptTemplate{
-    fire_event_(
-            fire_env,
-            fire_env,
-            fire_event,
-            fire_env
-    ),
-    fire_character(
-            fire_env,
-            fire_env,
-            fire_char,
-            fire_env
-    ),
-    character_ice_bone(
-                content_character_ice,
-                content_character_ice,
-                content_env_ice,
-                content_env_bone
-        ),
 
-temple_gothic(
-        content_character_temple,
-        content_character_anphis,
-        content_scene_temple,
-        content_env_desert,
-        content_env_desert
-),
-        wicked_temple_wicked_env(
-                content_character_wicked,
-                content_character_temple,
-                content_env_wicked,
-                content_env_wicked),
+    Fey_event_(
+            Fey_Scene,
+            Fey_Env,
+            Fey_Theme,
+            Fey_Env,
+            Fey_Theme
+    ),
+    Fey_mini(
+            Fey_Env,
+            Fey_Char,
+            Fey_Theme
+    ),
+    Fey_generic(
+            Fey_Env,
+            Fey_Env,
+            Fey_Char,
+            Fey_Theme
+    ),
 
-        autumn_temple(content_character_temple,
-                content_character_temple,
-                content_character_autumn,
-                content_env_autumn),
-        autumn_env(content_env_autumn,
-                content_character_autumn,
-                content_env_autumn,
-                content_env_autumn),
-        
-        autumn_char(
-                content_character_autumn,
-                content_character_autumn,
-                content_env_autumn,
-                content_env_autumn),
+    ice_mix(
+            ice_character,
+            ice_env,ice_character,
+            ice_env,ice_character,
+            ice_env    ),
+    // Flesh_event_(
+    //         Flesh_Scene,
+    //         Flesh_Env,
+    //         Flesh_Theme,
+    //         Flesh_Env,
+    //         Flesh_Theme
+    // ),
+    // Flesh_mini(
+    //         Flesh_Env,
+    //         Flesh_Char,
+    //         Flesh_Theme
+    // ),
+    // Flesh_generic(
+    //         Flesh_Env,
+    //         Flesh_Env,
+    //         Flesh_Char,
+    //         Flesh_Theme
+    // ),
+    // Flesh_char(
+    //         Flesh_Env,
+    //         Flesh_Char,
+    //         Flesh_Char,
+    //         Flesh_Theme
+    // ),
+    // Flesh_env(
+    //         Flesh_Env,
+    //         Flesh_Env,
+    //         Flesh_Char,
+    //         Flesh_Theme
+    // ),
+//     fire_event_(
+//             fire_env,
+//             fire_env,
+//             fire_event,
+//             fire_env
+//     ),
+//     fire_character(
+//             fire_env,
+//             fire_env,
+//             fire_char,
+//             fire_env
+//     ),
+//     character_ice_bone(
+//                 content_character_ice,
+//                 content_character_ice,
+//                 content_env_ice,
+//                 content_env_bone
+//         ),
+//
+// temple_gothic(
+//         content_character_temple,
+//         content_character_anphis,
+//         content_scene_temple,
+//         content_env_desert,
+//         content_env_desert
+// ),
+//         wicked_temple_wicked_env(
+//                 content_character_wicked,
+//                 content_character_temple,
+//                 content_env_wicked,
+//                 content_env_wicked),
+//
+//         autumn_temple(content_character_temple,
+//                 content_character_temple,
+//                 content_character_autumn,
+//                 content_env_autumn),
+//         autumn_env(content_env_autumn,
+//                 content_character_autumn,
+//                 content_env_autumn,
+//                 content_env_autumn),
+//
+//         autumn_char(
+//                 content_character_autumn,
+//                 content_character_autumn,
+//                 content_env_autumn,
+//                 content_env_autumn),
         autumn_scene(content_scene_temple,
                 content_env_autumn,
                 content_character_autumn,
