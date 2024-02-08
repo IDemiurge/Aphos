@@ -1,4 +1,4 @@
-package api.dto;
+package api.old.dto;
 
 import framework.datatypes.LinkedStringMap;
 

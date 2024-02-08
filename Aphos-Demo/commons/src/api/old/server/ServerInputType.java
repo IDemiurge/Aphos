@@ -1,6 +1,6 @@
-package api.server;
+package api.old.server;
 
-import api.msg.NetworkMessage;
+import api.old.msg.NetworkMessage;
 
 /*
 Actionable input - segment of input package

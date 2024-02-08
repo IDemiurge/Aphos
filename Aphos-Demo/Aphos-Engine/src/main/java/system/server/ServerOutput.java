@@ -1,7 +1,7 @@
 package system.server;
 
-import api.dto.DTO;
-import api.client.ClientInputType;
+import api.old.dto.DTO;
+import api.old.client.ClientInputType;
 
 /**
  * Created by Alexander on 11/3/2023

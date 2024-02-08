@@ -1,6 +1,6 @@
 package system.server.connect;
 
-import api.msg.NetworkMessage;
+import api.old.msg.NetworkMessage;
 import com.google.gson.Gson;
 import system.ExceptionMaster;
 

@@ -1,4 +1,4 @@
-package system.adapter.connect;
+package system.connect;
 
 /**
  * Created by Alexander on 11/5/2023

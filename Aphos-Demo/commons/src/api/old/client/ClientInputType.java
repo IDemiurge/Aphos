@@ -1,4 +1,4 @@
-package api.client;
+package api.old.client;
 
 //assume that clients know NOTHING initially!
 public enum ClientInputType {

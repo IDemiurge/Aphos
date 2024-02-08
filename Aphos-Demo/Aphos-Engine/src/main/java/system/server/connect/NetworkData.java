@@ -1,6 +1,6 @@
 package system.server.connect;
 
-import api.msg.NetworkMessage;
+import api.old.msg.NetworkMessage;
 
 /**
  * Created by Alexander on 11/4/2023

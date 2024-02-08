@@ -1,4 +1,4 @@
-package api.msg;
+package api.old.msg;
 
 public interface NetworkMessage {
 }

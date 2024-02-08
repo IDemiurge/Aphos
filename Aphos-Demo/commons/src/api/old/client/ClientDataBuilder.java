@@ -1,6 +1,6 @@
-package api.client;
+package api.old.client;
 
-import api.server.ServerInputType;
+import api.old.server.ServerInputType;
 
 /**
  * Created by Alexander on 11/3/2023
